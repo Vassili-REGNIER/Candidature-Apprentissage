@@ -237,7 +237,7 @@ section h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("/kl.jpg") no-repeat center center/cover; /* Remplacez 'image.jpg' par le chemin de votre image */
+    background: url("kl.jpg") no-repeat center center/cover; /* Remplacez 'image.jpg' par le chemin de votre image */
     filter: blur(7px); /* Applique le flou */
     z-index: -1; /* Place l'image floutée derrière le texte */
 }
