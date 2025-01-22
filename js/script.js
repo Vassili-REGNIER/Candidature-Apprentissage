@@ -48,6 +48,8 @@ function handleScroll() {
     // Met à jour la position Y précédente
     lastScrollY = currentScrollY;
 }
-
 // Écouter l'événement scroll
 window.addEventListener('scroll', handleScroll);
+
+
+
