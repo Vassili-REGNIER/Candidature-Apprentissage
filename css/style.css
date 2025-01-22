@@ -261,32 +261,50 @@ section h1 {
     list-style: none;
 }
 
-.skills ul li {
+.skills-labels {
+    padding: 6px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skills-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.skills-labels li h2 {
+    width: 100%;
+    text-align: right;
 }
 
 .progress-bar {
     display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 3px;
     width: 200px;
     height: 30px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 3px solid var(--dark-color);
+    border-radius: 3px;
+    padding: 2px;
 }
 
 .progress-level {
-    height: 100%;
-    background-color: #4CAF50; /* Couleur de remplissage */
+    height: 30px;
+    width: 50px;
+    background-color: var(--blue-color); /* Couleur de remplissage */
     border-right: 1px solid #fff; /* Séparation entre les niveaux */
     transition: background-color 0.3s ease;
+    border-radius: 3px;
 }
 
 .invisible {
-    display: none;
+    background-color: var(--light-color);
 }
 
 /* Optionnel : change la couleur de remplissage au survol */
 .progress-level:hover {
-    background-color: #45a049;
+    background-color: var(--dark-color);
 }
