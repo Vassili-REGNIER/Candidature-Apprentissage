@@ -49,7 +49,7 @@ function handleScroll() {
     lastScrollY = currentScrollY;
 }
 // Écouter l'événement scroll
-window.addEventListener('scroll', handleScroll);
+//window.addEventListener('scroll', handleScroll);
 
 
 
