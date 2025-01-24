@@ -9,23 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <section class="who-i-am">
+    <section id="top" class="who-i-am">
         <h1>RÉGNIER Vassili</h1>
         <p>Étudiant en BUT informatique<br>Site d'Aix-en-Provence</p>
         <h2><strong>MA CANDIDATURE SPONTANÉE</strong></h2>
             
-        <i class="fa-solid fa-angles-down arrow"></i>
+        <button onclick="scrollDown()" class="arrow"><i class="fa-solid fa-angles-down"></i></button>
     </section>
     <nav>
         <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
         
         <ul class="menu">
-            <li class="current-page"><a href="index.html">PRÉSENTATION</a></li>
-            <li><a href="index.html">FORMATIONS</a></li>
-            <li><a href="index.html">COMPÉTENCES</a></li>
-            <li><a href="index.html">EXPÉRIENCE</a></li>
-            <li><a href="index.html">LOISIRS</a></li>
-            <li><a href="index.html">PROJETS</a></li>
+            <li class="current-page"><a href="#buttons-section">PRÉSENTATION</a></li>
+            <li ><a href="#education-section">FORMATIONS</a></li>
+            <li><a href="#skills-section">COMPÉTENCES</a></li>
+            <li><a href="#experience-section">EXPÉRIENCE</a></li>
+            <li><a href="#hobbies-sections">LOISIRS</a></li>
+            <li><a href="#projects-sections">PROJETS</a></li>
         </ul>
     </nav>
 
@@ -37,7 +37,7 @@
             <button>DÉCOUVRIR MON CV</button>
         </div>
 
-        <section class="about-me">
+        <section id="about-me-section" class="about-me">
             <h1>L'ESSENTIEL À SAVOIR<br>AVANT DE ME RECRUTER</h1>
             <p>Je suis développeur web avec 5 ans d'expérience, spécialisé dans la création de sites modernes et performants.
                 Curieux et passionné par les nouvelles technologies, je cherche à transformer des idées en projets concrets.
@@ -52,10 +52,9 @@
                 transformer des idées en projets concrets.</p>            
         </section>
 
-        <section class="education">
+        <section id="education-section" class="education">
             <h1>MON PARCOURS DE FORMATION <i class="fa-solid fa-graduation-cap"></i></h1>
-            
-            <ul>
+            <ul>     
                 <li>
                     <p class="date">2025</p>
                     <hr>
@@ -79,135 +78,184 @@
             </ul>
         </section>
 
-        <section class="skills">
-            <h1>MES COMPÉTENCES</h1>
-            <ul class="skills-labels">
-                <li>
-                    <h2>PYTHON</h2>
-                </li>
-                <li>
-                    <h2>C++</h2>
-                </li>
-                <li>
-                    <h2>Java</h2>
-                </li>
-                <li>
-                    <h2>Html/CSS</h2>
-                </li>
-            </ul>
-            <ul class="skills-bars">
-                <li class="progress-bar">
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                </li>
-                <li class="progress-bar">
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                </li>
-                <li class="progress-bar">
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level invisible" style="width: 16.66%"></div>
-                </li>
-                <li class="progress-bar">
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                        <div class="progress-level" style="width: 16.66%"></div>
-                </li>
-            </ul>
+        <section id="skills-section" class="skills">
+            <h1>MES COMPÉTENCES <i class="fa-solid fa-book"></i></i></h1>
+            <div class="skills-subsection">
+                <ul class="skills-labels">
+                    <li>
+                        <h2>Programmation</h2>
+                    </li>
+                    <li>
+                        <h2>Développement web</h2>
+                    </li>
+                    <li>
+                        <h2>Base de données</h2>
+                    </li>
+                    <li>
+                        <h2>Outils numériques</h2>
+                    </li>
+                </ul>
+                <ul class="skills-bars">
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level invisible" style="width: 16.66%"></div>
+                    </li>
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skills-subsection">
+                <ul class="skills-labels">
+                    <li>
+                        <h2>Esprit Analytique</h2>
+                    </li>
+                    <li>
+                        <h2>Rigueur</h2>
+                    </li>
+                </ul>
+                <ul class="skills-bars">
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="skills-subsection">
+                <ul class="skills-labels">
+                    <li>
+                        <h2>Francais</h2>
+                    </li>
+                    <li>
+                        <h2>Anglais</h2>
+                    </li>
+                </ul>
+                <ul class="skills-bars">
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                    </li>
+                    <li class="progress-bar">
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level" style="width: 16.66%"></div>
+                            <div class="progress-level invisible" style="width: 16.66%"></div>
+                            <div class="progress-level invisible" style="width: 16.66%"></div>
+                    </li>
+                </ul>
+            </div>
+            
 
         </section>
 
-        <section class="experience">
+        <section id="experience-section" class="experience">
             <h1>MES EXPERIENCES <i class="fa-solid fa-briefcase"></i></h1>
+            
+            <ul class="experience-list">
+                <li class="experience-list-item">
+                    <p class="date">2024</p>
+                    <hr>
+                    <h2>Service Civique - CAM</h2>
+                    <p class="place">Cerle de l'Aviron de Marseille (13)</p>
+                    <ul class="under-list">
+                        <li><i class="fa-solid fa-circle"></i> Transmettre mes connaissances et mon savoir-faire sportif</li>
+                        <li><i class="fa-solid fa-circle"></i> Encadrer des groupes de jeunes (12-14 ans)</li>
+                        <li><i class="fa-solid fa-circle"></i> Organiser et préparer les activités</li>
+                        <li><i class="fa-solid fa-circle"></i> Garantir la sécurité des jeunes</li>
+                        <li><i class="fa-solid fa-circle"></i> Veiller au bon état et à l'entretien du matériel et des équipements</li>
+                        <li><i class="fa-solid fa-circle"></i> Rendre compte de mon activité aux responsables du CAM</li>       
+                    </ul>
+                </li>
+                <li class="experience-list-item">
+                    <p class="date">2021</p>
+                    <hr>
+                    <h2>Stage - IGM Robotique</h2>
+                    <p class="place">Pôle d'activités de Rousset (13)</p>
+                    <ul class="under-list">
+                        <li><i class="fa-solid fa-circle"></i> Découverte du fonctionnement d'une entreprise dans le domaine robotique</li>
+                        <li><i class="fa-solid fa-circle"></i> Observation des processus de développement et de production</li>
+                        <li><i class="fa-solid fa-circle"></i> Participation à des projets techniques</li>      
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <section id="hobbies-sections" class="hobbies">
+            <h1>MES LOISIRS <i class="fa-solid fa-heart"></i></h1>
             
             <ul>
                 <li>
-                    <p class="date">2024</p>
-                    <hr>
-                    <h2>Service Civique au CAM</h2>
-                    <p class="place">Cerle de l'Aviron de Marseille (13)</p>
-                    <ul>
-                        <li>Transmettre mes connaissances et mon savoir-faire sportif</li>
-                        <li>Encadrer des groupes de jeunes (12-14 ans)</li>
-                        <li>Organiser et préparer les activités</li>
-                        <li>Garantir la sécurité des jeunes</li>
-                        <li>Veiller au bon état et à l'entretien du matériel et des équipements</li>
-                        <li>Rendre compte de mon activité aux responsables du CAM</li>       
-                    </ul>
+                    <h2>Curiosité Scientifique</h2>
+                    <p>Astronomie</p>
+                    <i class="fa-solid fa-rocket"></i>
+
+                    <p>Maths : Finale concours "Maths sans frontières"</p>
+
+                    <p>Technologie</p>
+
+                    <p>Automobile : Mécanique et systèmes embarqués</p>
+
                 </li>
                 <li>
-                    <p class="date">2021</p>
-                    <hr>
-                    <h2>Stage à IGM Robotique SARL</h2>
-                    <p class="place">Pôle d'activités de Rousset (13)</p>
-                    <ul>
-                        <li>Découverte du fonctionnement d'une entreprise dans le domaine robotique</li>
-                        <li>Observation des processus de développement et de production</li>
-                        <li>Participation à des projets techniques</li>      
-                    </ul>
+                    <h2>Sport <i class="fa-solid fa-medal"></i></h2>
+                    
+                    <p>Aviron : 5 Médailles d'Or niveau national et une médaille de Bronze niveau international
+                        <br>Entrainements et stages réguliers depuis 8 ans</p>
+                    <p>Course à pieds : Objectif de faire un marathon</p>
                 </li>
             </ul>
         </section>
 
-        <section class="hobbies">
-            <h1>MES LOISIRS</h1>
+        <section id="projects-section" class="projects">
+            <h1>MES PROJETS <i class="fa-solid fa-tag"></i></h1>
             <p>Je suis développeur web avec 5 ans d'expérience, spécialisé dans la création de sites modernes et performants.
                 Curieux et passionné par les nouvelles technologies, je cherche à transformer des idées en projets concrets.
                 Je suis développeur web avec. Je suis développeur web avec 5 ans d'expérience, spécialisé dans la création de 
                 sites modernes et performants. Curieux et passionné par les nouvelles technologies, je cherche à
                 transformer des idées en projets concrets.</p>
         </section>
-
-        <section class="projects">
-            <h1>MES PROJETS</h1>
-            <p>Je suis développeur web avec 5 ans d'expérience, spécialisé dans la création de sites modernes et performants.
-                Curieux et passionné par les nouvelles technologies, je cherche à transformer des idées en projets concrets.
-                Je suis développeur web avec. Je suis développeur web avec 5 ans d'expérience, spécialisé dans la création de 
-                sites modernes et performants. Curieux et passionné par les nouvelles technologies, je cherche à
-                transformer des idées en projets concrets.</p>
-        </section>
-
-        <section class="contact-me">
-            <h1>ME CONTACTER</h1>
-            <ul>
-                <li>
-                    <i class="fas fa-envelope"></i>
-                    <p>regnier.vassili.pro@gmail.com</p>
-                </li>
-                <li>
-                    <i class="fas fa-phone"></i>
-                    <p>06 84 69 55 49</p>
-                </li>
-                <li>
-                    <i class="fas fa-map-marker-alt"></i>
-                    <p>Marseille, Bouches-du-Rhônes</p>
-                </li>
-                <li>
-                    <i class="fab fa-linkedin"></i>
-                    <p>@zigiproduction</p>
-                </li>
-                <li>
-                    <i class="fab fa-github"></i>
-                    <p>r24030678</p>
-                </li>
-            </ul>
-        </section>
-
 
     </main>
 

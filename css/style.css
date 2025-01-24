@@ -52,7 +52,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../media/image_accueil.jpg") no-repeat center center/cover; /* Remplacez 'image.jpg' par le chemin de votre image */
+    background: url("../media/IMG_2047.png") no-repeat center center/cover; /* Remplacez 'image.jpg' par le chemin de votre image */
+    filter: blur(3px);
     z-index: -1; /* Place l'image floutée derrière le texte */
 }
 
@@ -64,8 +65,8 @@ body {
 
 .who-i-am p {
     font-size: var(--small-font); /* Taille des paragraphes */
-    font-family: OCR A Std, monospace;
-    margin-bottom: 20px;
+    font-family: monospace;
+    margin-bottom: 80px;
     text-align: center;
     font-weight: 500;
 }
@@ -74,27 +75,43 @@ body {
     text-align: center;
     font-size: var(--large-font);
     margin: 20px 0px;
+    color: var(--blue-hover-color);
+    text-decoration: underline;
+}
+
+.who-i-am h2 strong {
+    font-family:fantasy;
 }
 
 .arrow {
+    
     position: absolute;
     bottom: 30px;
     left: 50%;
     font-size: 50px; /* Taille de la flèche */
     color: var(--blue-color); /* Couleur de la flèche */
     display: inline-block; /* Nécessaire pour appliquer 'transform' */
-    animation: bounce 1.5s infinite ease-in-out; /* Animation fluide infinie */
+    animation: bounce 2s infinite ease-in-out; /* Animation fluide infinie */
     cursor: pointer; /* Montre que la flèche est interactive */
+    background: transparent;
+    border: 0;
 }
 
 @keyframes bounce {
-    0%, 100% {
+    0% {
         transform: translateY(0) translateX(-50%); /* Position initiale */
+        opacity: 0;
     }
-    50% {
-        transform: translateY(10px) translateX(-50%); /* Descend de 10px */
+    10% {
+        transform: translateY(5px) translateX(-50%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(20px) translateX(-50%); /* Position initiale */
+        opacity: 0;
     }
 }
+
 
 /* Effet de survol */
 .arrow:hover {
@@ -205,7 +222,7 @@ nav ul li:hover {
     font-size: 35px;
     font-weight: 100;
     cursor: pointer;
-    /*display: none; /* Initialement masqué */
+    display: none; /* Initialement masqué */
     z-index: 5;
     display: flex;
     align-items: center;
@@ -310,12 +327,14 @@ section h1 {
 }
 
 .education ul {
+    position: relative;
     list-style: none;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 20px;
 }
 
 .education ul li {
@@ -325,11 +344,29 @@ section h1 {
     border: 3px solid var(--blue-hover-color);
     border-radius: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
+    background-color: var(--light-color);
 }
 
 .education ul li:hover {
     transform: scale(1.05);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.education ul::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Positionne la ligne au milieu verticalement */
+    left: 50%;
+    height: 100%; /* S'étend sur toute la largeur */
+    width: 5px;
+    background: repeating-linear-gradient(
+        to bottom,
+        black 0,
+        black 5px,
+        transparent 5px,
+        transparent 10px
+    ); /* Crée des pointillés */
+    z-index: -1;
 }
 
 .education .date {
@@ -356,7 +393,13 @@ section h1 {
 /* Section compétences */
 .skills {
     display: flex;
-    gap: 30px;    
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.skills-subsection {
+    display: flex;
+    gap: 30px;  
 }
 
 .skills ul {
@@ -364,10 +407,10 @@ section h1 {
 }
 
 .skills-labels {
-    padding: 6px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 23px;
 }
 
 .skills-bars {
@@ -397,7 +440,6 @@ section h1 {
     height: 30px;
     width: 50px;
     background-color: var(--blue-color); /* Couleur de remplissage */
-    transition: background-color 0.3s ease;
     border-radius: 3px;
 }
 
@@ -415,16 +457,35 @@ section h1 {
     color: var(--blue-color);
 }
 
-.experience ul {
+.experience-list {
+    position: relative;
     list-style: none;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 50px;
 }
 
-.experience ul li {
+.experience-list::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Positionne la ligne au milieu verticalement */
+    left: 50%;
+    height: 100%; /* S'étend sur toute la largeur */
+    width: 5px;
+    background: repeating-linear-gradient(
+        to bottom,
+        black 0,
+        black 5px,
+        transparent 5px,
+        transparent 10px
+    ); /* Crée des pointillés */
+    z-index: -1;
+}
+
+.experience-list-item {
     margin: 20px;
     padding: 10px;
     width: auto;
@@ -433,17 +494,12 @@ section h1 {
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 250px;
     max-width: 500px;
+    background-color: var(--light-color);
 }
 
-.experience ul li:hover {
+.experience-list-item:hover {
     transform: scale(1.05);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
-}
-
-.experience ul li ul li:hover {
-    transform: none;
-    box-shadow: none;
-    text-decoration: underline;
 }
 
 .experience .date {
@@ -461,28 +517,32 @@ section h1 {
     font-weight: 600;
 }
 
-.experience ul li ul {
-    all: unset;
+.under-list {
     display: flex;
     flex-direction: column;
-    text-align: left;
-    position: relative;
-    list-style: disc;
-    margin-left: 15%;
-    padding: 0;
-    border: 0;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 5px 10px 5px;
 }
 
-.experience ul li ul li {
-    all: unset;
-    list-style: disc;
+.under-list i {
+    font-size: 10px;
+}
+
+.under-list li {
     width: 85%;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    min-height: none;
+    background-color: rgba(9, 61, 110, 0.5);
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    transition: transform 0.2s;
 }
 
+.under-list li:hover {
+    transform: scale(1.03);
+}
 
 
 

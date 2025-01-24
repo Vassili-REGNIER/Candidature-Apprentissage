@@ -29,6 +29,14 @@ function scrollToTop() {
 }
 
 
+// Bouton pour déscendre jusqu'au boutons
+function scrollDown() {
+  const targetElement = document.querySelector('.buttons-section');
+        targetElement.scrollIntoView({
+            behavior: 'smooth', // Défilement fluide
+            block: 'start' // Alignement du haut de l'élément avec le haut de la fenêtre
+        });
+}
 
 
 // Scroll automatique 
