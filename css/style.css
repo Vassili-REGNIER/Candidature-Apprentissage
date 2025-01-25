@@ -286,6 +286,7 @@ section h1 {
     font-size: var(--medium-font);
     font-weight: 1000;
     color: var(--dark-color);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -298,7 +299,7 @@ section h1 {
 
 .buttons-section button:hover {
     transform: scale(1.05);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7); 
 }
 
 
@@ -344,12 +345,13 @@ section h1 {
     border: 3px solid var(--blue-hover-color);
     border-radius: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
     background-color: var(--light-color);
 }
 
 .education ul li:hover {
     transform: scale(1.05);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7); 
 }
 
 .education ul::before {
