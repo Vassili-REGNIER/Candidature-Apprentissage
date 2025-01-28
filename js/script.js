@@ -31,7 +31,7 @@ function scrollToTop() {
 
 // Bouton pour déscendre jusqu'au boutons
 function scrollDown() {
-  const targetElement = document.querySelector('.buttons-section');
+  const targetElement = document.querySelector('.my-proposal');
         targetElement.scrollIntoView({
             behavior: 'smooth', // Défilement fluide
             block: 'start' // Alignement du haut de l'élément avec le haut de la fenêtre
@@ -60,4 +60,59 @@ function handleScroll() {
 //window.addEventListener('scroll', handleScroll);
 
 
+/* Barre nav mobile */
+// Sélectionner tous les liens de navigation
+const menuItems = document.querySelectorAll('.menu li a');
 
+function updateCurrentPage() {
+    let currentSection = null;
+
+    // Parcourir les sections pour trouver celle visible
+    document.querySelectorAll('section').forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        // Vérifier si la section est visible
+        if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            currentSection = section.id;
+        }
+    });
+
+    // Mettre à jour la classe 'current-page'
+    menuItems.forEach((item) => {
+        const parent = item.parentElement;
+        if (item.getAttribute('href') === `#${currentSection}`) {
+            parent.classList.add('current-page');
+        } else {
+            parent.classList.remove('current-page');
+        }
+    });
+}
+
+// Écouter l'événement scroll et appeler la fonction
+window.addEventListener('scroll', updateCurrentPage);
+
+// Mettre à jour les classes au chargement initial
+window.addEventListener('load', updateCurrentPage);
+
+
+
+/* Scrolls animés */
+// Sélectionner tous les liens du menu
+const menuLinks = document.querySelectorAll('.menu a');
+
+menuLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Empêche le comportement par défaut du lien
+
+        // Récupérer l'ID de la section ciblée
+        const targetId = link.getAttribute('href').substring(1); // Enlève le '#' du href
+        const targetSection = document.getElementById(targetId);
+
+        // Effectuer un défilement animé vers la section
+        targetSection.scrollIntoView({
+            behavior: 'smooth', // Scroll fluide
+            block: 'start' // Aligner en haut de la page
+        });
+    });
+});
