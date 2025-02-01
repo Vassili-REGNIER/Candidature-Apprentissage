@@ -5,17 +5,17 @@
     --light-color: #e0e0e0;
     --gold: #ffbb1c;
 
-    --extra-large-font: 70px;
-    --large-font: 50px;
+    --extra-large-font: 65px;
+    --large-font: 45px;
     --medium-font: 30px;
     --small-font: 20px;
 }
 
 @media (max-width: 800px) {
     :root {
-        --extra-large-font: 55px;
-        --large-font: 35px;
-        --medium-font: 26px;
+        --extra-large-font: 50px;
+        --large-font: 30px;
+        --medium-font: 24px;
         --small-font: 18px;
     }
 }
@@ -65,14 +65,16 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 50px;
     color: white;
 }
 
 @media (max-width: 1000px) {
+    /*
     .who-i-am {
         height: 80vh;
     }
+    */
 
     .who-i-am::before {
         background: url("../media/accueil_tel_2.jpg") no-repeat center center/cover;
@@ -95,6 +97,7 @@ body {
     flex: none;
     text-align: center;
     margin: 0;
+    font-weight: 1000;
 }
 
 .presentation-section h2 {
@@ -300,35 +303,34 @@ main i {
     color: var(--blue-hover-color);
 }
 
-section {
-    margin: 2vh 0;
-    padding: 20px 5vw;
+main section {
+    padding: 100px 5vw;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-section p {
+main section p {
     text-align: justify;
     font-size: var(--small-font);
 }
 
-section h1 {
+main section h1 {
     text-align: center;
     font-size: var(--large-font);
     font-weight: 1000;
-    margin: 20px 0px;
+    margin: 20px  0 40px 0;
     flex: 1 1 100%;
 }
 
 
 /* Section ma proposition */
-.my-proposal {
-    margin: 20vh 0;
-}
-
 .my-proposal h1{
     font-size: var(--extra-large-font);
+    padding: 2vw;
+    border-left: 7px solid var(--blue-hover-color);
+    border-right: 7px solid var(--blue-hover-color);
+    border-radius: 5px;
 }
 
 .p-important {
@@ -343,7 +345,6 @@ section h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    padding: 5vh 5vw;
     gap: 30px;
     color: var(--light-color);
     background-color: var(--dark-color);
@@ -368,7 +369,6 @@ section h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    padding: 5vh 5vw;
     cursor: pointer;
 }
 
@@ -377,7 +377,7 @@ section h1 {
     margin: 20px;
     height: 170px;
     border-radius: 5px;
-    border: 3px solid var(--blue-hover-color    );
+    border: 3px solid var(--blue-hover-color);
 
     font-size: var(--medium-font);
     font-weight: 1000;
@@ -410,17 +410,20 @@ section h1 {
     align-items: center;
     gap: 10px;
     margin: 5px;
+    font-size: var(--medium-font);
+    font-weight: 700;
 }
-
 
 /* Section formations */
 .education {
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--dark-color);
+    z-index: -2;
 }
 
-.education hr {
-    color: var(--blue-color);
+.education h1 {
+    color: var(--light-color);
 }
 
 .education ul {
@@ -458,8 +461,8 @@ section h1 {
     width: 5px;
     background: repeating-linear-gradient(
         to bottom,
-        black 0,
-        black 5px,
+        var(--light-color) 0,
+        var(--light-color) 5px,
         transparent 5px,
         transparent 10px
     ); /* Crée des pointillés */
@@ -490,11 +493,29 @@ section h1 {
 /* Section compétences */
 .skills {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
+.skills h1 {
+    margin-bottom: 0;
+}
+
 .skills-subsection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-subsection i {
+    font-size: 130px;
+    color: var(--dark-color);
+}
+
+.skills-content {
     display: flex;
     flex-direction: column;
     gap: 30px;  
@@ -514,13 +535,27 @@ section h1 {
     text-align: right;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 900px) {
+    .skills-subsection {
+        flex-direction: column;
+        margin-top: 40px;
+        margin-bottom: 15px;
+    }
+
+    .skills-subsection i {
+        margin-bottom: 20px;
+    }
+
     .skill-item {
         flex-direction: column;
     }
 
     .skill-item h2 {
         text-align: center;
+    }
+
+    .skills-content {
+        margin: 0;
     }
 }
 
@@ -552,10 +587,12 @@ section h1 {
 .experience {
     display: flex;
     flex-wrap: wrap;
+    background-color: var(--dark-color);
+    z-index: -2;
 }
 
-.experience hr {
-    color: var(--blue-color);
+.experience h1 {
+    color: var(--light-color);
 }
 
 .experience-list {
@@ -578,8 +615,8 @@ section h1 {
     width: 5px;
     background: repeating-linear-gradient(
         to bottom,
-        black 0,
-        black 5px,
+        var(--light-color) 0,
+        var(--light-color) 5px,
         transparent 5px,
         transparent 10px
     ); /* Crée des pointillés */
