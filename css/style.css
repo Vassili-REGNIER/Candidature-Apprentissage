@@ -218,13 +218,14 @@ nav ul li:hover {
 }
 
 /* Barre animée */
-.nav-indicator {
+.progress-indicator {
+    display: none;
     position: absolute;
+    left: 0;
     bottom: 0;
-    height: 4px;
-    background: #1B72C6; /* Couleur de la barre */
-    width: 0;
-    transition: 0.3s ease;
+    height: 5px;
+    width: 0%;
+    background: var(--light-color);
 }
 
 @media (max-width: 1000px) {
@@ -251,6 +252,10 @@ nav ul li:hover {
     .menu.show {
         display: flex;
     }
+
+    .progress-indicator {
+        display: inline;
+    }
 }
 
 @media (max-height: 800px) {
@@ -271,24 +276,21 @@ nav ul li:hover {
     width: 50px;
     height: 50px;
     border-radius: 5px;
-    background-color: var(--blue-color);
-    color: var(--light-color);
+    background-color: transparent;
+    color: var(--blue-hover-color);
     border: none;
-    font-size: 35px;
-    font-weight: 100;
+    font-size: 40px;
     cursor: pointer;
     display: none; /* Initialement masqué */
     z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s;
 }
 
 #scrollToTopButton:hover {
     transform: scale(1.05);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
-    border-radius: 7px;
 }
 
 /* Définition de l'aspect global du main */
@@ -575,7 +577,9 @@ main section h1 {
 .progress-level {
     height: 20px;
     width: 50px;
-    background-color: var(--blue-color); /* Couleur de remplissage */
+    background: linear-gradient(to right, var(--blue-hover-color), var(--blue-color));
+
+    /*background-color: var(--blue-color); /* Couleur de remplissage */
     border-radius: 3px;
 }
 
@@ -649,7 +653,6 @@ main section h1 {
     font-size: var(--small-font);
 }
 
-
 .experience h2 {
     font-size: var(--medium-font);
     font-weight: 600;
@@ -666,6 +669,7 @@ main section h1 {
 
 .under-list i {
     font-size: 10px;
+    color: var(--dark-color);
 }
 
 .under-list li {
