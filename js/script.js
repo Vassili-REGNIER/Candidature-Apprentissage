@@ -2,11 +2,17 @@
 const toggle = document.getElementById('menu-toggle');
 const menu = document.querySelector('.menu');
 
-toggle.addEventListener('click', () => {
+toggle.addEventListener('click', (event) => {
   menu.classList.toggle('show');
+  event.stopPropagation(); // Empêche la propagation du clic vers le document
 });
 
-
+// Cache le menu lorsqu'on clique autre part que sur le bouton menu
+document.addEventListener('click', (event) => {
+  if (!toggle.contains(event.target)) {
+    menu.classList.remove('show');
+  }
+});
 
 
 
@@ -39,33 +45,12 @@ function scrollDown() {
 }
 
 
-// Scroll automatique 
-let lastScrollY = 0; // Pour suivre la dernière position Y
-// Fonction pour détecter le scroll
-function handleScroll() {
-    const currentScrollY = window.scrollY;
-    // Vérifie si on est tout en haut de la page (position Y = 0) et qu'on scroll vers le bas
-    if (currentScrollY < 100 && currentScrollY > lastScrollY) {
-        // Descend jusqu'à la section about-me
-        const targetElement = document.querySelector('.buttons-section');
-        targetElement.scrollIntoView({
-            behavior: 'smooth', // Défilement fluide
-            block: 'start' // Alignement du haut de l'élément avec le haut de la fenêtre
-        });
-    }
-    // Met à jour la position Y précédente
-    lastScrollY = currentScrollY;
-}
-// Écouter l'événement scroll
-//window.addEventListener('scroll', handleScroll);
-
-
 /* Barre nav mobile */
 // Sélectionner tous les liens de navigation
 const menuItems = document.querySelectorAll('.menu li a');
 
 function updateCurrentPage() {
-    let currentSection = null;
+    let currentSection = 'presentation-section';
 
     // Parcourir les sections pour trouver celle visible
     document.querySelectorAll('section').forEach((section) => {
