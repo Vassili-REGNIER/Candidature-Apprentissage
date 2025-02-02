@@ -15,16 +15,16 @@ document.addEventListener('click', (event) => {
 });
 
 
-
 // Bouton pour remonter
-window.onscroll = function() {
-  var btn = document.getElementById("scrollToTopButton");
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    btn.style.display = "block"; // Affiche le bouton quand on descend de 100px
+window.addEventListener("scroll", function () {
+  const scrollToTopButton = document.getElementById("scrollToTopButton");
+
+  if (window.scrollY > 100) {
+    scrollToTopButton.style.display = "flex"; // Affiche le bouton
   } else {
-    btn.style.display = "none"; // Cache le bouton quand on est tout en haut
+    scrollToTopButton.style.display = "none"; // Cache le bouton quand on est en haut
   }
-};
+});
 
 // Fonction pour remonter en haut de la page
 function scrollToTop() {
