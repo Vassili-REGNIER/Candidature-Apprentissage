@@ -388,16 +388,18 @@ main section h1 {
     justify-content: center;
     text-align: center;
     text-decoration: none;
-    color: var(--dark-color);
+    color: var(--light-color);
+    /*color: var(--dark-color);*/
     font-size: 20px;
     font-weight: 700;
     border-radius: 5px;
     width: 180px;
     height: 80px;
-    border: 1px solid red;
+    /*border: 1px solid brown;*/
     position: relative;
     transition: 0.3s;
-    background-color: var(--light-color);
+    background-color: brown;
+    /*background-color: var(--light-color);*/
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -405,7 +407,7 @@ main section h1 {
     content: "PDF";
     display: block;
     font-size: 13px;
-    background-color: red;
+    background-color: rgb(165, 21, 21);
     color: #fff;
     border-radius: 3px;
     padding: 3px 5px;
@@ -414,6 +416,7 @@ main section h1 {
     left: 0;
     transform: translate(-5px, -30%);
     transition: 0.3s;
+    box-shadow: 10px 10px 20px #000000b9; 
 }
 
 .download-cv-button:hover::before {
