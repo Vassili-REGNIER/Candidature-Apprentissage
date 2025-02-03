@@ -257,12 +257,14 @@ nav ul li:hover {
     }
 
     .menu li a {
+        pointer-events: none; /* Lien non cliquable */
         opacity: 0;
         transform: translateX(100px); /* Départ de la droite */
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
 
     .menu.show li a {
+        pointer-events: auto; /* Lien redevient cliquable */
         opacity: 1;
         transform: translateX(0);
     }
@@ -280,12 +282,12 @@ nav ul li:hover {
     }
 
     /* Ajout d'un délai progressif pour chaque lien */
-    .menu.show li:nth-child(1) a { transition-delay: 0.1s; }
-    .menu.show li:nth-child(2) a { transition-delay: 0.2s; }
-    .menu.show li:nth-child(3) a { transition-delay: 0.3s; }
-    .menu.show li:nth-child(4) a { transition-delay: 0.4s; }
-    .menu.show li:nth-child(5) a { transition-delay: 0.5s; }
-    .menu.show li:nth-child(6) a { transition-delay: 0.6s; }
+    .menu.show li:nth-child(1) a { transition: opacity 0.3s ease-out, transform 0.3s ease-out; }
+    .menu.show li:nth-child(2) a { transition: opacity 0.4s ease-out, transform 0.4s ease-out; }
+    .menu.show li:nth-child(3) a { transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+    .menu.show li:nth-child(4) a { transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .menu.show li:nth-child(5) a { transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .menu.show li:nth-child(6) a { transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 
     .progress-indicator {
         display: inline;
@@ -373,7 +375,7 @@ main section h1 {
 
 .my-proposal h1 {
     font-size: var(--large-font);
-    color: var(--dark-color); /* #F0CC71 */
+    color: var(--dark-color);
     padding: 2vw 0 0 0;
 }
 
@@ -390,17 +392,14 @@ main section h1 {
     text-align: center;
     text-decoration: none;
     color: var(--light-color);
-    /*color: var(--dark-color);*/
     font-size: 20px;
     font-weight: 700;
     border-radius: 5px;
     width: 180px;
     height: 80px;
-    /*border: 1px solid brown;*/
     position: relative;
     transition: 0.3s;
     background-color: brown;
-    /*background-color: var(--light-color);*/
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
 }
 
@@ -519,27 +518,6 @@ main section h1 {
     color: rgb(5, 24, 49);
     background-color: rgba(8, 95, 209, 0.705)
 }
-
-/*
-.about-me .info-item .color-1 {
-    color: #ee82ee;
-    background-color: #ee82ee54;
-}
-
-.about-me .info-item .color-2 {
-    color: #354b0a;
-    background-color: #b6f53893;
-}
-
-.about-me .info-item .color-3 {
-    color: #deb887;
-    background-color: #deb88773;
-}
-
-.about-me .info-item .color-4 {
-    color: #a52a2a;
-    background-color: #a52a2a52;
-}*/
 
 .about-me .info-item p {
     padding: 2px;
