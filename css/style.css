@@ -436,7 +436,7 @@ main section h1 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 2vw;
+    gap: 3px;
     width: 100%;
 }
 
@@ -451,7 +451,7 @@ main section h1 {
 
 .about-me .info-item {
     font-size: var(--small-font);
-    gap: 20px;
+    gap: 30px;
     width: 100%;
 
     display: flex;
