@@ -500,7 +500,8 @@ main section h1 {
     align-items: center;
     justify-content: center;
     background-color:#201f1c;
-    width: 100%;
+    box-shadow: 10px 10px 20px #000000a4; 
+    width: 100%;    
 }
 
 .about-me .info-item h2 { 
@@ -511,8 +512,11 @@ main section h1 {
     font-size: var(--medium-font);
     margin: 5px;
     padding: 5px;
+    color: rgb(5, 24, 49);
+    background-color: rgba(8, 95, 209, 0.705)
 }
 
+/*
 .about-me .info-item .color-1 {
     color: #ee82ee;
     background-color: #ee82ee54;
@@ -531,7 +535,7 @@ main section h1 {
 .about-me .info-item .color-4 {
     color: #a52a2a;
     background-color: #a52a2a52;
-}
+}*/
 
 .about-me .info-item p {
     padding: 2px;
