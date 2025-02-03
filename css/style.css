@@ -7,7 +7,7 @@
 
     --extra-large-font: 65px;
     --large-font: 40px;
-    --medium-font: 30px;
+    --medium-font: 25px;
     --small-font: 17px;
 }
 
@@ -15,7 +15,7 @@
     :root {
         --extra-large-font: 50px;
         --large-font: 26px;
-        --medium-font: 24px;
+        --medium-font: 21px;
         --small-font: 15px;
     }
 }
@@ -357,7 +357,6 @@ main section h1 {
     flex: 1 1 100%;
 }
 
-
 /* Section ma proposition */
 .my-proposal {
     background-image: url('/Site-Web-Personnel/media/bg_pattern.png');
@@ -371,7 +370,7 @@ main section h1 {
     gap: 15px;
 }
 
-.my-proposal h1{
+.my-proposal h1 {
     font-size: var(--large-font);
     color: var(--dark-color); /* #F0CC71 */
     padding: 2vw 0 0 0;
@@ -398,10 +397,10 @@ main section h1 {
     border: 1px solid red;
     position: relative;
     transition: 0.3s;
-    background-color: transparent;
+    background-color: var(--light-color);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
 }
-  
+
 .download-cv-button::before {
     content: "PDF";
     display: block;
@@ -414,9 +413,9 @@ main section h1 {
     top: 0;
     left: 0;
     transform: translate(-5px, -30%);
-    transition: .3s;
+    transition: 0.3s;
 }
-  
+
 .download-cv-button:hover::before {
     transform: translate(-5px, -50%);
 }
@@ -437,7 +436,8 @@ main section h1 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 5vw;
+    gap: 2vw;
+    width: 100%;
 }
 
 .about-me .mind-map-left, .mind-map-right {
@@ -446,23 +446,33 @@ main section h1 {
     justify-content: space-between;
     gap: 10vh;
     width: 25vw;
+    width: 100%;
 }
 
 .about-me .info-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     font-size: var(--small-font);
     gap: 20px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-me .logo-wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
 }
 
 .about-me .info-item i {
-    width: 100px;
-    height: 100px;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: 80px;
+    font-size: 85px;
     color: var(--light-color);
 }
 
@@ -477,32 +487,66 @@ main section h1 {
     }
 
     .about-me .info-item i {
-        font-size: 50px;
+        font-size: 65px;
     }
 }
 
-.about-me .info-item p {
-    padding: 10px;
-    width: 100%;
-    border: 2px solid var(--blue-hover-color);
+.about-me .text-wrapper {
+    padding: 5px;
     border-radius: 5px;
-    font-weight: 100;
-    background-image: url('/Site-Web-Personnel/media/bg_pattern_2.png');
-    opacity: 1;
-    background-repeat: repeat; /* Permet de répéter l'image pour couvrir toute la section */
-    background-size: auto; /* Ou ajuster la taille selon le besoin */
-    background-position: center; /* Facultatif, pour centrer l'image */
-    background-attachment: fixed; /* Si tu veux que l'image reste fixe pendant le défilement */
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color:#201f1c;
+    width: 100%;
 }
 
-.about-me .info-item strong {
-    color: var(--blue-color);
+.about-me .info-item h2 { 
+    border-radius: 5px;
     font-weight: 600;
+    flex: 1 1 100%;
+    text-align: center;
+    font-size: var(--medium-font);
+    margin: 5px;
+    padding: 5px;
+}
+
+.about-me .info-item .color-1 {
+    color: #ee82ee;
+    background-color: #ee82ee54;
+}
+
+.about-me .info-item .color-2 {
+    color: #354b0a;
+    background-color: #b6f53893;
+}
+
+.about-me .info-item .color-3 {
+    color: #deb887;
+    background-color: #deb88773;
+}
+
+.about-me .info-item .color-4 {
+    color: #a52a2a;
+    background-color: #a52a2a52;
+}
+
+.about-me .info-item p {
+    padding: 2px;
+    margin: 2px;
+    border: 2px solid var(--dark-color);
+    border-radius: 10px;
+    font-weight: 100; 
 }
 
 .about-me p i {
     color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .vassili-img {
