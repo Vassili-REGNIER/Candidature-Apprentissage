@@ -126,14 +126,14 @@ function updateProgressBar() {
 
 document.querySelectorAll('.links-wrapper a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-      e.preventDefault(); // Empêche le comportement par défaut de l'ancre
+      e.preventDefault();
       
       const slidesContainer = document.querySelector('.slides');
-      const slides = document.querySelectorAll('.slides > div');
-      const slideWidth = slides[0].offsetWidth + 50; // Largeur du slide + margin-right
+      const slides = document.querySelectorAll('.slide');
+      const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slidesContainer).gap); 
       
       const index = Array.from(document.querySelectorAll('.links-wrapper a')).indexOf(this);
-      const scrollPosition = index * slideWidth; // Position exacte en fonction de l'index
+      const scrollPosition = index * slideWidth;
       
       slidesContainer.scrollTo({
           left: scrollPosition,
@@ -141,3 +141,19 @@ document.querySelectorAll('.links-wrapper a').forEach(anchor => {
       });
   });
 });
+
+/* Support Swipe (Mobile) */
+const slidesContainer = document.querySelector('.slides');
+let startX = 0;
+let scrollLeftStart = 0;
+
+slidesContainer.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].pageX;
+  scrollLeftStart = slidesContainer.scrollLeft;
+});
+
+slidesContainer.addEventListener('touchmove', (e) => {
+  const deltaX = e.touches[0].pageX - startX;
+  slidesContainer.scrollLeft = scrollLeftStart - deltaX;
+});
+
