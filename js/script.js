@@ -114,3 +114,30 @@ function updateProgressBar() {
 
   document.querySelector(".progress-indicator").style.width = progress + "%";
 }
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.links-wrapper a').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+      e.preventDefault(); // Empêche le comportement par défaut de l'ancre
+      
+      const slidesContainer = document.querySelector('.slides');
+      const slides = document.querySelectorAll('.slides > div');
+      const slideWidth = slides[0].offsetWidth + 50; // Largeur du slide + margin-right
+      
+      const index = Array.from(document.querySelectorAll('.links-wrapper a')).indexOf(this);
+      const scrollPosition = index * slideWidth; // Position exacte en fonction de l'index
+      
+      slidesContainer.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+      });
+  });
+});
