@@ -229,7 +229,7 @@ nav ul li:hover {
     }
 
     .menu {
-        display: flex;
+        display: none;
         flex-direction: column;
         position: absolute;
         top: 50px;
@@ -898,32 +898,63 @@ main section h1 {
     --gap: 20px;
 }
 
-/* Slider container */
-.slider {
-    width: var(--slider-width);
-    text-align: center;
+.projects-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    height: 65vh;
+    width: 100%;
 }
 
 /* Navigation buttons */
 .links-wrapper {
-    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: space-around;
+    align-items: center;
+    width: 35vw;
 }
 
 .links-wrapper a {
     display: inline-block;
     padding: 8px 15px;
     margin: 5px;
-    background: #007bff;
-    color: white;
+    /*background: var(--light-color);*/
+    color: #444;
     text-decoration: none;
     border-radius: 5px;
+    font-size: var(--small-font);
     font-weight: bold;
+    width: 90%;
+    height: 50px;
+    /*box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .links-wrapper a:hover {
-    background: #0056b3;
+    /*background: #E5E5E5;*/
+    color:var(--dark-color);
 }
 
+.links-wrapper a i {
+    color: #444;
+    font-size: var(--large-font);
+}
+
+.links-wrapper a:hover i {
+    color: var(--dark-color);
+}
+
+/* Slider container */
+.slider {
+    width: var(--slider-width);
+    text-align: center;
+}
 
 .slides {
     display: flex;
@@ -965,9 +996,12 @@ main section h1 {
         --slide-width: 80vw;
     }
 
-    .links-wrapper a {
-        padding: 6px 10px;
-        font-size: 14px;
+    .projects-wrapper {
+        flex-direction: column;
+    }
+
+    .links-wrapper {
+        width: 85vw;
     }
 }
 
@@ -981,8 +1015,23 @@ main section h1 {
 
 
 
-
-
+.custom-pattern {
+	background:
+		  radial-gradient(50% 50% at 100% 0,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
+		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50% at 0 100%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
+		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
+		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
+		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		   #0000 96%) 20px 20px;
+	background-size: 40px 40px;
+	background-color: #E0E0E0;
+}
 
 
 
