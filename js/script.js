@@ -157,3 +157,19 @@ slidesContainer.addEventListener('touchmove', (e) => {
   slidesContainer.scrollLeft = scrollLeftStart - deltaX;
 });
 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Sélection de tous les liens dans .links-wrapper
+  const links = document.querySelectorAll(".links-wrapper a");
+
+  links.forEach(link => {
+      link.addEventListener("click", function () {
+          // Supprimer la classe 'selected' de tous les liens
+          links.forEach(l => l.classList.remove("selected"));
+
+          // Ajouter la classe 'selected' au lien cliqué
+          this.classList.add("selected");
+      });
+  });
+});

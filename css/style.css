@@ -11,6 +11,8 @@
     --small-font: 17px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@500&family=Inter:wght@400&display=swap');
+
 @media (max-width: 800px) {
     :root {
         --extra-large-font: 50px;
@@ -23,8 +25,8 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     box-sizing: border-box;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -41,6 +43,10 @@ body {
     min-height: 500px;
     color: white; /* Couleur du texte pour bien contraster */
     overflow: hidden; /* Coupe tout dépassement éventuel */
+
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
 
 .who-i-am::before {
@@ -52,7 +58,7 @@ body {
     height: 100%;
     background: url("../media/accueil_large.jpg") no-repeat right center;
     background-size: cover; /* Redimensionne l'image proportionnellement */
-    filter: brightness(50%); /* Réduit la luminosité à 50% */
+    filter: brightness(20%); /* Réduit la luminosité à 50% */
     z-index: -1; /* Place l'image floutée derrière le texte */
 }
 
@@ -99,12 +105,31 @@ body {
     text-align: center;
     margin: 0;
     font-weight: 1000;
+    padding-top: 10vh;
 }
 
 .presentation-section h2 {
-    font-size: var(--extra-large-font);
+    font-size: var(--large-font);
     text-align: center;
-    font-weight: 1000;
+    font-weight: bold;
+}
+
+.scroll-down-btn {
+    margin-top: 15vh;
+    border: 1px solid var(--light-color);
+    height: 60px;
+    width: 80%;
+    border-radius: 2px;
+    padding: 5px;
+    background-color: transparent;
+    font-size: var(--medium-font);
+    color: var(--light-color);
+    cursor: pointer;
+    font-family: "Abril Fatface";
+}
+
+.scroll-down-btn:hover {
+    background-color: #e0e0e005;
 }
 
 .arrow {
@@ -118,6 +143,8 @@ body {
     cursor: pointer; /* Montre que la flèche est interactive */
     background: transparent;
     border: 0;
+
+    display: none; /* A supprimer pour remettre la flêche */
 }
 
 @keyframes bounce {
@@ -134,7 +161,6 @@ body {
         opacity: 0;
     }
 }
-
 
 /* Effet de survol */
 .arrow:hover {
@@ -153,36 +179,32 @@ nav {
     width: 100%;
     top: 0;
     z-index: 10;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
-nav ul {
+.menu {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    list-style: none;
-    font-weight: 1000;
-    color: var(--light-color);
-}
-
-nav hr {
-    display: none; 
-    border: none; 
-    border-top: 3px solid var(--blue-color);
-}
-
-nav ul li {
-    height: 100px;
-    width: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 5px solid var(--blue-hover-color);
+    list-style: none;
+    font-weight: 700;
+    color: var(--light-color);
+    margin-right: 2vw;
+}
+
+.menu li {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Transition fluide sur la couleur */
 }
 
 .current-page {
-    border-bottom: 5px solid var(--light-color);
+    border-bottom: 3px solid var(--light-color);
+    border-top: 3px solid var(--dark-color);
 }
 
 nav ul li a {
@@ -199,7 +221,8 @@ nav ul li a {
 
 nav ul li:hover {
     color: white;
-    border-bottom: 5px solid var(--light-color);
+    border-bottom: 3px solid var(--light-color);
+    border-top: 3px solid var(--dark-color);
 }
 
 .menu-toggle {
@@ -229,8 +252,11 @@ nav ul li:hover {
     }
 
     .menu {
+        margin: 0;
+        padding: 0;
         display: none;
         flex-direction: column;
+        align-items: start;
         position: absolute;
         top: 50px;
         width: 100%;
@@ -362,11 +388,6 @@ main section h1 {
 
 /* Section ma proposition */
 .my-proposal {
-    background-image: url('/Site-Web-Personnel/media/bg_pattern.png');
-    background-repeat: repeat; /* Permet de répéter l'image pour couvrir toute la section */
-    background-size: auto; /* Ou ajuster la taille selon le besoin */
-    background-position: center; /* Facultatif, pour centrer l'image */
-    background-attachment: fixed; /* Si tu veux que l'image reste fixe pendant le défilement */
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -522,7 +543,8 @@ main section h1 {
 .about-me .info-item p {
     padding: 2px;
     margin: 2px;
-    border: 2px solid var(--dark-color);
+    box-shadow: rgba(223, 223, 223, 0.02) 0px 1px 3px 0px, rgba(179, 179, 179, 0.15) 0px 0px 0px 1px; 
+    color: var(--light-color);
     border-radius: 10px;
     font-weight: 100; 
 }
@@ -548,14 +570,7 @@ main section h1 {
 
 
 /* Section me contacter */
-.contact-me {
-    background-image: url('/Site-Web-Personnel/media/bg_pattern.png');
-    opacity: 1;
-    background-repeat: repeat; /* Permet de répéter l'image pour couvrir toute la section */
-    background-size: auto; /* Ou ajuster la taille selon le besoin */
-    background-position: center; /* Facultatif, pour centrer l'image */
-    background-attachment: fixed; /* Si tu veux que l'image reste fixe pendant le défilement */
-}
+
 
 .contact-me ul {
     list-style: none;
@@ -614,7 +629,6 @@ main section h1 {
 .education ul li {
     padding: 10px;
     width: auto;
-    border: 3px solid var(--blue-hover-color);
     border-radius: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
@@ -649,12 +663,6 @@ main section h1 {
 
 /* Section compétences */
 .skills {
-    background-image: url('/Site-Web-Personnel/media/bg_pattern.png');
-    background-repeat: repeat; /* Permet de répéter l'image pour couvrir toute la section */
-    background-size: auto; /* Ou ajuster la taille selon le besoin */
-    background-position: center; /* Facultatif, pour centrer l'image */
-    background-attachment: fixed; /* Si tu veux que l'image reste fixe pendant le défilement */
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -791,7 +799,6 @@ main section h1 {
 .experience-list-item {
     padding: 10px;
     width: auto;
-    border: 3px solid var(--blue-hover-color);
     border-radius: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 250px;
@@ -848,45 +855,101 @@ main section h1 {
 }
 
 /* Section loisirs */
-.hobbies {
-    background-image: url('/Site-Web-Personnel/media/bg_pattern.png');
-    background-repeat: repeat; /* Permet de répéter l'image pour couvrir toute la section */
-    background-size: auto; /* Ou ajuster la taille selon le besoin */
-    background-position: center; /* Facultatif, pour centrer l'image */
-    background-attachment: fixed; /* Si tu veux que l'image reste fixe pendant le défilement */
-}
-
-.hobbies-list {
+.hobbies-wrapper {
     list-style-type: none;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.hobbies-list-item {
+.hobbies-list {
     margin: 30px;
-    min-width: 300px;
-    width: 80vw;
-}
-.hobbies-list-item h2 {
-    text-align: center;
-    margin: 10px
+    width: 95vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
 }
 
-.hobbies-list-item p {
+.hobbies-list h2 {
+    text-align: left;
+    flex: 0 1 100%;
     margin: 10px;
-    padding: 10px;
-    border: 2px solid #093d6e;
-    border-radius: 5px;
+    
 }
 
+.hobbies-item  {
+    position: relative;
+    margin: 10px;
+    border-radius: 5px;
+    width: 18%;
+    height: 200px;
+    min-width: 300px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.hobbies-item::before {
+    content: ''; /* Nécessaire pour ajouter un pseudo-élément */
+    position: absolute;
+    top: 0;
+    right: 0; /* à mettre à 0*/
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Redimensionne l'image proportionnellement */
+    filter: brightness(20%); /* Réduit la luminosité à 50% */
+    z-index: 1; /* Place l'image floutée derrière le texte */
+    transition: filter ease 0.5s;
+}
 
+.astronomy-hobbies::before {
+    background: url('../media/astronomie_illustration.webp') no-repeat right center;
+}
 
+.maths-hobbies::before {
+    background: url('../media/maths_illustration.jpg') no-repeat right center;
+}
 
+.tech-hobbies::before {
+    background: url('../media/tech_illustration.jpg') no-repeat right center;
+}
 
+.auto-hobbies::before {
+    background: url('../media/auto_illustration.jpg') no-repeat right center; 
+}
+
+.rowing-hobbies::before {
+    background: url('../media/rowing_illustration.jpg') no-repeat right center;
+}
+
+.runnig-hobbies::before {
+    background: url('../media/running_illustration.jpg') no-repeat right center;
+}
+
+.bodybuilding-hobbies::before {
+    background: url('../media/bodybuilding_illustration.jpg') no-repeat right center;
+}
+
+.hobbies-item:hover::before {
+    filter: brightness(80%);
+}
+
+.hobbies-item h3 {
+    font-family: "Abril Fatface";
+    font-size: var(--medium-font);
+    color: var(--light-color);
+    z-index: 2;
+    transition: opacity ease 0.5s;
+}
+
+.hobbies-item:hover h3 {
+    opacity: 0;
+}
 
 
 
@@ -912,7 +975,6 @@ main section h1 {
 .links-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     justify-content: space-around;
     align-items: center;
     width: 35vw;
@@ -920,35 +982,48 @@ main section h1 {
 
 .links-wrapper a {
     display: inline-block;
-    padding: 8px 15px;
-    margin: 5px;
-    /*background: var(--light-color);*/
-    color: #444;
+    padding: 30px 15px;
+    color: #666;
     text-decoration: none;
-    border-radius: 5px;
     font-size: var(--small-font);
-    font-weight: bold;
+    font-weight: bolder;
     width: 90%;
     height: 50px;
-    /*box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;*/
     display: flex;
     align-items: center;
     gap: 10px;
+    border-right: 5px solid #666;
 }
 
 .links-wrapper a:hover {
-    /*background: #E5E5E5;*/
     color:var(--dark-color);
+    border-right: 5px solid var(--dark-color);
+}
+
+
+
+.links-wrapper .selected {
+    color:var(--dark-color); 
+    border-right: 5px solid var(--dark-color);
+}
+
+.links-wrapper .selected i {
+    color:var(--dark-color); 
 }
 
 .links-wrapper a i {
-    color: #444;
+    color: #666;
     font-size: var(--large-font);
+    width: 60px;
+    text-align: center;
 }
 
 .links-wrapper a:hover i {
-    color: var(--dark-color);
+    color:var(--dark-color); 
 }
+
+
+
 
 /* Slider container */
 .slider {
@@ -1017,23 +1092,21 @@ main section h1 {
 
 .custom-pattern {
 	background:
-		  radial-gradient(50% 50% at 100% 0,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
-		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		  radial-gradient(50% 50% at 100% 0,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
+		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
-		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		  radial-gradient(50% 50% at 0 100%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
+		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
-		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
+		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
+		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#C3D3CF 6%  15%,#E0E0E0 16% 25%,#C3D3CF 26% 35%,#E0E0E0 36% 45%,
-		   #C3D3CF 46% 55%,#E0E0E0 56% 65%,#C3D3CF 66% 75%,#E0E0E0 76% 85%,#C3D3CF 86% 95%,
-		   #0000 96%) 20px 20px;
-	background-size: 40px 40px;
+		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
+		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
+		   #0000 96%) 70px 70px;
+	background-size: 140px 140px;
 	background-color: #E0E0E0;
 }
-
-
 
 
 
