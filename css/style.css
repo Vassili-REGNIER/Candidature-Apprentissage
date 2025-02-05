@@ -1,10 +1,8 @@
 :root {
     --dark-color: #2C2A25;
-    --blue-color: #1B72C6;
-    --blue-hover-color: #093d6e;
-    --light-color: #e0e0e0;
-    --gold: #ffbb1c;
-
+    --light-color: #F3EFDD;
+    --background-color: white;
+    --gold: #D5AC4C;
     --extra-large-font: 65px;
     --large-font: 40px;
     --medium-font: 25px;
@@ -29,8 +27,44 @@
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+
+
+/* Scroll bar for Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+  }
+  *::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #DCD9C8;
+  }
+  
+  *::-webkit-scrollbar-track:hover {
+    background-color: #F3EFDD;
+  }
+  
+  *::-webkit-scrollbar-track:active {
+    background-color: #F3EFDD;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #BD9944;
+  }
+  
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #D5AC4C;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #D5AC4C;
+  }
+
+
 body {
-    background-color: var(--light-color)/*black*/;
+    background-color: var(--light-color);
+    width: 100vw;
+    overflow-x: hidden;
 }
 
 /* Section présentation */
@@ -38,12 +72,10 @@ body {
     margin: 0;
     padding: 0;
     position: relative; /* Nécessaire pour bien gérer le contenu et le pseudo-élément */
-    width: 100%; /* Prend toute la largeur */
-    height: 100vh; /* Hauteur personnalisée de la section */
+    width: 100%;
+    height: 100vh;
     min-height: 500px;
-    color: white; /* Couleur du texte pour bien contraster */
-    overflow: hidden; /* Coupe tout dépassement éventuel */
-
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -100,7 +132,7 @@ body {
 }
 
 .presentation-section h1 {
-    font-size: var(--large-font); /* Texte principal en gros */
+    font-size: var(--large-font);
     flex: none;
     text-align: center;
     margin: 0;
@@ -164,7 +196,7 @@ body {
 
 /* Effet de survol */
 .arrow:hover {
-    color: var(--blue-hover-color); /* Change la couleur au survol */
+    color: var(--gold); /* Change la couleur au survol */
     transform: (1.3);
 }
 
@@ -214,14 +246,14 @@ nav ul li a {
     align-items: center;
     text-decoration: none;
     padding: 0px 12px;
-    color: inherit;
+    color: var(--background-color);
     text-decoration: none;  
     font-size: var(--small-font);
 }
 
 nav ul li:hover {
-    color: white;
-    border-bottom: 3px solid var(--light-color);
+    color: var(--background-color);
+    border-bottom: 3px solid var(--background-color);
     border-top: 3px solid var(--dark-color);
 }
 
@@ -338,7 +370,7 @@ nav ul li:hover {
     width: 50px;
     height: 50px;
     background-color: transparent;
-    color: var(--blue-hover-color);
+    color: var(--gold);
     border: none;
     font-size: 40px;
     cursor: pointer;
@@ -359,11 +391,12 @@ main {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: var(--dark-color)
+    color: var(--dark-color);
+    background-color: var(--background-color);
 }
 
 main i {
-    color: var(--blue-hover-color);
+    color: var(--gold);
 }
 
 main section {
@@ -392,6 +425,7 @@ main section h1 {
     align-items: center;
     justify-content: center;
     gap: 15px;
+
 }
 
 .my-proposal h1 {
@@ -402,7 +436,7 @@ main section h1 {
 
 .p-important {
     font-size: var(--large-font);
-    color: var(--blue-hover-color);
+    color: var(--gold);
     text-align: center;
 }
 
@@ -451,8 +485,7 @@ main section h1 {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    color: var(--light-color);
-    background-color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
 .about-me .mind-map {
@@ -497,7 +530,7 @@ main section h1 {
     align-items: center;
     text-align: center;
     font-size: 85px;
-    color: var(--light-color);
+    color: var(--gold);
 }
 
 @media (max-width: 1200px) {
@@ -523,7 +556,7 @@ main section h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color:#201f1c;
+    background-color: var(--background-color);
     box-shadow: 10px 10px 20px #000000a4; 
     width: 100%;    
 }
@@ -537,14 +570,13 @@ main section h1 {
     margin: 5px;
     padding: 5px;
     color: rgb(5, 24, 49);
-    background-color: rgba(8, 95, 209, 0.705)
+    background-color: var(--light-color);
 }
 
 .about-me .info-item p {
     padding: 2px;
     margin: 2px;
     box-shadow: rgba(223, 223, 223, 0.02) 0px 1px 3px 0px, rgba(179, 179, 179, 0.15) 0px 0px 0px 1px; 
-    color: var(--light-color);
     border-radius: 10px;
     font-weight: 100; 
 }
@@ -590,12 +622,8 @@ main section h1 {
 .education {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--dark-color);
-    z-index: -2;
-}
+    background-color: var(--light-color);
 
-.education h1 {
-    color: var(--light-color);
 }
 
 .education ul {
@@ -618,21 +646,22 @@ main section h1 {
     width: 5px;
     background: repeating-linear-gradient(
         to bottom,
-        var(--light-color) 0,
-        var(--light-color) 5px,
+        var(--dark-color) 0,
+        var(--dark-color) 5px,
         transparent 5px,
         transparent 10px
     ); /* Crée des pointillés */
-    z-index: -1;
+    z-index: 1;
 }
 
 .education ul li {
     padding: 10px;
     width: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
-    background-color: var(--light-color);
+    background-color: var(--background-color);
+    z-index: 2;
 }
 
 .education ul li:hover {
@@ -651,7 +680,7 @@ main section h1 {
 
 .education .mention {
     font-family: impact, fantasy;
-    color: var(--blue-hover-color);
+    color: var(--gold);
     font-weight: 500;
     text-align: center;
 }
@@ -746,26 +775,21 @@ main section h1 {
 .progress-level {
     height: 11px;
     width: 50px;
-    background: linear-gradient(to right, var(--blue-hover-color), var(--blue-color));
+    background: var(--gold);
 
     /*background-color: var(--blue-color); /* Couleur de remplissage */
     border-radius: 3px;
 }
 
 .invisible {
-    background: linear-gradient(to right, transparent, transparent);
+    background: transparent;
 }
 
 /* Section éxperiences */
 .experience {
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--dark-color);
-    z-index: -2;
-}
-
-.experience h1 {
-    color: var(--light-color);
+    background-color: var(--light-color);
 }
 
 .experience-list {
@@ -788,12 +812,11 @@ main section h1 {
     width: 5px;
     background: repeating-linear-gradient(
         to bottom,
-        var(--light-color) 0,
-        var(--light-color) 5px,
+        var(--dark-color) 0,
+        var(--dark-color) 5px,
         transparent 5px,
         transparent 10px
     ); /* Crée des pointillés */
-    z-index: -1;
 }
 
 .experience-list-item {
@@ -803,8 +826,9 @@ main section h1 {
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 250px;
     max-width: 500px;
-    background-color: var(--light-color);
+    background-color: var(--background-color);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .experience-list-item:hover {
@@ -837,12 +861,12 @@ main section h1 {
 
 .under-list i {
     font-size: 10px;
-    color: var(--dark-color);
+    color: var(--gold);
 }
 
 .under-list li {
     width: 85%;
-    background-color: rgba(9, 61, 110, 0.6);
+    background-color: var(--light-color);
     padding: 5px;
     border-radius: 10px;
     text-align: center;
@@ -878,7 +902,8 @@ main section h1 {
     text-align: left;
     flex: 0 1 100%;
     margin: 10px;
-    
+    font-weight: 900;
+    font-size: var(--medium-font);
 }
 
 .hobbies-item  {
@@ -961,6 +986,10 @@ main section h1 {
     --gap: 20px;
 }
 
+.projects {
+    background-color: var(--light-color);
+}
+
 .projects-wrapper {
     display: flex;
     flex-direction: row;
@@ -1000,17 +1029,6 @@ main section h1 {
     border-right: 5px solid var(--dark-color);
 }
 
-
-
-.links-wrapper .selected {
-    color:var(--dark-color); 
-    border-right: 5px solid var(--dark-color);
-}
-
-.links-wrapper .selected i {
-    color:var(--dark-color); 
-}
-
 .links-wrapper a i {
     color: #666;
     font-size: var(--large-font);
@@ -1022,6 +1040,14 @@ main section h1 {
     color:var(--dark-color); 
 }
 
+.links-wrapper .selected {
+    color:var(--dark-color); 
+    border-right: 5px solid var(--gold) !important;
+}
+
+.links-wrapper .selected i {
+    color:var(--gold) !important; 
+}
 
 
 
@@ -1090,28 +1116,6 @@ main section h1 {
 
 
 
-.custom-pattern {
-	background:
-		  radial-gradient(50% 50% at 100% 0,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
-		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
-		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
-		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#E0E0E0 0%  5% ,#D7D7D7 6%  15%,#E0E0E0 16% 25%,#D7D7D7 26% 35%,#E0E0E0 36% 45%,
-		   #D7D7D7 46% 55%,#E0E0E0 56% 65%,#D7D7D7 66% 75%,#E0E0E0 76% 85%,#D7D7D7 86% 95%,
-		   #0000 96%) 70px 70px;
-	background-size: 140px 140px;
-	background-color: #E0E0E0;
-}
-
-
-
-
-
 
 
 
@@ -1154,7 +1158,7 @@ footer .contact-me h1 {
 }
 
 footer .contact-me i {
-    color: var(--blue-hover-color);
+    color: var(--gold);
 }
 
 footer .contact-me ul li p {
