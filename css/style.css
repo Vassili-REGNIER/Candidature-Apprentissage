@@ -577,7 +577,7 @@ main section h1 {
     align-items: center;
     justify-content: center;
     background-color: var(--background-color);
-    box-shadow: 10px 10px 20px #000000a4; 
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 100%;    
 }
 
@@ -1043,7 +1043,7 @@ main section h1 {
     text-decoration: none;
     font-size: var(--small-font);
     font-weight: bolder;
-    width: 90%;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1058,9 +1058,14 @@ main section h1 {
 .links-wrapper a i {
     color: #666;
     font-size: var(--large-font);
-    width: 60px;
+    width: 20%;
     text-align: center;
 }
+
+.links-wrapper a span {
+    width: 80%;
+}
+
 
 .links-wrapper a:hover i {
     color:var(--dark-color); 
@@ -1144,7 +1149,9 @@ main section h1 {
 
 
 
-
+.apreciation {
+    display: flex;
+}
 
 
 
