@@ -63,8 +63,7 @@
 
 body {
     background-color: var(--light-color);
-    width: 100vw;
-    overflow-x: hidden;
+
 }
 
 /* Section présentation */
@@ -156,7 +155,7 @@ body {
     font-size: var(--medium-font);
     color: var(--light-color);
     cursor: pointer;
-    font-family: "Abril Fatface";
+    font-weight: 500;
 }
 
 .scroll-down-btn:hover {
@@ -683,6 +682,7 @@ main section h1 {
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); 
     background-color: var(--background-color);
     z-index: 2;
+    max-width: 85vw;
 }
 
 .education ul li:hover {
@@ -734,6 +734,12 @@ main section h1 {
 .skills-subsection i {
     font-size: 130px;
     color: var(--dark-color);
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .skills-content {
@@ -765,6 +771,7 @@ main section h1 {
 
     .skills-subsection i {
         margin-bottom: 20px;
+        font-size: 100px;
     }
 
     .skill-item {
@@ -786,8 +793,9 @@ main section h1 {
     align-items: center;  
     gap: 3px;
     width: 300px;
+    max-width: 90vw;
     height: 20px;
-    border: 3px solid var(--dark-color);
+    /* border: 3px solid var(--dark-color); */
     border-radius: 3px;
     padding: 2px;
     list-style: none;
@@ -843,10 +851,10 @@ main section h1 {
 .experience-list-item {
     padding: 10px;
     width: auto;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: transform 0.2s, box-shadow 0.2s;
     min-height: 250px;
-    max-width: 500px;
+    max-width: 85vw;
     background-color: var(--background-color);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
     z-index: 1;
@@ -910,7 +918,6 @@ main section h1 {
 }
 
 .hobbies-list {
-    margin: 30px;
     width: 95vw;
     display: flex;
     flex-wrap: wrap;
@@ -1001,9 +1008,9 @@ main section h1 {
 
 /* Variables */
 :root {
-    --slider-width: 90vw;
-    --slide-width: 300px;
-    --slide-height: 300px;
+    --slider-width: 600px;
+    --slide-width: 600px;
+    --slide-height: 600px;
     --gap: 20px;
 }
 
@@ -1017,7 +1024,6 @@ main section h1 {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    height: 65vh;
     width: 100%;
 }
 
@@ -1032,13 +1038,12 @@ main section h1 {
 
 .links-wrapper a {
     display: inline-block;
-    padding: 30px 15px;
+    padding: 25px 10px;
     color: #666;
     text-decoration: none;
     font-size: var(--small-font);
     font-weight: bolder;
     width: 90%;
-    height: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1114,8 +1119,10 @@ main section h1 {
 /* Responsive */
 @media (max-width: 768px) {
     :root {
-        --slider-width: 95vw;
+        --slider-width: 80vw;
         --slide-width: 80vw;
+        --slide-height: 80vw;
+        --gap: 20px;
     }
 
     .projects-wrapper {
