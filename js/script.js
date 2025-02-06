@@ -19,7 +19,7 @@ document.addEventListener('click', (event) => {
 window.addEventListener("scroll", function () {
   const scrollToTopButton = document.getElementById("scrollToTopButton");
 
-  if (window.scrollY > 100) {
+  if (window.scrollY > 1000) {
     scrollToTopButton.style.display = "flex"; // Affiche le bouton
   } else {
     scrollToTopButton.style.display = "none"; // Cache le bouton quand on est en haut
