@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -16,9 +16,15 @@
 <body>
     <section id="presentation-section" class="who-i-am">
         <div class="presentation-section">
-            <h1>CANDIDATURE SPONTANÉE<br>APPRENTISSAGE</h1>
-            <h2>Vassili RÉGNIER</h2>
-            <button onclick="scrollDown()" class="scroll-down-btn">Découvrir mon profil</button>
+            <h1>Vassili RÉGNIER</h1>
+            <h2>CANDIDATURE<br>APPRENTISSAGE</h2>
+            <div class="button-wrapper">
+                <button onclick="scrollDown()" class="scroll-down-btn">Découvrir mon profil</button>
+                <button onclick="scrollDown()" class="scroll-down-btn">Découvrir mon profil</button>
+    
+            </div>
+
+
             <!--
             "Découvrir mon profil"
             "En savoir plus sur moi"
@@ -43,11 +49,13 @@
             -->
 
         </div>
-        <button onclick="scrollDown()" class="arrow"><i class="fa-solid fa-angles-down"></i></button>
     </section>
     <nav>
         <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
-        
+    
+
+        <a class="download-cv-button" href="media/CV_REGNIER_VASSILI.pdf" download="CV_REGNIER_VASSILI.pdf">MON CV</a>
+
        <ul class="menu">
             <li class="current-page"><a href="#presentation-section">PRÉSENTATION</a></li>
             <li ><a href="#education-section">FORMATIONS</a></li>
@@ -58,18 +66,24 @@
         </ul>
 
         <div class="progress-indicator"></div>
+
+        <!-- Switch Button -->
+        <div class="switch-container">
+            <input type="checkbox" id="darkmode-toggle">
+            <label for="darkmode-toggle" class="switch">
+                <div class="icon moon"><i class="fa-solid fa-moon"></i></div>
+                <div class="icon sun"><i class="fa-solid fa-sun"></i></div>
+            </label>
+        </div>
+        
+
     </nav>
 
     <button id="scrollToTopButton" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
 
-    <main>
-        <section id="presentation-section" class="my-proposal">
-            
-            <h1>MA PROPOSITION :</h1>
-            <p class="p-important"><strong>Un contrat d'apprentissage</strong></p>
-            <a class="download-cv-button" href="media/CV_REGNIER_VASSILI.pdf" download="CV_REGNIER_VASSILI.pdf">DÉCOUVRIR<br>MON CV</a>
+    <main>    
 
-        </section>
+        <div class="spacer"></div> <!-- Élément vide pour éviter le saut -->
 
         <section id="presentation-section" class="about-me">
             <h1>CE QU'IL FAUT SAVOIR SUR MOI <i class="fas fa-flag"></i></h1>
@@ -199,7 +213,7 @@
                     <hr>
                     <h2>BACCALAURÉAT (NSI & MATHS)</h2>
                     <p class="place">Lycée St Louis - Ste Marie (Gignac-La-Nerthe)</p>
-                    <p class="mention"><i class="fas fa-check"></i> MENTION TRÈS BIEN <i class="fas fa-check"></i></p>
+                    <p class="mention"><i class="fas fa-check"></i>  MENTION TRÈS BIEN <i class="fas fa-check"></i></p>
                 </li>
                 <li>
                     <p class="date">2020</p>
@@ -433,8 +447,6 @@
                 </li>
             </ul>
         </section>
-     
-        
 
     </main>
 

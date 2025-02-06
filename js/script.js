@@ -1,21 +1,21 @@
 // Menu
-const toggle = document.getElementById('menu-toggle');
+const toggle_n = document.getElementById('menu-toggle');
 const menu = document.querySelector('.menu');
 
-toggle.addEventListener('click', (event) => {
+toggle_n.addEventListener('click', (event) => {
   menu.classList.toggle('show');
   event.stopPropagation(); // Empêche la propagation du clic vers le document
 });
 
 // Cache le menu lorsqu'on clique autre part que sur le bouton menu
 document.addEventListener('click', (event) => {
-  if (!toggle.contains(event.target)) {
+  if (!toggle_n.contains(event.target)) {
     menu.classList.remove('show');
   }
 });
 
 
-// Bouton pour remonter
+// Affichage du bouton pour remonter en haut de la page
 window.addEventListener("scroll", function () {
   const scrollToTopButton = document.getElementById("scrollToTopButton");
 
@@ -25,6 +25,55 @@ window.addEventListener("scroll", function () {
     scrollToTopButton.style.display = "none"; // Cache le bouton quand on est en haut
   }
 });
+
+
+// Affichage du bouton pour télécharger le cv
+window.addEventListener("scroll", function () {
+  const cvButton = document.querySelector(".download-cv-button");
+  let windowWidth = window.innerWidth;
+  if (windowWidth > 1000) return;
+  if (window.scrollY > 115 ) {
+    cvButton.style.display = "flex"; // Affiche le bouton
+  } else {
+    cvButton.style.display = "none"; // Cache le bouton quand on est en haut
+  }
+});
+
+
+
+
+const toggle = document.getElementById('darkmode-toggle');
+        const body = document.body;
+        
+        // Load theme from local storage or set default
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+            toggle.checked = currentTheme === 'dark';
+        }
+
+        // Switch theme and save in localStorage
+        toggle.addEventListener('change', function() {
+            if (toggle.checked) {
+                body.classList.add('dark');
+                body.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.add('light');
+                body.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 // Fonction pour remonter en haut de la page
 function scrollToTop() {
@@ -37,11 +86,10 @@ function scrollToTop() {
 
 // Bouton pour déscendre jusqu'au boutons
 function scrollDown() {
-  const targetElement = document.querySelector('.my-proposal');
-        targetElement.scrollIntoView({
-            behavior: 'smooth', // Défilement fluide
-            block: 'start' // Alignement du haut de l'élément avec le haut de la fenêtre
-        });
+    window.scrollBy({
+        top: window.innerHeight,  // Défiler de la hauteur de la fenêtre (100vh)
+        behavior: 'smooth'        // Ajouter une transition fluide
+    });
 }
 
 

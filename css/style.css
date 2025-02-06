@@ -108,11 +108,6 @@ body {
 }
 
 @media (max-width: 1000px) {
-    /*
-    .who-i-am {
-        height: 80vh;
-    }
-    */
 
     .who-i-am::before {
         background: url("../media/accueil_tel_4.jpg") no-repeat center center/cover;
@@ -131,12 +126,13 @@ body {
 }
 
 .presentation-section h1 {
-    font-size: var(--large-font);
+    font-size: var(--extra-large-font);
     flex: none;
     text-align: center;
     margin: 0;
     font-weight: 1000;
-    padding-top: 10vh;
+    line-height: 50px;
+    margin-bottom: 15vh;
 }
 
 .presentation-section h2 {
@@ -144,13 +140,21 @@ body {
     text-align: center;
 }
 
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    flex-direction: column;
+}
+
 .scroll-down-btn {
-    margin-top: 15vh;
     border: 1px solid var(--light-color);
     height: 60px;
     width: 80%;
+    margin: 5px;
     border-radius: 2px;
-    padding: 5px;
+    padding: 3px;
     background-color: transparent;
     font-size: var(--medium-font);
     color: var(--light-color);
@@ -162,41 +166,7 @@ body {
     background-color: #e0e0e005;
 }
 
-.arrow {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    font-size: 50px; /* Taille de la flèche */
-    color: var(--blue-color); /* Couleur de la flèche */
-    display: inline-block; /* Nécessaire pour appliquer 'transform' */
-    animation: bounce 2s infinite ease-in-out; /* Animation fluide infinie */
-    cursor: pointer; /* Montre que la flèche est interactive */
-    background: transparent;
-    border: 0;
 
-    display: none; /* A supprimer pour remettre la flêche */
-}
-
-@keyframes bounce {
-    0% {
-        transform: translateY(0) translateX(-50%); /* Position initiale */
-        opacity: 0;
-    }
-    10% {
-        transform: translateY(5px) translateX(-50%);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(20px) translateX(-50%); /* Position initiale */
-        opacity: 0;
-    }
-}
-
-/* Effet de survol */
-.arrow:hover {
-    color: var(--gold); /* Change la couleur au survol */
-    transform: (1.3);
-}
 
 /* Barre de navigation */
 nav {
@@ -348,6 +318,7 @@ nav ul li:hover {
     .progress-indicator {
         display: inline;
     }
+
 }
 
 @media (max-height: 800px) {
@@ -359,6 +330,195 @@ nav ul li:hover {
         height: 70px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* Styles for switch */
+.switch-container {
+    position: relative;
+    right: 20px;
+    width: 80px;
+}
+
+input {
+    display: none;
+}
+
+.switch {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(0) rotate(0deg);
+    font-size: 24px;
+    transition: 0.3s ease;
+    transition: rotate 0.8 ease, transform 0.3s ease, opacity 0.3s ease; /* Transition sur left et opacity */
+}
+
+.icon i {
+    width: 20px;
+    height: 15px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sun {
+    right: 15%;
+    color: #ffcc00;
+    opacity: 1;
+}
+
+.moon {
+    right: 15%;
+    color: #7e7e7e;
+    opacity: 0;
+}
+
+/* Checked state styles */
+input:checked + .switch {
+    background-color: #333;
+}
+
+input:checked + .switch .sun {
+    color: #7e7e7e;
+    transform: translateY(-50%) translateX(-40px) rotate(360deg);
+    opacity: 0;
+}
+
+input:checked + .switch .moon {
+    color: #fff;
+    transform: translateY(-50%) translateX(-40px) rotate(360deg);
+    opacity: 1;
+}
+
+/* Light mode */
+body.light {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark mode */
+body.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Background color transition */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+body.dark .background {
+    background-color: #333;
+}
+
+
+
+
+
+
+
+
+.download-cv-button {
+    position: relative; /* Fixe le bouton en haut à gauche */
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: var(--light-color);
+    font-size: var(--small-font);
+    font-weight: 700;
+    border-radius: 5px;
+    width: 120px;
+    height: 50px;
+    background-color: brown;
+    color: var(--background-color);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.download-cv-button::before {
+    content: "PDF";
+    display: block;
+    font-size: 13px;
+    background-color: rgb(165, 21, 21);
+    color: #fff;
+    border-radius: 3px;
+    padding: 3px 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-5px, -30%);
+    transition: 0.3s;
+    box-shadow: 10px 10px 20px #000000b9; 
+}
+
+.download-cv-button:hover::before {
+    transform: translate(-5px, -50%);
+}
+
+@media (max-width: 1000px) {
+    
+    .download-cv-button {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+    }
+
+    .switch-container {
+        position: absolute;
+        left: 15px;
+    }
+
+    .switch {
+        width: 70px;
+        height: 30px;
+    }
+
+    .switch .icon i {
+        font-size: 20px;
+        width: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 #scrollToTopButton {
     position: fixed;
@@ -386,6 +546,7 @@ nav ul li:hover {
 
 /* Définition de l'aspect global du main */
 main {
+    position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -417,63 +578,10 @@ main section h1 {
     flex: 1 1 100%;
 }
 
-/* Section ma proposition */
-.my-proposal {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
 
-.my-proposal h1 {
-    font-size: var(--large-font);
-    color: var(--dark-color);
-    padding: 2vw 0 0 0;
-}
 
-.p-important {
-    font-size: var(--large-font);
-    color: var(--gold);
-    text-align: center;
-}
 
-.download-cv-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    color: var(--light-color);
-    font-size: 20px;
-    font-weight: 700;
-    border-radius: 5px;
-    width: 180px;
-    height: 80px;
-    position: relative;
-    transition: 0.3s;
-    background-color: brown;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
-}
 
-.download-cv-button::before {
-    content: "PDF";
-    display: block;
-    font-size: 13px;
-    background-color: rgb(165, 21, 21);
-    color: #fff;
-    border-radius: 3px;
-    padding: 3px 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-5px, -30%);
-    transition: 0.3s;
-    box-shadow: 10px 10px 20px #000000b9; 
-}
-
-.download-cv-button:hover::before {
-    transform: translate(-5px, -50%);
-}
 
 /* Section à propos de moi */
 .about-me {
@@ -705,6 +813,10 @@ main section h1 {
     font-weight: 500;
     text-align: center;
     padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .education h2 {
