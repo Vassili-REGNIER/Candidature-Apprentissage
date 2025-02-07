@@ -16,6 +16,12 @@ let index = 0;
 
 
 
+// Redéfinit les vh (view height) pour corriger des bugs d'affichage sur mobile
+function setScreenHeight() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+setScreenHeight();
+window.addEventListener('resize', setScreenHeight);
 
 
 

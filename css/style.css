@@ -80,14 +80,14 @@ body {
 .carousel {
     display: flex;
     width: 200vw; /* Deux sections de 100vw */
-    height: 100vh;
+    height: calc(var(--vh) * 100);
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-section {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh) * 100);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,13 +173,14 @@ body {
     margin: 0;
     font-weight: 1000;
     line-height: 50px;
-    margin-bottom: 10vh;
+    margin-bottom: calc(var(--vh) * 10);
+
 }
 
 .carousel h2 {
     font-size: var(--large-font);
     text-align: center;
-    margin: 5vh;
+    margin: calc(var(--vh) * 10) 0;
 }
 
 .button-wrapper {
@@ -218,10 +219,8 @@ body {
 
 .section-2 .wrapper {
     background-color: var(--light-color);
-    width: 90%;
-    height: 90%;
-    padding: 20px;
-
+    padding: 100px;
+    border-radius: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -241,6 +240,10 @@ body {
     margin: 20px;
     font-size: var(--medium-font);
     font-weight: 700;
+}
+
+.section-2 .contact-list i {
+    color: var(--gold);
 }
 
 .section-2 .button-wrapper button {
@@ -719,7 +722,7 @@ main section h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10vh;
+    gap: 30px;
 }
 
 .about-me .mind-map-bottom {
@@ -1367,7 +1370,7 @@ main section h1 {
 
 @media (max-height: 700px) {
     :root {
-        --slide-height: 60vh;
+        --slide-height: 500px;
     }
 }
   
