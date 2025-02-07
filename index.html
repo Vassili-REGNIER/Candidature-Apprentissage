@@ -14,42 +14,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
-    <section id="presentation-section" class="who-i-am">
-        <div class="presentation-section">
-            <h1>Vassili RÉGNIER</h1>
-            <h2>CANDIDATURE<br>APPRENTISSAGE</h2>
-            <div class="button-wrapper">
-                <button onclick="scrollDown()" class="scroll-down-btn">Découvrir mon profil</button>
-                <button onclick="scrollDown()" class="scroll-down-btn">Découvrir mon profil</button>
-    
+         
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-section section-1">
+                <div class="wrapper">
+                    <h1>Vassili RÉGNIER</h1>
+                    <h2>CANDIDATURE<br>APPRENTISSAGE</h2>
+                    <div class="button-wrapper">
+                        <button id="next">Me contacter</button>
+                        <button onclick="scrollDown()">Découvrir mon profil</button>
+                    </div>
+                </div>
             </div>
+            <div class="carousel-section section-2 custom-pattern-bigger">
+                <div class="wrapper">
+                    <h1>ME CONTACTER</h1>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <p>regnier.vassili.pro@gmail.com</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <p>06 84 69 55 49</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Marseille, Bouches-du-Rhônes</p>
+                        </li>
+                        <li>
+                            <i class="fab fa-linkedin"></i>
+                            <p>@zigiproduction</p>
+                        </li>
+                        <li>
+                            <i class="fab fa-github"></i>
+                            <p>r24030678</p>
+                        </li>
+                    </ul>
 
-
-            <!--
-            "Découvrir mon profil"
-            "En savoir plus sur moi"
-            "Accéder à ma présentation"
-            "Voir mon parcours"
-            "Explorer mon CV"
-            "Commencer la visite"
-            "Entrer sur mon site"
-            "Qui suis-je ?"
-            "Découvrir mon projet"
-            "En route pour l’apprentissage"
-            "C’est parti !"
-            "Découvrez mon potentiel"
-            "Suivez-moi !"
-            "Prêt à en savoir plus ?"
-            "Faites connaissance avec moi"
-            "Mon parcours en un clic !"
-            "Entrez dans mon univers"
-            "L’aventure commence ici"
-            "Apprentissage : pourquoi moi ?"
-            "Découvrir mon talent"
-            -->
-
+                    <div class="button-wrapper">
+                        <button id="prev">Retour</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+
+
+
     <nav>
         <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
     

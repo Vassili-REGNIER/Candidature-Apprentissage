@@ -27,7 +27,9 @@
     font-family: "LeagueSpartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-
+html {
+    overflow-x: hidden;
+}
 
 /* Scroll bar for Chrome, Edge and Safari */
 *::-webkit-scrollbar {
@@ -63,41 +65,89 @@
 
 body {
     background-color: var(--light-color);
-
+    overflow-x: hidden;
 }
 
-/* Section présentation */
-.who-i-am {
-    margin: 0;
-    padding: 0;
-    position: relative; /* Nécessaire pour bien gérer le contenu et le pseudo-élément */
-    width: 100%;
-    height: 100vh;
-    min-height: 500px;
-    overflow: hidden;
+
+
+
+
+
+.carousel {
     display: flex;
-    justify-content: center;
-    align-items: end;
+    width: 200vw; /* Deux sections de 100vw */
+    height: 100vh;
+    transition: transform 0.5s ease-in-out;
 }
 
-.who-i-am::before {
-    content: ''; /* Nécessaire pour ajouter un pseudo-élément */
+.carousel-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: white;
+}
+
+.section-1::before {
+    content: '';
     position: absolute;
     top: 0;
-    right: 0; /* à mettre à 0*/
+    right: 0;
     width: 100%;
     height: 100%;
     background: url("../media/accueil_large.jpg") no-repeat right center;
-    background-size: cover; /* Redimensionne l'image proportionnellement */
-    filter: brightness(20%); /* Réduit la luminosité à 50% */
-    z-index: -1; /* Place l'image floutée derrière le texte */
+    background-size: cover;
+    filter: brightness(50%);
+    z-index: -1;
 }
 
-.presentation-section {
+.section-1 .wrapper {
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.section-2 {
+    left: 100vw;
+}
+
+.nav-buttons {
+    position: fixed;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-buttons button {
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+
+
+
+
+.carousel-container .section-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -107,10 +157,115 @@ body {
     color: white;
 }
 
+
+
+
+
+
+.carousel h1 {
+    font-size: var(--extra-large-font);
+    flex: none;
+    text-align: center;
+    margin: 0;
+    font-weight: 1000;
+    line-height: 50px;
+    margin-bottom: 10vh;
+}
+
+.carousel h2 {
+    font-size: var(--large-font);
+    text-align: center;
+    margin: 5vh;
+}
+
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    flex-direction: column;
+    width: 100%;
+}
+
+.button-wrapper button {
+    border: 1px solid var(--light-color);
+    height: 60px;
+    width: 90%;
+    max-width: 700px;
+    margin: 5px;
+    border-radius: 2px;
+    padding: 3px;
+    background-color: transparent;
+    font-size: var(--medium-font);
+    color: var(--light-color);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.button-wrapper button:hover {
+    background-color: #e0e0e005;
+}
+
+
+.section-2 {
+    color: var(--dark-color);
+    background-color: var(--background-color);
+}
+
+.section-2 .wrapper {
+    background-color: var(--light-color);
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section-2 .contact-list {
+    list-style: none;   
+}
+
+.section-2 .contact-list li {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    font-size: var(--medium-font);
+    font-weight: 700;
+}
+
+.section-2 .button-wrapper button {
+    border: 1px solid var(--dark-color);
+    color: var(--dark-color);
+
+}
+
+.button-wrapper button:hover {
+    background-color: #00000010;
+}
+
+
+
+
+
+
 @media (max-width: 1000px) {
 
-    .who-i-am::before {
+    .section-1::before {
         background: url("../media/accueil_tel_4.jpg") no-repeat center center/cover;
+    }
+
+    .section-1 .wrapper {
+        width: 100%;
+    }
+
+    .section-1 .button-wrapper button {
+        width: 80%;
     }
 
     .presentation-section {
@@ -125,46 +280,24 @@ body {
     }
 }
 
-.presentation-section h1 {
-    font-size: var(--extra-large-font);
-    flex: none;
-    text-align: center;
-    margin: 0;
-    font-weight: 1000;
-    line-height: 50px;
-    margin-bottom: 15vh;
-}
 
-.presentation-section h2 {
-    font-size: var(--large-font);
-    text-align: center;
-}
 
-.button-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 150px;
-    flex-direction: column;
-}
 
-.scroll-down-btn {
-    border: 1px solid var(--light-color);
-    height: 60px;
-    width: 80%;
-    margin: 5px;
-    border-radius: 2px;
-    padding: 3px;
-    background-color: transparent;
-    font-size: var(--medium-font);
-    color: var(--light-color);
-    cursor: pointer;
-    font-weight: 500;
-}
 
-.scroll-down-btn:hover {
-    background-color: #e0e0e005;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -360,7 +493,7 @@ input {
     justify-content: space-between;
     width: 80px;
     height: 40px;
-    background-color: #ddd;
+    background-color: var(--light-color);
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -387,7 +520,7 @@ input {
 
 .sun {
     right: 15%;
-    color: #ffcc00;
+    color: var(--gold);
     opacity: 1;
 }
 
@@ -415,32 +548,19 @@ input:checked + .switch .moon {
 }
 
 /* Light mode */
+/*
 body.light {
-    background-color: #fff;
+    background-color: var();
     color: #333;
 }
-
+*/
 /* Dark mode */
+/*
 body.dark {
     background-color: #333;
     color: #fff;
 }
-
-/* Background color transition */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-body.dark .background {
-    background-color: #333;
-}
-
+*/
 
 
 
@@ -1296,7 +1416,23 @@ main section h1 {
 }
 
 
-
+.custom-pattern-bigger {
+	background:
+		  radial-gradient(50% 50% at 100% 0,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50% at 0 100%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%) 65px 65px;
+	background-size: 130px 130px;
+	background-color: #FFFFFF;
+}
 
 
 

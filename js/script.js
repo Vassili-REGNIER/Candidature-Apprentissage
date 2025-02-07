@@ -1,3 +1,31 @@
+let index = 0;
+        const carousel = document.querySelector('.carousel');
+        const sections = document.querySelectorAll('.carousel-section');
+
+        document.getElementById('next').addEventListener('click', () => {
+            index = (index + 1) % sections.length;
+            carousel.style.transform = `translateX(${-index * 100}vw)`;
+        });
+
+        document.getElementById('prev').addEventListener('click', () => {
+            index = (index - 1 + sections.length) % sections.length;
+            carousel.style.transform = `translateX(${-index * 100}vw)`;
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Menu
 const toggle_n = document.getElementById('menu-toggle');
 const menu = document.querySelector('.menu');
