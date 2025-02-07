@@ -69,18 +69,17 @@ html, body {
 
 body {
     background-color: var(--light-color);
+    
+}
+
+.carousel-container {
     overflow-x: hidden;
 }
 
-
-
-
-
-
 .carousel {
     display: flex;
-    width: 200vw; /* Deux sections de 100vw */
-    height: 100vh;
+    width: 200%; /* Deux sections de 100vw */
+    height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -295,7 +294,7 @@ nav {
     height: 100px;
     width: 100%;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
@@ -308,7 +307,8 @@ nav {
     list-style: none;
     font-weight: 700;
     color: var(--light-color);
-    margin-right: 2vw;
+    padding: 5px;
+    overflow-x: hidden;
 }
 
 .menu li {
@@ -369,8 +369,6 @@ nav ul li:hover {
     }
 
     .menu {
-        margin: 0;
-        padding: 0;
         display: none;
         flex-direction: column;
         align-items: start;
@@ -390,19 +388,27 @@ nav ul li:hover {
     }
 
     .menu li {
+        transform: translateX(100vw);
+        opacity: 0;
         border: 0;
         height: 50px;
         justify-content: left;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        overflow: visible;
     }
 
     .menu li:hover {
         border: 0;
     }
 
+    .menu.show li {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
     .menu li a {
         pointer-events: none; /* Lien non cliquable */
         opacity: 0;
-        transform: translateX(100px); /* Départ de la droite */
         transition: opacity 0.3s ease-out, transform 0.3s ease-out;
     }
 
@@ -695,7 +701,7 @@ main section h1 {
     align-items: center;
     justify-content: center;
     gap: 30px;
-    background-color: var(--light-color);
+    background-color: var(--background-color);
 }
 
 .about-me .mind-map {
@@ -712,7 +718,7 @@ main section h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 10vh;
+    gap: 30px;
 }
 
 .about-me .mind-map-bottom {
@@ -728,7 +734,7 @@ main section h1 {
 .about-me .info-item {
     font-size: var(--small-font);
     gap: 30px;
-    width: 30vw;
+    width: 35vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -789,7 +795,7 @@ main section h1 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: var(--background-color);
+    background-color: var(--light-color);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     width: 100%;    
 }
@@ -803,15 +809,16 @@ main section h1 {
     margin: 5px;
     padding: 5px;
     color: var(--dark-color);
-    background-color: var(--light-color);
 }
 
 .about-me .info-item p {
-    padding: 2px;
-    margin: 2px;
-    box-shadow: rgba(223, 223, 223, 0.02) 0px 1px 3px 0px, rgba(179, 179, 179, 0.15) 0px 0px 0px 1px; 
+    padding: 5px;
+    margin: 5px;
+    background-color: #d8d3bb;
+    box-shadow: rgba(223, 223, 223, 0.1) 0px 1px 3px 0px, rgba(179, 179, 179, 0.25) 0px 0px 0px 1px; 
     border-radius: 10px;
     font-weight: 100; 
+    text-align: center;
 }
 
 .about-me p i {
@@ -834,22 +841,7 @@ main section h1 {
 }
 
 
-/* Section me contacter */
 
-
-.contact-me ul {
-    list-style: none;
-}
-
-.contact-me ul li {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 10px;
-    margin: 5px;
-    font-size: var(--medium-font);
-    font-weight: 700;
-}
 
 /* Section formations */
 .education {
@@ -1384,22 +1376,21 @@ main section h1 {
 
 .custom-pattern {
 	background:
-		  radial-gradient(50% 50% at 100% 0,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		  radial-gradient(50% 50% at 100% 0,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		  radial-gradient(50% 50% at 0 100%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
 		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%) 27px 27px;
-	background-size: 54px 54px;
-	background-color: #FFFFFF;
+		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
+		   #0000 96%) 32px 32px;
+	background-size: 64px 64px;
+	background-color: #F3EFDD;
 }
-
 
 .custom-pattern-bigger {
 	background:
@@ -1434,6 +1425,9 @@ footer {
     color: white;
 }
 
+
+/* Section me contacter */
+
 footer .contact-me {
     background-color: var(--dark-color);
     background-image: none;
@@ -1448,10 +1442,21 @@ footer .contact-me h1 {
     margin: 20px  0 40px 0;
 }
 
+footer .contact-me ul {
+    list-style: none;
+}
+
+footer .contact-me ul li {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    margin: 5px;
+    font-size: var(--small-font);
+    font-weight: 700;
+}
+
 footer .contact-me i {
     color: var(--gold);
 }
 
-footer .contact-me ul li p {
-    font-size: var(--small-font);
-}

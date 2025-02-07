@@ -1,3 +1,4 @@
+// Gère le scroll du carroussel
 let index = 0;
         const carousel = document.querySelector('.carousel');
         const sections = document.querySelectorAll('.carousel-section');
@@ -12,7 +13,8 @@ let index = 0;
             carousel.style.transform = `translateX(${-index * 100}vw)`;
         });
 
-
+// Positionne le carrousel correctement
+carousel.style.transform = `translateX(${-index * 100}vw)`;
 
 
 
@@ -22,15 +24,6 @@ function setScreenHeight() {
 }
 setScreenHeight();
 window.addEventListener('resize', setScreenHeight);
-
-
-
-
-
-
-
-
-
 
 // Menu
 const toggle_n = document.getElementById('menu-toggle');
