@@ -27,9 +27,13 @@
     font-family: "LeagueSpartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-html {
+/*
+html, body {
     overflow-x: hidden;
+    width: 100%;
 }
+*/
+
 
 /* Scroll bar for Chrome, Edge and Safari */
 *::-webkit-scrollbar {
@@ -252,8 +256,6 @@ body {
 
 
 
-
-
 @media (max-width: 1000px) {
 
     .section-1::before {
@@ -266,17 +268,6 @@ body {
 
     .section-1 .button-wrapper button {
         width: 80%;
-    }
-
-    .presentation-section {
-        width: 100%;
-        height: 100%;
-        gap: 30px;
-        color: white;
-    }
-
-    .presentation-section p {
-        line-height: 35px;
     }
 }
 
@@ -610,6 +601,7 @@ body.dark {
 @media (max-width: 1000px) {
     
     .download-cv-button {
+        display: none;
         position: fixed;
         bottom: 15px;
         left: 15px;
