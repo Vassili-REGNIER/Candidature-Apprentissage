@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RÉGNIER Vassili</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 <body>
@@ -23,40 +18,58 @@
                     <h2>CANDIDATURE<br>APPRENTISSAGE</h2>
                     <div class="button-wrapper">
                         <button id="next">Me contacter</button>
-                        <button onclick="scrollDown()">Découvrir mon profil</button>
+                        <button onclick="scrollDown()">Me découvrir</button>
                     </div>
                 </div>
             </div>
             <div class="carousel-section section-2 custom-pattern-bigger">
-                <div class="wrapper">
-                    <h1>ME CONTACTER</h1>
-                    <ul class="contact-list">
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <p>regnier.vassili.pro@gmail.com</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <p>06 84 69 55 49</p>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <p>Marseille, Bouches-du-Rhônes</p>
-                        </li>
-                        <li>
-                            <i class="fab fa-linkedin"></i>
-                            <p>@zigiproduction</p>
-                        </li>
-                        <li>
-                            <i class="fab fa-github"></i>
-                            <p>r24030678</p>
-                        </li>
-                    </ul>
+                <div class="contact-wrapper">
+                    
 
-                    <div class="button-wrapper">
-                        <button id="prev">Retour</button>
+                    <div class="under-wrapper">
+                        <h2>MES COORDONNÉES</h2>
+                        <form id="contact-form" action="https://formspree.io/f/xanqbdnl" method="POST">
+                            <label>Email:</label>
+                            <input type="email" name="email" />
+                            <label>Message:</label>
+                            <input type="text" name="message" />
+                            <button id="contact-form-button">Submit</button>
+                            <p id="contact-form-status"></p>
+                        </form>
+                    </div>
+                
+
+                    <div class="under-wrapper">
+                        <h2>ME CONTACTER</h2>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <p>regnier.vassili.pro@gmail.com</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <p>06 84 69 55 49</p>
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Marseille, Bouches-du-Rhônes</p>
+                            </li>
+                            <li>
+                                <i class="fab fa-linkedin"></i>
+                                <p>@zigiproduction</p>
+                            </li>
+                            <li>
+                                <i class="fab fa-github"></i>
+                                <p>r24030678</p>
+                            </li>
+                        </ul>
                     </div>
                 </div>
+
+                <div class="button-wrapper">
+                    <button id="prev">Retour</button>
+                </div>
+            
             </div>
         </div>
     </div>
@@ -103,11 +116,11 @@
                 <div class="mind-map-left">
                     <div class="info-item">
                         <div class="text-wrapper">
-                            <h2 class="color-1 custom-pattern">GÉNÉRALITÉS</h2>
-                            <p>18 ans</p>
-                            <p>Marseille 16e</p>
-                            <p>Permis Voiture</p>
-                            <p>Permis Bateau Cotier</p>
+                            <h2 class="color-1 custom-pattern-beige">INFORMATIONS DIVERSES</h2>
+                            <p><i class="fas fa-circle"></i> 18 ans</p>
+                            <p><i class="fas fa-circle"></i> Marseille 16e</p>
+                            <p><i class="fas fa-circle"></i> Permis Voiture</p>
+                            <p><i class="fas fa-circle"></i> Permis Bateau Cotier</p>
                         </div>
                         <div class="logo-wrapper">
                             <i class="fas fa-user"></i>
@@ -116,12 +129,12 @@
                 
                     <div class="info-item">
                         <div class="text-wrapper">
-                            <h2 class="color-2 custom-pattern">MES VALEURS</h2>
-                            <p>Communication</p>
-                            <p>Honnêteté</p>
-                            <p>Respect</p>
-                            <p>Esprit d'équipe</p>
-                            <p>Bienveillance</p>
+                            <h2 class="color-2 custom-pattern-beige">MES VALEURS</h2>
+                            <p><i class="fas fa-circle"></i> Communication</p>
+                            <p><i class="fas fa-circle"></i> Honnêteté</p>
+                            <p><i class="fas fa-circle"></i> Respect</p>
+                            <p><i class="fas fa-circle"></i> Esprit d'équipe</p>
+                            <p><i class="fas fa-circle"></i> Bienveillance</p>
                         </div>
                         <div class="logo-wrapper">
                             <i class="fas fa-hands-helping"></i>
@@ -137,12 +150,12 @@
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <div class="text-wrapper">
-                            <h2 class="color-3 custom-pattern">SPORT</h2>
-                            <p>aviron</p>
-                            <p>5 médailles d'or (national)</p>
-                            <p>1 médaille de bronze (international)</p>
-                            <p>Aciduité aux entrainements</p>
-                            <p>Compétitions & Stages réguliers depuis 8 ans</p>
+                            <h2 class="color-3 custom-pattern-beige">ACTIVITÉS SPORTIVES</h2>
+                            <p><i class="fas fa-circle"></i> aviron</p>
+                            <p><i class="fas fa-circle"></i> 5 médailles d'or (national)</p>
+                            <p><i class="fas fa-circle"></i> 1 médaille de bronze (international)</p>
+                            <p><i class="fas fa-circle"></i> Aciduité aux entrainements</p>
+                            <p><i class="fas fa-circle"></i> Compétitions & Stages réguliers depuis 8 ans</p>
                         </div>
                     </div>
                     
@@ -151,14 +164,14 @@
                             <i class="fas fa-fist-raised"></i>
                         </div>
                             <div class="text-wrapper">
-                            <h2 class="color-4 custom-pattern">FIABILITÉ ET EXPERTISE</h2>
-                            <p>Prêt à m'investir</p>
-                            <p>Grande disponibilité</p>
-                            <p>Confiace</p>
-                            <p>Rigueur</p>
-                            <p>Maîtrise précise des concepts</p>
-                            <p>Adaptation</p>
-                            <p>Méthodologie précise</p>
+                            <h2 class="color-4 custom-pattern-beige">FIABILITÉ & EXPERTISE</h2>
+                            <p><i class="fas fa-circle"></i> Prêt à m'investir</p>
+                            <p><i class="fas fa-circle"></i> Grande disponibilité</p>
+                            <p><i class="fas fa-circle"></i> Confiace</p>
+                            <p><i class="fas fa-circle"></i> Rigueur</p>
+                            <p><i class="fas fa-circle"></i> Maîtrise précise des concepts</p>
+                            <p><i class="fas fa-circle"></i> Adaptation</p>
+                            <p><i class="fas fa-circle"></i> Méthodologie précise</p>
                         </div>
                     </div>
                 </div>
@@ -168,16 +181,16 @@
                             <i class="fas fa-university"></i>
                         </div>
                         <div class="text-wrapper">
-                            <h2 class="color-1 custom-pattern">SCOLARITÉ</h2>
-                            <p>BUT Informatique</p>
-                            <p>Première Année</p>
-                            <p>Aix-en-Provence</p>
-                            <p>Major de promo (1er semestre)</p>
-                            <p>Aucune Absence</p>
-                            <p>Section Sport (Aviron)</p>
-                            <p>Finale Concours MSF</p>
-                            <p>Permis Voiture</p>
-                            <p>Permis Bateau Cotier</p>
+                            <h2 class="color-1 custom-pattern-beige">SCOLARITÉ</h2>
+                            <p><i class="fas fa-circle"></i> BUT Informatique</p>
+                            <p><i class="fas fa-circle"></i> Première Année</p>
+                            <p><i class="fas fa-circle"></i> Aix-en-Provence</p>
+                            <p><i class="fas fa-circle"></i> Major de promo (1er semestre)</p>
+                            <p><i class="fas fa-circle"></i> Aucune Absence</p>
+                            <p><i class="fas fa-circle"></i> Section Sport (Aviron)</p>
+                            <p><i class="fas fa-circle"></i> Finale Concours MSF</p>
+                            <p><i class="fas fa-circle"></i> Permis Voiture</p>
+                            <p><i class="fas fa-circle"></i> Permis Bateau Cotier</p>
                         </div>
                     </div>
                 </div>
@@ -209,6 +222,38 @@
                     <h2>BREVET DES COLLÈGES</h2>
                     <p class="place">Collège Sainte Elisabeth (Les Pennes Mirabeau)</p>
                     <p class="mention"><i class="fas fa-check"></i> MENTION TRÈS BIEN <i class="fas fa-check"></i></p>
+                </li>
+            </ul>
+        </section>
+
+        <section id="experience-section" class="experience">
+            <h1>MES EXPÉRIENCES <i class="fa-solid fa-briefcase"></i></h1>
+            
+            <ul class="experience-list">
+                <li class="experience-list-item">
+                    <p class="date">2024</p>
+                    <hr>
+                    <h2>Service Civique - CAM</h2>
+                    <p class="place">Cerle de l'Aviron de Marseille (13)</p>
+                    <ul class="under-list">
+                        <li><i class="fa-solid fa-circle"></i> Transmettre mes connaissances et mon savoir-faire sportif</li>
+                        <li><i class="fa-solid fa-circle"></i> Encadrer des groupes de jeunes (12-14 ans)</li>
+                        <li><i class="fa-solid fa-circle"></i> Organiser et préparer les activités</li>
+                        <li><i class="fa-solid fa-circle"></i> Garantir la sécurité des jeunes</li>
+                        <li><i class="fa-solid fa-circle"></i> Veiller au bon état et à l'entretien du matériel et des équipements</li>
+                        <li><i class="fa-solid fa-circle"></i> Rendre compte de mon activité aux responsables du CAM</li>       
+                    </ul>
+                </li>
+                <li class="experience-list-item">
+                    <p class="date">2021</p>
+                    <hr>
+                    <h2>Stage - IGM Robotique</h2>
+                    <p class="place">Pôle d'activités de Rousset (13)</p>
+                    <ul class="under-list">
+                        <li><i class="fa-solid fa-circle"></i> Découverte du fonctionnement d'une entreprise dans le domaine robotique</li>
+                        <li><i class="fa-solid fa-circle"></i> Observation des processus de développement et de production</li>
+                        <li><i class="fa-solid fa-circle"></i> Participation à des projets techniques</li>      
+                    </ul>
                 </li>
             </ul>
         </section>
@@ -333,44 +378,14 @@
             </div>
         </section>
 
-        <section id="experience-section" class="experience">
-            <h1>MES EXPÉRIENCES <i class="fa-solid fa-briefcase"></i></h1>
-            
-            <ul class="experience-list">
-                <li class="experience-list-item">
-                    <p class="date">2024</p>
-                    <hr>
-                    <h2>Service Civique - CAM</h2>
-                    <p class="place">Cerle de l'Aviron de Marseille (13)</p>
-                    <ul class="under-list">
-                        <li><i class="fa-solid fa-circle"></i> Transmettre mes connaissances et mon savoir-faire sportif</li>
-                        <li><i class="fa-solid fa-circle"></i> Encadrer des groupes de jeunes (12-14 ans)</li>
-                        <li><i class="fa-solid fa-circle"></i> Organiser et préparer les activités</li>
-                        <li><i class="fa-solid fa-circle"></i> Garantir la sécurité des jeunes</li>
-                        <li><i class="fa-solid fa-circle"></i> Veiller au bon état et à l'entretien du matériel et des équipements</li>
-                        <li><i class="fa-solid fa-circle"></i> Rendre compte de mon activité aux responsables du CAM</li>       
-                    </ul>
-                </li>
-                <li class="experience-list-item">
-                    <p class="date">2021</p>
-                    <hr>
-                    <h2>Stage - IGM Robotique</h2>
-                    <p class="place">Pôle d'activités de Rousset (13)</p>
-                    <ul class="under-list">
-                        <li><i class="fa-solid fa-circle"></i> Découverte du fonctionnement d'une entreprise dans le domaine robotique</li>
-                        <li><i class="fa-solid fa-circle"></i> Observation des processus de développement et de production</li>
-                        <li><i class="fa-solid fa-circle"></i> Participation à des projets techniques</li>      
-                    </ul>
-                </li>
-            </ul>
-        </section>
+        
 
         <section id="hobbies-sections" class="hobbies">
             <h1>MES LOISIRS <i class="fa-solid fa-heart"></i></h1>
             
             <ul class="hobbies-wrapper">
                 <li class="hobbies-list">
-                    <h2>CURIOSITÉ SCIENTIFIQUE <i class="fa-solid fa-atom"></i></h2>
+                    <h2 class="custom-pattern-white">CURIOSITÉ SCIENTIFIQUE <i class="fa-solid fa-atom"></i></h2>
 
                     <div class="hobbies-item astronomy-hobbies">
                         <h3>Astronomie</h3> 
@@ -387,7 +402,7 @@
                     </div>
                 </li>
                 <li class="hobbies-list">
-                    <h2>SPORT <i class="fa-solid fa-medal"></i></h3>
+                    <h2 class="custom-pattern-white">ACTIVITÉS SPORTIVES <i class="fa-solid fa-medal"></i></h3>
                     
                     <div class="hobbies-item rowing-hobbies">
                         <h3>Aviron</h3>

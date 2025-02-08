@@ -1,6 +1,8 @@
 :root {
     --dark-color: #2C2A25;
+    --dark-contrast: #;
     --light-color: #F3EFDD;
+    --light-contrast: #d8d3bb;
     --background-color: white;
     --gold: #D5AC4C;
     --extra-large-font: 65px;
@@ -9,7 +11,6 @@
     --small-font: 17px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Poppins:wght@500&family=Inter:wght@400&display=swap');
 
 @media (max-width: 800px) {
     :root {
@@ -19,6 +20,8 @@
         --small-font: 15px;
     }
 }
+
+
 
 * {
     margin: 0;
@@ -196,12 +199,26 @@ body {
 .section-2 {
     color: var(--dark-color);
     background-color: var(--background-color);
+    display: flex;
+    padding: 30px;
 }
 
-.section-2 .wrapper {
+.section-2 .contact-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section-2 .under-wrapper {
+    width: 40vw;
+    min-width: 350px;
+    height: 400px;
     background-color: var(--light-color);
     padding: 100px;
-    border-radius: 40px;
+    margin: 2.5vw;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,8 +226,15 @@ body {
     text-align: center;
 }
 
+.section-2 form input {
+    width: 200px;
+    height: 20px;
+    display: block !important;
+}
+
+
 @media (max-width: 1000px) {
-    .section-2 .wrapper {
+    .section-2 .under-wrapper {
         padding: 50px 0;
         width: 100vw;
         border-radius: 0;
@@ -235,17 +259,23 @@ body {
     color: var(--gold);
 }
 
+.section-2 .button-wrapper {
+    flex: 1 1 100%;
+}
+
 .section-2 .button-wrapper button {
     border: 1px solid var(--dark-color);
     color: var(--dark-color);
 
 }
 
-.button-wrapper button:hover {
+.section-2 .button-wrapper button:hover {
     background-color: #00000010;
 }
 
-
+.section-2 .contact-form {
+    
+}
 
 
 @media (max-width: 1000px) {
@@ -719,6 +749,7 @@ main section h1 {
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
+    
 }
 
 .about-me .mind-map-bottom {
@@ -755,6 +786,11 @@ main section h1 {
     text-align: center;
     font-size: 85px;
     color: var(--gold);
+}
+
+.about-me .text-wrapper i {
+    color: var(--dark-color);
+    font-size: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -814,18 +850,9 @@ main section h1 {
 .about-me .info-item p {
     padding: 5px;
     margin: 5px;
-    background-color: #d8d3bb;
+    background-color: var(--light-contrast);
     box-shadow: rgba(223, 223, 223, 0.1) 0px 1px 3px 0px, rgba(179, 179, 179, 0.25) 0px 0px 0px 1px; 
     border-radius: 10px;
-    font-weight: 100; 
-    text-align: center;
-}
-
-.about-me p i {
-    color: var(--light-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     text-align: center;
 }
 
@@ -921,6 +948,105 @@ main section h1 {
     font-weight: 600;
 }
 
+
+
+
+
+/* Section éxperiences */
+.experience {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--background-color);
+}
+
+.experience-list {
+    position: relative;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.experience-list::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Positionne la ligne au milieu verticalement */
+    left: 50%;
+    height: 100%; /* S'étend sur toute la largeur */
+    width: 5px;
+    background: repeating-linear-gradient(
+        to bottom,
+        var(--dark-color) 0,
+        var(--dark-color) 5px,
+        transparent 5px,
+        transparent 10px
+    ); /* Crée des pointillés */
+}
+
+.experience-list-item {
+    padding: 10px;
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 250px;
+    max-width: 85vw;
+    background-color: var(--light-color);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.experience-list-item:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7); 
+}
+
+.experience .date {
+    font-size: var(--large-font);
+}
+
+.experience .place {
+    font-family: OCR A Std, monospace;
+    font-size: var(--small-font);
+}
+
+.experience h2 {
+    font-size: var(--medium-font);
+    font-weight: 600;
+}
+
+.under-list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 5px 10px 5px;
+}
+
+.under-list i {
+    font-size: 10px;
+    color: var(--dark-color);
+}
+
+.under-list li {
+    width: 85%;
+    background-color: var(--light-contrast);
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    transition: transform 0.2s;
+    box-shadow: rgba(223, 223, 223, 0.1) 0px 1px 3px 0px, rgba(179, 179, 179, 0.25) 0px 0px 0px 1px; 
+}
+
+.under-list li:hover {
+    transform: scale(1.03);
+}
+
+
 /* Section compétences */
 .skills {
     display: flex;
@@ -928,6 +1054,7 @@ main section h1 {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    background-color: var(--light-color);
 }
 
 .skills h1 {
@@ -1024,98 +1151,9 @@ main section h1 {
     background: transparent;
 }
 
-/* Section éxperiences */
-.experience {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: var(--light-color);
-}
 
-.experience-list {
-    position: relative;
-    list-style: none;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
 
-.experience-list::before {
-    content: '';
-    position: absolute;
-    top: 0; /* Positionne la ligne au milieu verticalement */
-    left: 50%;
-    height: 100%; /* S'étend sur toute la largeur */
-    width: 5px;
-    background: repeating-linear-gradient(
-        to bottom,
-        var(--dark-color) 0,
-        var(--dark-color) 5px,
-        transparent 5px,
-        transparent 10px
-    ); /* Crée des pointillés */
-}
 
-.experience-list-item {
-    padding: 10px;
-    width: auto;
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    min-height: 250px;
-    max-width: 85vw;
-    background-color: var(--background-color);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-}
-
-.experience-list-item:hover {
-    transform: scale(1.05);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7); 
-}
-
-.experience .date {
-    font-size: var(--large-font);
-}
-
-.experience .place {
-    font-family: OCR A Std, monospace;
-    font-size: var(--small-font);
-}
-
-.experience h2 {
-    font-size: var(--medium-font);
-    font-weight: 600;
-}
-
-.under-list {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    align-items: center;
-    gap: 10px;
-    padding: 20px 5px 10px 5px;
-}
-
-.under-list i {
-    font-size: 10px;
-    color: var(--gold);
-}
-
-.under-list li {
-    width: 85%;
-    background-color: var(--light-color);
-    padding: 5px;
-    border-radius: 10px;
-    text-align: center;
-    width: auto;
-    transition: transform 0.2s;
-}
-
-.under-list li:hover {
-    transform: scale(1.03);
-}
 
 /* Section loisirs */
 .hobbies-wrapper {
@@ -1138,11 +1176,14 @@ main section h1 {
 
 .hobbies-list h2 {
     text-align: left;
-    flex: 0 1 100%;
-    margin: 10px;
+    flex: 1 1 100%;
+    margin: 5px;
+    padding: 5px;
     font-weight: 900;
     font-size: var(--medium-font);
+    border-radius: 5px;
 }
+
 
 .hobbies-item  {
     position: relative;
@@ -1374,23 +1415,7 @@ main section h1 {
 
 
 
-.custom-pattern {
-	background:
-		  radial-gradient(50% 50% at 100% 0,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%) 32px 32px;
-	background-size: 64px 64px;
-	background-color: #F3EFDD;
-}
+
 
 .custom-pattern-bigger {
 	background:
@@ -1410,7 +1435,41 @@ main section h1 {
 	background-color: #FFFFFF;
 }
 
+.custom-pattern-beige {
+	background:
+		  radial-gradient(50% 50% at 100% 0,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50% at 0 100%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
+		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
+		   #0000 96%) 32px 32px;
+	background-size: 64px 64px;
+	background-color: #F3EFDD;
+}
 
+.custom-pattern-white {
+	background:
+		  radial-gradient(50% 50% at 100% 0,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50% at 0 100%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%),
+		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
+		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
+		   #0000 96%) 64px 64px;
+	background-size: 128px 128px;
+	background-color: #FFFFFF;
+}
 
 
 /* Footer */
