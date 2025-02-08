@@ -27,20 +27,23 @@
                     
 
                     <div class="under-wrapper">
-                        <h2>MES COORDONNÉES</h2>
+                        <h2>ME CONTACTER</h2>
                         <form id="contact-form" action="https://formspree.io/f/xanqbdnl" method="POST">
                             <label>Email:</label>
-                            <input type="email" name="email" />
+                            <input class="email-input" type="email" name="email" required />
+                    
                             <label>Message:</label>
-                            <input type="text" name="message" />
-                            <button id="contact-form-button">Submit</button>
+                            <textarea class="message-input" name="message" rows="4" required></textarea>
+                    
+                            <button id="contact-form-button" type="submit">Envoyer</button>
                             <p id="contact-form-status"></p>
                         </form>
                     </div>
+                    
                 
 
                     <div class="under-wrapper">
-                        <h2>ME CONTACTER</h2>
+                        <h2>MES COORDONNÉES</h2>
                         <ul class="contact-list">
                             <li>
                                 <i class="fas fa-envelope"></i>
@@ -56,7 +59,7 @@
                             </li>
                             <li>
                                 <i class="fab fa-linkedin"></i>
-                                <p>@zigiproduction</p>
+                                <p>@vassili-regnier</p>
                             </li>
                             <li>
                                 <i class="fab fa-github"></i>

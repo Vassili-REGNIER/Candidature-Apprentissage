@@ -19,37 +19,45 @@ carousel.style.transform = `translateX(${-index * 100}vw)`;
 
 
 // Formulaire de contact 
-  var form = document.getElementById("contact-form");
-  
-  async function handleSubmit(event) {
+var form = document.getElementById("contact-form");
+
+// Empêcher "Entrée" d'envoyer le message dans textarea
+document.querySelector(".message-input").addEventListener("keypress", function(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+    }
+});
+
+async function handleSubmit(event) {
     event.preventDefault();
     var status = document.getElementById("contact-form-status");
     var data = new FormData(event.target);
+    
     fetch(event.target.action, {
-      method: form.method,
-      body: data,
-      headers: {
-          'Accept': 'application/json'
-      }
+        method: form.method,
+        body: data,
+        headers: { 'Accept': 'application/json' }
     }).then(response => {
-      if (response.ok) {
-        status.innerHTML = "Envoyé !";
-        // status.innerHTML = "Thanks for your submission!";
-        form.reset()
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-          } else {
-            status.innerHTML = "Oops! There was a problem submitting your form"
-          }
-        })
-      }
+        if (response.ok) {
+            status.innerHTML = "Message envoyé avec succès ! ✅";
+            form.reset();
+        } else {
+            response.json().then(data => {
+                status.innerHTML = data.errors ? data.errors.map(error => error.message).join(", ") : "Erreur lors de l'envoi.";
+            });
+        }
     }).catch(error => {
-      status.innerHTML = "Oops! There was a problem submitting your form"
+        status.innerHTML = "Erreur lors de l'envoi.";
     });
-  }
-  form.addEventListener("submit", handleSubmit)
+}
+
+form.addEventListener("submit", handleSubmit);
+
+
+
+
+
+
 
 
 // Menu

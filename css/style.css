@@ -1,9 +1,10 @@
 :root {
     --dark-color: #2C2A25;
-    --dark-contrast: #;
+    --dark-contrast: #272622;
     --light-color: #F3EFDD;
     --light-contrast: #d8d3bb;
     --background-color: white;
+    --background-contrast: #f9f9f9;
     --gold: #D5AC4C;
     --extra-large-font: 65px;
     --large-font: 40px;
@@ -199,47 +200,94 @@ body {
 .section-2 {
     color: var(--dark-color);
     background-color: var(--background-color);
-    display: flex;
-    padding: 30px;
+    display: inline;
 }
 
 .section-2 .contact-wrapper {
     width: 100%;
+    height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.section-2 .under-wrapper {
-    width: 40vw;
-    min-width: 350px;
-    height: 400px;
-    background-color: var(--light-color);
-    padding: 100px;
-    margin: 2.5vw;
+/* Centrage du formulaire */
+.under-wrapper {
+    width: 100%;
+    max-width: 500px;
+    height: 60vh;
+    margin: 10px;
+    padding: 20px;
+    background: var(--background-contrast);
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-}
-
-.section-2 form input {
-    width: 200px;
-    height: 20px;
-    display: block !important;
+    
 }
 
 
-@media (max-width: 1000px) {
-    .section-2 .under-wrapper {
-        padding: 50px 0;
-        width: 100vw;
-        border-radius: 0;
-    }
+
+/* Style du titre */
+.under-wrapper h2 {
+    margin-bottom: 20px;
+    font-size: var(--medium-font);
+    color: var(--dark-color);
 }
+
+
+/* Labels */
+.under-wrapper label {
+    display: block;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #666;
+    text-align: left;
+}
+
+/* Inputs et Textarea */
+.under-wrapper input,
+.under-wrapper textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fff;
+    resize: none;
+}
+
+/* Bouton */
+.under-wrapper form button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    background: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Effet hover */
+.under-wrapper button:hover {
+    background: #0056b3;
+}
+
+/* Message de statut */
+#contact-form-status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #28a745;
+}
+
+
+
+
 
 .section-2 .contact-list {
     list-style: none;   
@@ -249,9 +297,10 @@ body {
     display: flex;
     justify-content: left;
     align-items: center;
+    text-align: left;
     gap: 20px;
     margin: 20px;
-    font-size: var(--medium-font);
+    font-size: var(--small-font);
     font-weight: 700;
 }
 
@@ -260,7 +309,7 @@ body {
 }
 
 .section-2 .button-wrapper {
-    flex: 1 1 100%;
+    height: auto;
 }
 
 .section-2 .button-wrapper button {
@@ -273,13 +322,11 @@ body {
     background-color: #00000010;
 }
 
-.section-2 .contact-form {
-    
-}
+
 
 
 @media (max-width: 1000px) {
-
+    /* Section 1 */
     .section-1::before {
         background: url("../media/accueil_tel_4.jpg") no-repeat center center/cover;
     }
@@ -291,9 +338,26 @@ body {
     .section-1 .button-wrapper button {
         width: 80%;
     }
+
+    /* Section 2 */
+    .section-2 .contact-wrapper {
+        height: 85vh;
+    }
+
+    .section-2 .button-wrapper {
+        height: 15vh;
+    }
+
+    .section-2 .under-wrapper {
+        height: 100%;
+        padding: 10px;
+        max-height: 42vh;
+    }
+
+    .section-2 .under-wrapper h2 {
+        margin: 2px;
+    }
 }
-
-
 
 
 
