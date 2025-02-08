@@ -31,12 +31,6 @@
     font-family: "LeagueSpartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/*
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-*/
 
 
 /* Scroll bar for Chrome, Edge and Safari */
@@ -197,6 +191,20 @@ body {
     background-color: #e0e0e010;
 }
 
+
+
+@media (max-width: 800px) {
+    
+    .section-1::before {
+        background: url("../media/accueil_tel_2.jpg") no-repeat center center/cover;
+    }
+
+    .section-1 .wrapper {
+        width: 100%;
+    }
+}
+
+
 /* Section 2 */
 .section-2 {
     color: var(--dark-color);
@@ -288,7 +296,6 @@ body {
 .section-2 .button-wrapper button:hover {
     background-color: #00000010;
 }
-
 
 
 
@@ -792,6 +799,10 @@ main section h1 {
         flex-direction: column;
     }
 
+    .about-me .mind-map img {
+        order: -1;
+    }
+
     .about-me .mind-map-left, .mind-map-right, .mind-map-bottom {
         gap: 15px;
         width: 80vw;
@@ -804,16 +815,26 @@ main section h1 {
     }
 
     .about-me .mind-map-bottom .info-item {
-        margin-top: 10px;
-        flex-direction: row;
+        margin-top: 30px;
     }
 
     .about-me .info-item {
         width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 30px;
+    }
+
+    .about-me .info-item .logo-wrapper {
+        order: -1;
     }
 
     .about-me .info-item i {
         font-size: 65px;
+    }
+
+    .about-me .info-item p i {
+        font-size: 10px;
     }
 }
 
