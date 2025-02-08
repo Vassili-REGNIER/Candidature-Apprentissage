@@ -20,6 +20,7 @@ carousel.style.transform = `translateX(${-index * 100}vw)`;
 
 // Formulaire de contact 
 var form = document.getElementById("contact-form");
+var button = document.getElementById("contact-form-button");
 
 // Empêcher "Entrée" d'envoyer le message dans textarea
 document.querySelector(".message-input").addEventListener("keypress", function(event) {
@@ -29,26 +30,36 @@ document.querySelector(".message-input").addEventListener("keypress", function(e
 });
 
 async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("contact-form-status");
-    var data = new FormData(event.target);
-    
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = "Message envoyé avec succès ! ✅";
-            form.reset();
-        } else {
-            response.json().then(data => {
-                status.innerHTML = data.errors ? data.errors.map(error => error.message).join(", ") : "Erreur lors de l'envoi.";
-            });
-        }
-    }).catch(error => {
-        status.innerHTML = "Erreur lors de l'envoi.";
-    });
+  event.preventDefault();
+  var data = new FormData(event.target);
+  
+  button.textContent = "⏳ Envoi en cours..."; // Change le texte pendant l'envoi
+
+  fetch(event.target.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+  }).then(response => {
+      if (response.ok) {
+          button.textContent = "Message envoyé !"; // Succès
+          button.style.backgroundColor = "#4CAF50"; // Vert succès
+          button.style.border = "none"
+          button.style.color = "var(--background-color)"
+          form.reset();
+      } else {
+          response.json().then(data => {
+              button.textContent = "Échec, réessayez"; // Échec
+              button.style.backgroundColor = "#D32F2F"; // Rouge erreur
+              button.style.border = "none"
+              button.style.color = "var(--background-color)"
+          });
+      }
+  }).catch(error => {
+      button.textContent = "Échec, réessayez";
+      button.style.backgroundColor = "#D32F2F";
+      button.style.border = "none"
+      button.style.color = "var(--background-color)"
+  });
 }
 
 form.addEventListener("submit", handleSubmit);
