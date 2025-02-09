@@ -6,31 +6,58 @@
     --background-color: white;
     --background-contrast: #f9f9f9;
     --gold: #D5AC4C;
-    --extra-large-font: 65px;
-    --large-font: 40px;
+    --extra-large-font: 60px;
+    --large-font: 35px;
     --medium-font: 25px;
     --small-font: 17px;
 }
 
+body.dark {
+    --dark-color: #2C2A25;
+    --dark-contrast: #272622;
+    --light-color: #5d5c58;
+    --light-contrast: #3e3d3b;
+    --background-color: #ffffff;
+    --background-contrast: #493e3e;
+    --gold: #204c6d;
+}
 
 @media (max-width: 800px) {
     :root {
-        --extra-large-font: 50px;
-        --large-font: 26px;
-        --medium-font: 21px;
+        --extra-large-font: 36px;
+        --large-font: 25px;
+        --medium-font: 20px;
         --small-font: 15px;
     }
 }
 
+@font-face {
+    font-family: 'LeagueSpartan';
+    src: url('../font/league-spartan/LeagueSpartan-Bold.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'Garet';
+    src: url('../font/garet/Garet-Book.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+  
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "LeagueSpartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Garet", sans-serif;
 }
 
+h1, h2, h3 {
+    font-family: "LeagueSpartan";
+}
 
 
 /* Scroll bar for Chrome, Edge and Safari */
@@ -146,17 +173,17 @@ body {
     color: white;
 }
 
-.carousel h1 {
+.carousel .section-1 h1 {
     font-size: var(--extra-large-font);
     flex: none;
     text-align: center;
     margin: 0;
     font-weight: 1000;
-    line-height: 50px;
+    line-height: 80px;
     margin-bottom: 10vh;
 }
 
-.carousel h2 {
+.carousel .section-1 h2 {
     font-size: var(--large-font);
     text-align: center;
     margin: 5vh;
@@ -166,11 +193,12 @@ body {
     font-size: var(--medium-font);
 }
 
-.button-wrapper {
+.section1 .button-wrapper {
     display: flex;
     align-items: center;
     justify-content: space-around;
     height: 150px;
+    padding: 20px 0;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
@@ -212,12 +240,17 @@ body {
 /* Section 2 */
 .section-2 {
     color: var(--dark-color);
-    background-color: var(--background-color);
     padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5vh;
+
+    background-image: url('images/mon-image.png'); /* Chemin vers ton image */
+    background-size: cover; /* L'image couvre toute la section */
+    background-position: center center; /* L'image est centrée */
+    background-repeat: no-repeat; /* L'image ne se répète pas */
+
 }
 
 .section-2 .contact-wrapper {
@@ -234,14 +267,13 @@ body {
     }
 }
 
-.section-2 .button-wrapper {
-    height: 8vh;
-    width: 100%;
-}
+
 
 .contact-wrapper h2 {
     margin:0 0 20px 0;
+    text-align: center;
     font-size: var(--medium-font);
+    font-weight: 100;
     color: var(--dark-color);
 }
 
@@ -295,12 +327,20 @@ body {
     color: var(--background-color);
 }
 
-.section-2  button {
+.section-2 .button-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 5%;
+}
+
+.section-2 .button-wrapper button {
     height: 60px;
-    width: 60%;
-    border: 1px solid var(--dark-color);
+    width: 200px;
+    border: 2px solid var(--dark-color);
     color: var(--dark-color);
-    flex: 1 1 100%;
 }
 
 .section-2 .button-wrapper button:hover {
@@ -952,12 +992,11 @@ main section h1 {
 }
 
 .education .place {
-    font-family: OCR A Std, monospace;
     font-size: var(--small-font);
 }
 
 .education .mention {
-    font-family: impact, fantasy;
+    font-family: "LeagueSpartan";
     color: var(--gold);
     font-weight: 500;
     text-align: center;
@@ -1033,7 +1072,6 @@ main section h1 {
 }
 
 .experience .place {
-    font-family: OCR A Std, monospace;
     font-size: var(--small-font);
 }
 
@@ -1444,22 +1482,13 @@ main section h1 {
 
 .custom-pattern-bigger {
 	background:
-		  radial-gradient(50% 50% at 100% 0,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%) 65px 65px;
-	background-size: 130px 130px;
-	background-color: #FFFFFF;
+		linear-gradient(45deg,#0000 71%,#EAEAEA 0 79%,#0000 0)
+		calc(21px/-2) calc(21px/2)/calc(2*21px) calc(2*21px),
+		linear-gradient(135deg,#0000 71%,#EAEAEA 0 79%,#0000 0)
+		calc(21px/2) calc(21px/2)/calc(2*21px) calc(2*21px),
+		radial-gradient(#EAEAEA 35%,#FFFFFF 37%)
+		0 0/21px 21px;
 }
-
 .custom-pattern-beige {
 	background:
 		  radial-gradient(50% 50% at 100% 0,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
