@@ -162,6 +162,10 @@ body {
     margin: 5vh;
 }
 
+.section-1 .wrapper .smaller {
+    font-size: var(--medium-font);
+}
+
 .button-wrapper {
     display: flex;
     align-items: center;
