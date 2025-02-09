@@ -12,15 +12,6 @@
     --small-font: 17px;
 }
 
-body.dark {
-    --dark-color: #2C2A25;
-    --dark-contrast: #272622;
-    --light-color: #5d5c58;
-    --light-contrast: #3e3d3b;
-    --background-color: #ffffff;
-    --background-contrast: #493e3e;
-    --gold: #204c6d;
-}
 
 @media (max-width: 800px) {
     :root {
@@ -44,7 +35,6 @@ body.dark {
     font-weight: normal;
     font-style: normal;
 }
-
 
   
 
@@ -1573,3 +1563,19 @@ footer .contact-me i {
     color: var(--gold);
 }
 
+
+
+.temp-label {
+    margin: 20px 20px 60px 20px;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+    border: 2px dashed red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.temp-label i {
+    color:red;
+}
