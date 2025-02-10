@@ -1,11 +1,19 @@
 :root {
-    --dark-color: #2C2A25;
-    --dark-contrast: #272622;
-    --light-color: #F3EFDD;
-    --light-contrast: #d8d3bb;
-    --background-color: white;
-    --background-contrast: #f9f9f9;
-    --gold: #D5AC4C;
+    --dark-theme-gold: #F0CC71;
+    --dark-theme-main: #201E1C;
+    --dark-theme-navbar: #312D2A;
+    --dark-theme-gray: #7D7975;
+    --dark-theme-background: #464F4F;
+    --dark-theme-text: #FFFFFF;
+
+    --light-theme-blue: #00688C;
+    --light-theme-main: #FFFFFF;
+    --light-theme-navbar: #F1EFED;
+    --light-theme-background: #E8E6E4;
+    --light-theme-text: #3B3A3A;
+
+
+    
     --extra-large-font: 60px;
     --large-font: 35px;
     --medium-font: 25px;
@@ -83,8 +91,7 @@ h1, h2, h3 {
 
 
 body {
-    background-color: var(--light-color);
-    
+    background-color: var(--light-color);  
 }
 
 .carousel-container {
@@ -107,7 +114,6 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    color: white;
 }
 
 .section-1::before {
@@ -1464,56 +1470,31 @@ main section h1 {
 }
 
 
-
-
-
-
-
-
-.custom-pattern-bigger {
-	background:
-		linear-gradient(45deg,#0000 71%,#EAEAEA 0 79%,#0000 0)
-		calc(21px/-2) calc(21px/2)/calc(2*21px) calc(2*21px),
-		linear-gradient(135deg,#0000 71%,#EAEAEA 0 79%,#0000 0)
-		calc(21px/2) calc(21px/2)/calc(2*21px) calc(2*21px),
-		radial-gradient(#EAEAEA 35%,#FFFFFF 37%)
-		0 0/21px 21px;
-}
-.custom-pattern-beige {
-	background:
-		  radial-gradient(50% 50% at 100% 0,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#F3EFDD 0%  5% ,#D8D3BB 6%  15%,#F3EFDD 16% 25%,#D8D3BB 26% 35%,#F3EFDD 36% 45%,
-		   #D8D3BB 46% 55%,#F3EFDD 56% 65%,#D8D3BB 66% 75%,#F3EFDD 76% 85%,#D8D3BB 86% 95%,
-		   #0000 96%) 32px 32px;
-	background-size: 64px 64px;
-	background-color: #F3EFDD;
+.light-theme-pattern {
+	background: 
+		  linear-gradient(135deg,#0000 20.5%,#F1EFED 0 29.5%,#0000 0) 0 17.5px,
+		  linear-gradient( 45deg,#0000 8%,#F1EFED 0 17%, #0000 0 58%) 35px 0,
+		  linear-gradient(135deg,#0000 8%,#F1EFED 0 17%, #0000 0 58%,#F1EFED 0 67%,#0000 0),        
+		  linear-gradient( 45deg,#0000 8%,#F1EFED 0 17%, #0000 0 58%,#F1EFED 0 67%,#0000 0 83%,#F1EFED 0 92%,#0000 0),
+		  #E8E6E4;
+	background-size: 70px 70px;
 }
 
-.custom-pattern-white {
-	background:
-		  radial-gradient(50% 50% at 100% 0,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50% at 0 100%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%),
-		  radial-gradient(50% 50%,#FFFFFF 0%  5% ,#F3EFDD 6%  15%,#FFFFFF 16% 25%,#F3EFDD 26% 35%,#FFFFFF 36% 45%,
-		   #F3EFDD 46% 55%,#FFFFFF 56% 65%,#F3EFDD 66% 75%,#FFFFFF 76% 85%,#F3EFDD 86% 95%,
-		   #0000 96%) 64px 64px;
-	background-size: 128px 128px;
-	background-color: #FFFFFF;
+.dark-theme-pattern {
+	background: 
+		  linear-gradient(135deg,#0000 20.5%,#312D2A 0 29.5%,#0000 0) 0 17.5px,
+		  linear-gradient( 45deg,#0000 8%,#312D2A 0 17%, #0000 0 58%) 35px 0,
+		  linear-gradient(135deg,#0000 8%,#312D2A 0 17%, #0000 0 58%,#312D2A 0 67%,#0000 0),        
+		  linear-gradient( 45deg,#0000 8%,#312D2A 0 17%, #0000 0 58%,#312D2A 0 67%,#0000 0 83%,#312D2A 0 92%,#0000 0),
+		  #282623;
+	background-size: 70px 70px;
 }
+
+
+
+
+
+
 
 
 /* Footer */
