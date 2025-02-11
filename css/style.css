@@ -87,9 +87,14 @@ h1, h2, h3 {
     background-color: #D5AC4C;
   }
 
-
 body {
-    background-color: var(--light-color);  
+    background-color: var(--light-theme-background);  
+    color: var(--light-theme-text);
+}
+
+body.dark {
+    background-color: var(--dark-theme-background);
+    color: var(--dark-theme-text);
 }
 
 .carousel-container {
