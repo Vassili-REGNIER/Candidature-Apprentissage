@@ -87,6 +87,7 @@ h1, h2, h3 {
     background-color: #D5AC4C;
   }
 
+
 body {
     background-color: var(--light-theme-background);  
     color: var(--light-theme-text);
@@ -172,11 +173,11 @@ body.dark .section-1{
 
 .section-1 img {
     position: absolute;
-    bottom: 45%;
+    bottom: 50%;
     transform: translateY(50%);
     right: 3%;
     width: 45%;
-    height: auto;
+    max-width: 80vh;
 }
 
 body.dark .section-1 img {
@@ -271,7 +272,7 @@ body.dark .scroll-to-whoami-button {
 }
 
 
-@media (max-width: 800px) {
+@media (orientation: portrait) {
     
     .section-1 .wrapper {
         width: 100%;
@@ -305,13 +306,13 @@ body.dark .scroll-to-whoami-button {
         position: absolute;
         width: 70%;
         max-width: 450px;
-        bottom: 22vh;
+        bottom: 32vh;
         left: 50%;
         transform: translateX(-50%);
     }
 
     .section-1 .button-wrapper {
-        top: 80vh;
+        top: 70vh;
         height: 15vh;
         position: absolute;
         left: 50%;
@@ -455,17 +456,13 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--light-theme-navbar);
+    background-color: var(--dark-color);
     position: sticky;
     height: 100px;
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
-}
-
-body.dark nav {
-    background-color: var(--dark-theme-navbar);
 }
 
 .menu {
@@ -477,11 +474,9 @@ body.dark nav {
     list-style: none;
     font-weight: 700;
     color: var(--light-color);
-    
     padding: 5px;
     overflow-x: hidden;
 }
-
 
 .menu li {
     height: 100px;
@@ -547,6 +542,7 @@ nav ul li:hover {
         position: absolute;
         top: 70px;
         width: 100%;
+        background-color:  rgba(44, 42, 37, 0.8);
         gap: 0;
         opacity: 0;
         padding-top: 5px;
@@ -613,10 +609,6 @@ nav ul li:hover {
         display: inline;
     }
 
-    .menu {
-        top: 50px;
-    }
-
 }
 
 @media (max-height: 800px) {
@@ -624,15 +616,9 @@ nav ul li:hover {
         height: 70px;
     }
 
-    .menu {
-        top: 70px;
-    }
-
     .menu li {
         height: 70px;
     }
-
-
 }
 
 
@@ -664,13 +650,11 @@ input {
     justify-content: space-between;
     width: 80px;
     height: 40px;
-    background-color: var(--dark-theme-main);
+    background-color: var(--light-color);
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-
 
 .icon {
     position: absolute;
@@ -705,7 +689,7 @@ input {
 
 /* Checked state styles */
 input:checked + .switch {
-    background-color: var(--light-theme-main);
+    background-color: #333;
 }
 
 input:checked + .switch .sun {
@@ -734,6 +718,8 @@ body.dark {
     color: #fff;
 }
 */
+
+
 
 
 
