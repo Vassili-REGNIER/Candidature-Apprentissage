@@ -450,13 +450,17 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--dark-color);
+    background-color: var(--light-theme-navbar);
     position: sticky;
     height: 100px;
     width: 100%;
     top: 0;
     z-index: 1000;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+body.dark nav {
+    background-color: var(--dark-theme-navbar);
 }
 
 .menu {
@@ -468,9 +472,11 @@ nav {
     list-style: none;
     font-weight: 700;
     color: var(--light-color);
+    
     padding: 5px;
     overflow-x: hidden;
 }
+
 
 .menu li {
     height: 100px;
@@ -536,7 +542,6 @@ nav ul li:hover {
         position: absolute;
         top: 70px;
         width: 100%;
-        background-color:  rgba(44, 42, 37, 0.8);
         gap: 0;
         opacity: 0;
         padding-top: 5px;
@@ -603,6 +608,10 @@ nav ul li:hover {
         display: inline;
     }
 
+    .menu {
+        top: 50px;
+    }
+
 }
 
 @media (max-height: 800px) {
@@ -610,9 +619,15 @@ nav ul li:hover {
         height: 70px;
     }
 
+    .menu {
+        top: 70px;
+    }
+
     .menu li {
         height: 70px;
     }
+
+
 }
 
 
@@ -644,11 +659,13 @@ input {
     justify-content: space-between;
     width: 80px;
     height: 40px;
-    background-color: var(--light-color);
+    background-color: var(--dark-theme-main);
     border-radius: 50px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+
 
 .icon {
     position: absolute;
@@ -683,7 +700,7 @@ input {
 
 /* Checked state styles */
 input:checked + .switch {
-    background-color: #333;
+    background-color: var(--light-theme-main);
 }
 
 input:checked + .switch .sun {
@@ -712,8 +729,6 @@ body.dark {
     color: #fff;
 }
 */
-
-
 
 
 
