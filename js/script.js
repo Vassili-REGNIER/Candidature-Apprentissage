@@ -33,7 +33,13 @@ async function handleSubmit(event) {
   event.preventDefault();
   var data = new FormData(event.target);
   
-  button.textContent = "⏳ Envoi en cours..."; // Change le texte pendant l'envoi
+  button.textContent = "Envoi en cours..."; // Change le texte pendant l'envoi
+  await new Promise(resolve => setTimeout(resolve, 800));
+
+  button.textContent = "Message envoyé !"; // Succès
+  button.style.backgroundColor = "#4CAF50"; // Vert succès
+  button.style.border = "none"
+  button.style.color = "var(--background-color)"
 
   fetch(event.target.action, {
       method: form.method,
@@ -60,6 +66,19 @@ async function handleSubmit(event) {
       button.style.border = "none"
       button.style.color = "var(--background-color)"
   });
+
+  // On remet le style du bouton par défaut au bout de 7 secondes
+  await new Promise(resolve => setTimeout(resolve, 7000));
+  button.textContent = "Envoyer"; 
+  if (document.body.classList.contains("dark")) { 
+    button.style.backgroundColor = "var(--dark-theme-highlight)";
+    button.style.border = "2px solid var(--dark-theme-highlight)";
+    button.style.color = "var(--dark-theme-item)";
+  } else { 
+    button.style.backgroundColor = "var(--light-theme-highlight)";
+    button.style.border = "2px solid var(--light-theme-highlight)";
+    button.style.color = "var(--light-theme-item)";
+  }
 }
 
 form.addEventListener("submit", handleSubmit);
@@ -137,29 +156,30 @@ window.addEventListener("scroll", function () {
 
 
 const toggle = document.getElementById('darkmode-toggle');
-        const body = document.body;
+const body = document.body;
         
-        // Load theme from local storage or set default
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            body.classList.add(currentTheme);
-            toggle.checked = currentTheme === 'dark';
-        }
+// Load theme from local storage or set default
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    body.classList.add(currentTheme);
+    body.attributeList
+    toggle.checked = currentTheme === 'dark';
 
-        // Switch theme and save in localStorage
-        toggle.addEventListener('change', function() {
-            if (toggle.checked) {
-                body.classList.add('dark');
-                body.classList.remove('light');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.classList.add('light');
-                body.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            }
-        });
+}
 
-
+// Switch theme and save in localStorage
+toggle.addEventListener('change', function() {
+    if (toggle.checked) {
+        body.classList.add('dark');
+        body.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+        
+    } else {
+        body.classList.add('light');
+        body.classList.remove('dark');
+        localStorage.setItem('theme', 'light');;
+    }
+});
 
 
 

@@ -76,7 +76,7 @@ body.dark .custom-background {
     font-family: "Garet", sans-serif;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: "LeagueSpartan";
 }
 
@@ -85,32 +85,27 @@ h1, h2, h3 {
 *::-webkit-scrollbar {
     height: 12px;
     width: 12px;
-  }
-  *::-webkit-scrollbar-track {
+}
+*::-webkit-scrollbar-track {
     border-radius: 0px;
-    background-color: #DCD9C8;
-  }
-  
-  *::-webkit-scrollbar-track:hover {
-    background-color: #F3EFDD;
-  }
-  
-  *::-webkit-scrollbar-track:active {
-    background-color: #F3EFDD;
-  }
-  
-  *::-webkit-scrollbar-thumb {
+    background-color: var(--light-theme-background-2);
+}
+*::-webkit-scrollbar-track:hover {
+    background-color: var(--light-theme-search-text);
+}
+*::-webkit-scrollbar-track:active {
+    background-color: var(--light-theme-text);
+}
+*::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #BD9944;
-  }
-  
-  *::-webkit-scrollbar-thumb:hover {
-    background-color: #D5AC4C;
-  }
-  
-  *::-webkit-scrollbar-thumb:active {
-    background-color: #D5AC4C;
-  }
+    background-color: var(--light-theme-title);
+}
+*::-webkit-scrollbar-thumb:hover {
+    background-color: var(--light-theme-title);
+}
+*::-webkit-scrollbar-thumb:active {
+    background-color: var(--light-theme-title);
+}
 
 
 body {
@@ -157,7 +152,6 @@ body.dark {
     align-items: center;
     justify-content: center;
     gap: 50px;
-    color: var(--dark-theme-main);
 }
 
 body.dark .section-1{
@@ -660,10 +654,14 @@ input {
     justify-content: space-between;
     width: 80px;
     height: 40px;
-    background-color: var(--light-color);
-    border-radius: 10px;
+    background-color: var(--light-theme-title);
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+body.dark .switch {
+    background-color: var(--dark-theme-title) !important;
 }
 
 .icon {
@@ -678,7 +676,6 @@ input {
 .icon i {
     width: 20px;
     height: 15px;
-    font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -687,31 +684,105 @@ input {
 
 .sun {
     right: 15%;
-    color: var(--highlight);
+    color: var(--light-theme-item);
     opacity: 1;
+    font-size: 25px;
 }
 
 .moon {
     right: 15%;
-    color: #7e7e7e;
+    color: var(--dark-theme-background-1);
     opacity: 0;
+    padding-top: 3px;
+    font-size: 30px;
 }
 
-/* Checked state styles */
-input:checked + .switch {
-    background-color: #333;
+.theme-indicatior {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 8px;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: var(--light-theme-highlight);
+    border: 3px solid var(--light-theme-item);
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Lance l'animation vers le dark theme */
+input:checked ~ .theme-indicatior {
+    animation: switch-indicator-to-dark 0.5s forwards;
+}
+
+/* Lance l'animation vers le light theme */
+input:not(:checked) ~ .theme-indicatior {
+    animation: switch-indicator-to-light 0.5s forwards;
 }
 
 input:checked + .switch .sun {
-    color: #7e7e7e;
     transform: translateY(-50%) translateX(-40px) rotate(360deg);
     opacity: 0;
 }
 
 input:checked + .switch .moon {
-    color: #fff;
     transform: translateY(-50%) translateX(-40px) rotate(360deg);
     opacity: 1;
+}
+
+@keyframes switch-indicator-to-dark {
+    0% {
+        transform: scale(1) translateY(-50%);
+        opacity: 1;
+        left: 8px;
+        right: auto;
+        background-color: var(--light-theme-highlight);
+        border: 3px solid var(--light-theme-item);
+    }
+    50% {
+        transform: scale(0) translateY(-50%);
+        opacity: 0;
+        left: auto;
+        right: 8px;
+        background-color: var(--dark-theme-highlight);
+        border: 3px solid var(--dark-theme-background-1);
+    }
+    100% {
+        transform: scale(1) translateY(-50%);
+        opacity: 1;
+        left: auto;
+        right: 8px;
+        background-color: var(--dark-theme-highlight);
+        border: 3px solid var(--dark-theme-background-1);
+    }
+}
+
+@keyframes switch-indicator-to-light {
+    0% {
+        transform: scale(1) translateY(-50%);
+        opacity: 1;
+        left: auto;
+        right: 8px;
+        background-color: var(--dark-theme-highlight);
+        border: 3px solid var(--dark-theme-background-1);
+    }
+    50% {
+        transform: scale(0) translateY(-50%);
+        opacity: 0;
+        left: 8px;
+        right: auto;
+        background-color: var(--light-theme-highlight);
+        border: 3px solid var(--light-theme-item);
+    }
+    100% {
+        transform: scale(1) translateY(-50%);
+        opacity: 1;
+        left: 8px;
+        right: auto;
+        background-color: var(--light-theme-highlight);
+        border: 3px solid var(--light-theme-item);
+    }
 }
 
 
@@ -741,25 +812,6 @@ body.dark .download-cv-button {
     border: 1px solid var(--dark-theme-highlight);
 }
 
-.download-cv-button::before {
-    content: "PDF";
-    display: block;
-    font-size: 13px;
-    background-color: rgb(139, 40, 40);
-    color: #fff;
-    border-radius: 3px;
-    padding: 3px 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(-10px, -50%);
-    transition: 0.3s;
-    box-shadow: 5px 5px 10px #000000b9; 
-}
-
-.download-cv-button:hover::before {
-    transform: translate(-5px, -50%);
-}
 
 /* Bouton de téléchargement se place en bas à gauche lorsque la barre nav rétrécit */
 /* Déplacement du switch theme egalement */
@@ -777,15 +829,11 @@ body.dark .download-cv-button {
         left: 15px;
     }
 
-    .switch {
-        width: 70px;
-        height: 30px;
+    .switch-container {
+        transform: scale(0.8);
     }
 
-    .switch .icon i {
-        font-size: 20px;
-        width: 10px;
-    }
+
 }
 
 
@@ -835,7 +883,8 @@ main section p {
     font-size: var(--small-font);
 }
 
-main section h2 {
+main section h2,
+footer section h2 {
     text-align: center;
     font-size: var(--large-font);
     font-weight: 1000;
@@ -843,14 +892,15 @@ main section h2 {
     flex: 1 1 100%;
 }
 
-main section h2 i {
+main h2 i,
+footer h2 i {
     color: var(--light-theme-highlight);
 }
 
-body.dark main section h2 i {
+body.dark main h2 i,
+body.dark footer h2 i {
     color: var(--dark-theme-highlight);
 }
-
 
 /* Section à propos de moi */
 .whoami {
@@ -986,8 +1036,6 @@ body.dark .route-list-item .mention{
     margin-top: 10px;
 }
 
-
-
 /* Section éxperiences */
 .experience {
     display: flex;
@@ -1024,11 +1072,16 @@ body.dark .route-list-item .mention{
     margin-bottom: 0;
 }
 
+.skills-wrapper {
+    width: auto;
+}
+
 .skills-subsection {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 
 .skills-subsection i {
@@ -1044,6 +1097,7 @@ body.dark .route-list-item .mention{
 .skills-content {
     display: flex;
     flex-direction: column;
+    align-items: end;
     gap: 30px;  
     list-style: none;
     margin: 50px 0;
@@ -1056,7 +1110,7 @@ body.dark .route-list-item .mention{
     gap: 20px;
 }
 
-.skill-item h3 {
+.skill-item h4 {
     width: 260px;
     text-align: right;
 }
@@ -1078,7 +1132,7 @@ body.dark .route-list-item .mention{
         gap: 0px;
     }
 
-    .skill-item h3 {
+    .skill-item h4 {
         text-align: center;
     }
 
@@ -1117,8 +1171,6 @@ body.dark .invisible {
 }
 
 
-
-
 /* Section loisirs */
 .hobbies-wrapper {
     list-style-type: none;
@@ -1138,7 +1190,7 @@ body.dark .invisible {
     list-style-type: none;
 }
 
-.hobbies-list h2 {
+.hobbies-list h3 {
     text-align: left;
     flex: 1 1 100%;
     margin: 5px;
@@ -1148,6 +1200,13 @@ body.dark .invisible {
     border-radius: 5px;
 }
 
+.hobbies-list h3 i {
+    color: var(--light-theme-highlight);
+}
+
+body.dark .hobbies-list h3 i {
+    color: var(--dark-theme-highlight);
+}
 
 .hobbies-item  {
     position: relative;
@@ -1206,7 +1265,7 @@ body.dark .invisible {
     filter: brightness(80%);
 }
 
-.hobbies-item h3 {
+.hobbies-item h4 {
     font-family: "Abril Fatface";
     font-size: var(--medium-font);
     color: var(--light-theme-item);
@@ -1214,7 +1273,7 @@ body.dark .invisible {
     transition: opacity ease 0.5s;
 }
 
-.hobbies-item:hover h3 {
+.hobbies-item:hover h4 {
     opacity: 0;
 }
 
@@ -1396,7 +1455,6 @@ body.dark .slide {
 
 
 
-
 /* Footer */
 footer {
     padding: 70px 5vw;
@@ -1417,25 +1475,27 @@ body.dark footer {
 
 /* Section me contacter */
 
-footer .contact-me {
+footer .contact-details {
     background-color: var(--dark-color);
     background-image: none;
     flex: 1 1 100%;
     margin-bottom: 30px;
 }
 
-footer .contact-me h1 {
+footer .contact-details h1 {
     text-align: center;
     font-size: var(--medium-font);
     font-weight: 1000;
     margin: 20px  0 40px 0;
 }
 
-footer .contact-me ul {
+
+
+footer .contact-details ul {
     list-style: none;
 }
 
-footer .contact-me ul li {
+footer .contact-details ul li {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -1445,10 +1505,13 @@ footer .contact-me ul li {
     font-weight: 700;
 }
 
-footer .contact-me i {
-    color: var(--highlight);
+footer .contact-details i {
+    color: var(--light-theme-highlight);
 }
 
+body.dark footer .contact-details i {
+    color: var(--dark-theme-highlight);
+}
 
 
 .temp-label {
