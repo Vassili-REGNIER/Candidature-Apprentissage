@@ -429,7 +429,27 @@ body.dark .contact-wrapper form button {
     color: var(--background-color);
 }
 
+@media (orientation: landscape) and (max-height: 600px) {
+    .section-2 .button-wrapper {
+        position: absolute;
+        top: 3vh;
+        right: 3vw;
+        pointer-events: none;
+        width: auto;
+        height: auto
+    }
 
+    .section-2 .button-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--light-theme-item);
+        opacity: 0.2;
+    }
+}
 
 
 
@@ -514,7 +534,6 @@ body.dark nav ul li:hover {
     position: absolute;
     right: 20px;
     font-size: 35px;
-    color: var(--light-color);
     cursor: pointer;
 }
 
@@ -795,7 +814,6 @@ input:checked + .switch .moon {
     justify-content: center;
     text-align: center;
     text-decoration: none;
-    color: var(--light-color);
     font-size: var(--small-font);
     font-weight: 700;
     border-radius: 5px;
@@ -822,6 +840,24 @@ body.dark .download-cv-button {
         position: fixed;
         bottom: 15px;
         left: 15px;
+        transform: scale(0.9);
+        z-index: 10;
+    }
+
+    .download-cv-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--light-theme-item);
+        opacity: 0.7;
+        z-index: -1;
+    }
+
+    body.dark .download-cv-button::before {
+        background-color: var(--dark-theme-background-1);
     }
 
     .switch-container {

@@ -84,21 +84,23 @@ async function handleSubmit(event) {
 form.addEventListener("submit", handleSubmit);
 
 
-
 // Redimensionne l'espace de texte dans la zone du message 
 function updateTextareaRows() {
   const textarea = document.querySelector(".message-input");
   if (!textarea) return;
 
   const screenHeight = window.innerHeight;
-  const minRows = 4; // Nombre de lignes minimum
-  const maxRows = 15; // Nombre de lignes maximum
-  const rowHeight = 20; // Hauteur approximative d'une ligne (ajuste selon le CSS)
 
-  let newRows = Math.floor(screenHeight / rowHeight / 5); // Ajustement dynamique
-  newRows = Math.max(minRows, Math.min(newRows, maxRows)); // Contraindre entre min/max
+  const heightIntervals = [400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1200];
+  const numberRows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20]
+  for (let i = 0; i < heightIntervals.length; ++i) {
+    if (screenHeight < heightIntervals[i]) {
+      textarea.rows = numberRows[i];
+      return;
+    } 
+  }
 
-  textarea.rows = newRows;
+  textarea.rows = numberRows[numberRows.length - 1];
 }
 
 // Exécuter au chargement et à chaque redimensionnement
