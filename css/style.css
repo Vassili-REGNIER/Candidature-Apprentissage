@@ -150,27 +150,12 @@ body.dark {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 50px;
+    justify-content: space-around;
+    padding: 5vh 5vw;
 }
 
 body.dark .section-1{
     color: var(--dark-theme-text);
-}
-
-.section-1 .wrapper {
-    position: absolute;
-    top: 0;
-    left: 1%;
-    height: 100%;
-    width: 60%;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10vh;
 }
 
 .section-1 img {
@@ -192,8 +177,7 @@ body.dark .section-1 img {
     flex: none;
     text-align: center;
     font-weight: 1000;
-    /* Taille ajustable */
-    font-size: clamp(20px, 5vw, 100px);
+    font-size: clamp(60px, 5vw, 100px);
     white-space: nowrap;
     width: fit-content;
     color: var(--light-theme-title);
@@ -207,7 +191,6 @@ body.dark .section-1 h1 {
     font-size: var(--large-font);
     color: var(--light-theme-highlight);
     text-align: center;
-    margin-bottom: 10vh;
     font-size: clamp(28px, 2.5vw, 100px);
     white-space: nowrap;
     width: fit-content;
@@ -217,7 +200,7 @@ body.dark .carousel .section-1 h2 {
     color: var(--dark-theme-highlight);
 }
 
-.section-1 .wrapper .smaller {
+.section-1 .smaller {
     font-size: clamp(20px, 1.78vw, 100px);
     white-space: nowrap;
     width: fit-content;
@@ -226,13 +209,11 @@ body.dark .carousel .section-1 h2 {
 .section-1 .button-wrapper, 
 .section-2 .button-wrapper {
     height: 150px;
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    justify-content: center;
-    gap: 5px;
+    gap: 5vw;
 }
 
 .section-1 .button-wrapper button,
@@ -273,58 +254,8 @@ body.dark .scroll-to-contact-button, body.dark .scroll-back-button {
 }
 
 @media (orientation: portrait) {
-    
-    .section-1 .wrapper {
-        width: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        display: inline;
-    }
-
     .section-1 h1 {
-        position: absolute;
-        top: 2vh;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 20vh;
-        width: 100%;
-        font-size: clamp(18px, 14vw, 80px);
         white-space: wrap;
-        padding: 0 40px;
-    }
-
-    .section-1 h2 {
-        position: absolute;
-        left: 50%;
-        top: 22vh;
-        transform: translateX(-50%);
-        height: 13vh;
-        font-size: clamp(20px, 10vw, 80px);
-        line-height: 20px;
-        z-index: 2;
-    }
-
-    .section-1 img {
-        position: absolute;
-        width: 70%;
-        max-width: 350px;
-        bottom: 31vh;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .section-1 .button-wrapper {
-        top: 70vh;
-        height: 15vh;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        gap: 5px;
-    }
-
-    .section-1 button {
-        width: 70%;
-        max-width: 450px;
     }
 }
 
@@ -456,9 +387,6 @@ body.dark .contact-wrapper form button {
         min-width: 150px;
     }
 }
-
-
-
 
 
 /* Barre de navigation */
@@ -963,7 +891,7 @@ body.dark footer h2 i {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 5vw;
+    gap: calc(5vw + 10px);
 }
 
 .whoami img {
