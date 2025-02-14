@@ -124,7 +124,7 @@ body.dark {
 
 .carousel {
     display: flex;
-    width: 200%; /* Deux sections de 100vw */
+    width: 200vw; /* Deux sections de 100vw */
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
@@ -158,18 +158,6 @@ body.dark .section-1{
     color: var(--dark-theme-text);
 }
 
-.section-1 img {
-    position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
-    right: 3%;
-    width: 40%;
-    max-width: 80vh;
-}
-
-body.dark .section-1 img {
-    content: url("../media/vassili_dark_theme.png");
-}
 
 
 .section-1 h1 {
@@ -208,17 +196,28 @@ body.dark .carousel .section-1 h2 {
 
 .section-1 .button-wrapper, 
 .section-2 .button-wrapper {
-    height: 150px;
+    width: 80%;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 5vw;
 }
 
+@media (orientation: portrait) {
+    .section-1 .button-wrapper {
+        flex-direction: column;
+    }
+}
+
+@media (orientation: portrait) {
+    .section-1 h1 {
+        white-space: wrap;
+    }
+}
+
 .section-1 .button-wrapper button,
 .section-2 .button-wrapper button {
-    width: 30%;
+    width: 40%;
     min-width: 300px;
     text-align: center;
     border: none;
@@ -237,6 +236,8 @@ body.dark .carousel .section-1 h2 {
     color: var(--light-theme-item);
 }
 
+
+
 body.dark .scroll-to-whoami-button {
     color: var(--dark-theme-background-1);
     background-color: var(--dark-theme-title);
@@ -253,11 +254,7 @@ body.dark .scroll-to-contact-button, body.dark .scroll-back-button {
     color: var(--dark-theme-title);
 }
 
-@media (orientation: portrait) {
-    .section-1 h1 {
-        white-space: wrap;
-    }
-}
+
 
 
 /* Section 2 */
@@ -273,6 +270,8 @@ body.dark .scroll-to-contact-button, body.dark .scroll-back-button {
 
 .section-2 .contact-wrapper {
     width: 70vw;
+    max-height: 95vh;
+    overflow-y: auto;
     background-color: var(--light-theme-item);
     padding: 20px;
     border-radius: 10px;
@@ -846,7 +845,7 @@ main {
 }
 
 main section {
-    padding: 100px 2vw;
+    padding: 80px 2vw;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -876,6 +875,14 @@ body.dark footer h2 i {
     color: var(--dark-theme-highlight);
 }
 
+@media (max-width: 1000px) {
+    main section {
+        padding: 50px 2vw;
+    }
+
+
+}
+
 /* Section à propos de moi */
 .whoami {
     display: flex;
@@ -891,11 +898,15 @@ body.dark footer h2 i {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: calc(5vw + 10px);
+    gap: calc(8vw + 10px);
 }
 
 .whoami img {
-    width: 300px;
+    width: clamp(150px, 80vw, 430px);
+}
+
+body.dark .whoami img {
+    content: url("../media/vassili_dark_theme.png");
 }
 
 .attribute-list {

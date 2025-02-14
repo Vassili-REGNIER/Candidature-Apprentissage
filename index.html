@@ -18,7 +18,7 @@
                     <h1>Vassili RÉGNIER</h1>
                     <h2>MA CANDIDATURE<br><span class="smaller">POUR UN APPRENTISSAGE</span></h2>
                     <div class="button-wrapper">
-                        <button class="scroll-to-whoami-button" onclick="scrollDown()">ME DÉCOUVRIR</button>
+                        <button class="scroll-to-whoami-button" onclick="scrollToWhoami()">ME DÉCOUVRIR</button>
                         <button class="scroll-to-contact-button" id="next">ME CONTACTER</button>
                     </div>
             </div>
@@ -28,11 +28,20 @@
                 <div class="contact-wrapper">
                     <h2>ME CONTACTER</h2>
                     <form id="contact-form" action="https://formspree.io/f/xanqbdnl" method="POST">
-                        <label>Email</label>
-                        <input class="email-input" type="email" name="email" placeholder="Votre adresse e-mail (ex: nom@exemple.com)" required />
-                
-                        <label>Message</label>
-                        <textarea class="message-input" name="message" rows="1" wrap="soft" placeholder="Décrivez votre demande ici..." required></textarea>
+    
+                        <!-- Champ Nom -->
+                        <label for="name">Nom</label>
+                        <input class="name-input" type="text" id="name" name="name" placeholder="Votre nom" required />
+                    
+                        <!-- Champ Email -->
+                        <label for="email">Email</label>
+                        <input class="email-input" type="email" id="email" name="email" placeholder="Votre adresse e-mail (ex: nom@exemple.com)" required />
+                    
+                        <!-- Champ Message -->
+                        <label for="message">Message</label>
+                        <textarea class="message-input" name="message" rows="5" wrap="soft" placeholder="Décrivez votre demande ici..." required></textarea>
+                    
+                        <!-- Bouton Envoyer -->
                         <button id="contact-form-button" type="submit">Envoyer</button>
                     </form>
                 </div>
@@ -47,7 +56,7 @@
 
 
 
-    <nav>
+    <nav class="navbar">
         <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
     
 
@@ -74,8 +83,6 @@
             </label>
             <div class="theme-indicatior"></div>
         </div>
-        
-
     </nav>
 
     <button id="scrollToTopButton" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
@@ -89,7 +96,8 @@
                     <li>Marseille</li>
                     <li>BUT Informatique</li>
                     <li>Major de promo</li>
-                    <li>Compétition Sportives</li>
+                    <li>Compétitions Sportives</li>
+                    <li>Permis <i class="fas fa-car"></i> & <i class="fas fa-ship"></i></li>
                 </ul>
                 <img src="media/vassili_light_theme.png" alt="Photo de REGNIER Vassili">
             </div>
@@ -301,8 +309,7 @@
                         <h4>Technologie</h4>
                     </div>
                     <div class="hobbies-item auto-hobbies">
-                            <h4>Automobile</h4>
-                            <br>
+                        <h4>Automobile</h4>
                     </div>
                 </li>
                 <li class="hobbies-list">

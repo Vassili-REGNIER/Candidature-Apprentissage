@@ -1,4 +1,6 @@
-// Gère le scroll du carroussel
+/*****************************************/
+/* Caroussel présentation section        */
+/*****************************************/
 let index = 0;
         const carousel = document.querySelector('.carousel');
         const carouselSections = document.querySelectorAll('.carousel-section');
@@ -18,28 +20,36 @@ carousel.style.transform = `translateX(${-index * 100}vw)`;
 
 
 
-// Formulaire de contact 
+
+/*****************************************/
+/* Formulaire de contact                 */
+/*****************************************/
 var form = document.getElementById("contact-form");
 var button = document.getElementById("contact-form-button");
 
 // Empêcher "Entrée" d'envoyer le message dans textarea
-document.querySelector(".message-input").addEventListener("keypress", function(event) {
-    if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault();
-    }
+document.querySelector(".message-input").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+      e.preventDefault(); // Empêche l'envoi du formulaire
+      this.value += "\n"; // Ajoute une nouvelle ligne
+  }
 });
 
 async function handleSubmit(event) {
   event.preventDefault();
-  var data = new FormData(event.target);
   
+  // Récupérer le message dans le champ message
+  var messageField = document.querySelector(".message-input");
+
+  var data = new FormData(event.target);
+
   button.textContent = "Envoi en cours..."; // Change le texte pendant l'envoi
   await new Promise(resolve => setTimeout(resolve, 800));
 
   button.textContent = "Message envoyé !"; // Succès
   button.style.backgroundColor = "#4CAF50"; // Vert succès
-  button.style.border = "none"
-  button.style.color = "var(--background-color)"
+  button.style.border = "none";
+  button.style.color = "var(--background-color)";
 
   fetch(event.target.action, {
       method: form.method,
@@ -49,27 +59,28 @@ async function handleSubmit(event) {
       if (response.ok) {
           button.textContent = "Message envoyé !"; // Succès
           button.style.backgroundColor = "#4CAF50"; // Vert succès
-          button.style.border = "none"
-          button.style.color = "var(--background-color)"
+          button.style.border = "none";
+          button.style.color = "var(--background-color)";
           form.reset();
       } else {
           response.json().then(data => {
               button.textContent = "Échec, réessayez"; // Échec
               button.style.backgroundColor = "#D32F2F"; // Rouge erreur
-              button.style.border = "none"
-              button.style.color = "var(--background-color)"
+              button.style.border = "none";
+              button.style.color = "var(--background-color)";
           });
       }
   }).catch(error => {
       button.textContent = "Échec, réessayez";
       button.style.backgroundColor = "#D32F2F";
-      button.style.border = "none"
-      button.style.color = "var(--background-color)"
+      button.style.border = "none";
+      button.style.color = "var(--background-color)";
   });
 
   // On remet le style du bouton par défaut au bout de 7 secondes
   await new Promise(resolve => setTimeout(resolve, 7000));
   button.textContent = "Envoyer"; 
+
   if (document.body.classList.contains("dark")) { 
     button.style.backgroundColor = "var(--dark-theme-highlight)";
     button.style.border = "2px solid var(--dark-theme-highlight)";
@@ -83,7 +94,6 @@ async function handleSubmit(event) {
 
 form.addEventListener("submit", handleSubmit);
 
-
 // Redimensionne l'espace de texte dans la zone du message 
 function updateTextareaRows() {
   const textarea = document.querySelector(".message-input");
@@ -91,10 +101,17 @@ function updateTextareaRows() {
 
   const screenHeight = window.innerHeight;
 
-  const heightIntervals = [400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1200];
-  const numberRows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20]
+  const heightIntervals = [450, 470, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1200];
+  const numberRows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 22]
+  console.log("\n\n\n\n\nheightIntervals : ", heightIntervals);
+  console.log("numberRows : ", numberRows);
+  console.log("screenHeight : ", screenHeight);
+  
   for (let i = 0; i < heightIntervals.length; ++i) {
     if (screenHeight < heightIntervals[i]) {
+      console.log("i : ", i);
+      console.log("screenHeight[i] : ", heightIntervals[i]);
+      console.log("numberRows : ", numberRows[i]);
       textarea.rows = numberRows[i];
       return;
     } 
@@ -112,25 +129,29 @@ window.addEventListener("DOMContentLoaded", updateTextareaRows);
 
 
 
-
-// Menu
-const toggle_n = document.getElementById('menu-toggle');
+/*****************************************/
+/* Menu navigation                       */
+/*****************************************/
+const toggleMenu = document.getElementById('menu-toggle');
 const menu = document.querySelector('.menu');
 
-toggle_n.addEventListener('click', (event) => {
+toggleMenu.addEventListener('click', (event) => {
   menu.classList.toggle('show');
   event.stopPropagation(); // Empêche la propagation du clic vers le document
 });
 
 // Cache le menu lorsqu'on clique autre part que sur le bouton menu
 document.addEventListener('click', (event) => {
-  if (!toggle_n.contains(event.target)) {
+  if (!toggleMenu.contains(event.target)) {
     menu.classList.remove('show');
   }
 });
 
 
-// Affichage du bouton pour remonter en haut de la page
+
+/*****************************************/
+/* Bouton d'anchrage                     */
+/*****************************************/
 window.addEventListener("scroll", function () {
   const scrollToTopButton = document.getElementById("scrollToTopButton");
 
@@ -141,8 +162,34 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// Fonction pour remonter en haut de la page
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Ajoute un défilement fluide
+  });
+}
 
-// Affichage du bouton pour télécharger le cv
+// Fonction pour descendre jusqu'à whoami
+function scrollToWhoami() {
+  const section = document.getElementById('presentation-section');
+  if (section) {
+      const sectionTop = section.offsetTop + windowHeight; // Position de la section
+      window.scrollTo({
+          top: sectionTop, // Décaler pour éviter que la navbar cache la section
+          behavior: 'smooth' // Défilement fluide
+      });
+  }
+}
+
+
+
+
+
+
+/*****************************************/
+/* Bouton download cv                    */
+/*****************************************/
 window.addEventListener("scroll", function () {
   const cvButton = document.querySelector(".download-cv-button");
   let windowWidth = window.innerWidth;
@@ -157,7 +204,7 @@ window.addEventListener("scroll", function () {
 
 
 
-const toggle = document.getElementById('darkmode-toggle');
+const toggleTheme = document.getElementById('darkmode-toggle');
 const body = document.body;
         
 // Load theme from local storage or set default
@@ -165,13 +212,13 @@ const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
     body.classList.add(currentTheme);
     body.attributeList
-    toggle.checked = currentTheme === 'dark';
+    toggleTheme.checked = currentTheme === 'dark';
 
 }
 
 // Switch theme and save in localStorage
-toggle.addEventListener('change', function() {
-    if (toggle.checked) {
+toggleTheme.addEventListener('change', function() {
+    if (toggleTheme.checked) {
         body.classList.add('dark');
         body.classList.remove('light');
         localStorage.setItem('theme', 'dark');
@@ -190,23 +237,6 @@ toggle.addEventListener('change', function() {
 
 
 
-
-// Fonction pour remonter en haut de la page
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' // Ajoute un défilement fluide
-  });
-}
-
-
-// Bouton pour déscendre jusqu'au boutons
-function scrollDown() {
-    window.scrollBy({
-        top: window.innerHeight,  // Défiler de la hauteur de la fenêtre (100vh)
-        behavior: 'smooth'        // Ajouter une transition fluide
-    });
-}
 
 
 /* Barre nav dynamique */
@@ -346,3 +376,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 });
+
+
+
