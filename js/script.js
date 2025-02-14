@@ -1,15 +1,15 @@
 // Gère le scroll du carroussel
 let index = 0;
         const carousel = document.querySelector('.carousel');
-        const sections = document.querySelectorAll('.carousel-section');
+        const carouselSections = document.querySelectorAll('.carousel-section');
 
         document.getElementById('next').addEventListener('click', () => {
-            index = (index + 1) % sections.length;
+            index = (index + 1) % carouselSections.length;
             carousel.style.transform = `translateX(${-index * 100}vw)`;
         });
 
         document.getElementById('prev').addEventListener('click', () => {
-            index = (index - 1 + sections.length) % sections.length;
+            index = (index - 1 + carouselSections.length) % carouselSections.length;
             carousel.style.transform = `translateX(${-index * 100}vw)`;
         });
 
@@ -209,25 +209,33 @@ function scrollDown() {
 }
 
 
-/* Barre nav mobile */
+/* Barre nav dynamique */
+
 // Sélectionner tous les liens de navigation
 const menuItems = document.querySelectorAll('.menu li a');
+const sections = document.querySelectorAll('section');
+const windowHeight = window.innerHeight;
 
 function updateCurrentPage() {
-    let currentSection = 'presentation-section';
+    let currentSection = 'presentation-section'; // Par défaut, la première section
 
-    // Parcourir les sections pour trouver celle visible
-    document.querySelectorAll('section').forEach((section) => {
-        const sectionTop = section.offsetTop;
+    let currentViewPos = window.scrollY + (windowHeight / 2); // Position actuelle dans la vue
+
+    sections.forEach((section) => {
+        // On ajoute windowHeight à sectionTop car les sections commencent à partir de 100vh 
+        const sectionTop = section.offsetTop + windowHeight;
         const sectionHeight = section.offsetHeight;
 
-        // Vérifier si la section est visible
-        if (window.scrollY >= sectionTop - sectionHeight / 3) {
-            currentSection = section.id;
+        // Vérifier si currentViewPos est DANS la section
+        if (currentViewPos >= sectionTop && currentViewPos < sectionTop + sectionHeight) {
+          
+      
+          currentSection = section.id; // Mettre à jour la section active
         }
     });
 
-    // Mettre à jour la classe 'current-page'
+    // Mettre à jour la classe 'current-page' sur les liens du menu
+    
     menuItems.forEach((item) => {
         const parent = item.parentElement;
         if (item.getAttribute('href') === `#${currentSection}`) {
@@ -241,8 +249,9 @@ function updateCurrentPage() {
 // Écouter l'événement scroll et appeler la fonction
 window.addEventListener('scroll', updateCurrentPage);
 
-// Mettre à jour les classes au chargement initial
+// Mettre à jour au chargement initial
 window.addEventListener('load', updateCurrentPage);
+
 
 
 
