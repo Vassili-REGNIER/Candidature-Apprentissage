@@ -171,7 +171,7 @@ function scrollToTop() {
 }
 
 // Fonction pour descendre jusqu'à whoami
-function scrollToWhoami() {
+function scrollToWhoami2() {
   const section = document.getElementById('presentation-section');
   if (section) {
       const sectionTop = section.offsetTop + windowHeight; // Position de la section
@@ -182,6 +182,11 @@ function scrollToWhoami() {
   }
 }
 
+function scrollToWhoami() {
+  document.getElementById("link-to-whoami").addEventListener("click", function () {
+    document.getElementById("presentation-section").scrollIntoView({ behavior: "smooth" });
+  });
+}
 
 
 
@@ -239,7 +244,9 @@ toggleTheme.addEventListener('change', function() {
 
 
 
-/* Barre nav dynamique */
+/*****************************************/
+/* Barre nav dynamique                   */
+/*****************************************/
 
 // Sélectionner tous les liens de navigation
 const menuItems = document.querySelectorAll('.menu li a');
@@ -285,7 +292,9 @@ window.addEventListener('load', updateCurrentPage);
 
 
 
-/* Scrolls animés */
+/*****************************************/
+/* Scrolls animés                        */
+/*****************************************/
 // Sélectionner tous les liens du menu
 const menuLinks = document.querySelectorAll('.menu a');
 
