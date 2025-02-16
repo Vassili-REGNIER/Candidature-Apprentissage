@@ -103,15 +103,9 @@ function updateTextareaRows() {
 
   const heightIntervals = [450, 470, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1050, 1200];
   const numberRows = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 22]
-  console.log("\n\n\n\n\nheightIntervals : ", heightIntervals);
-  console.log("numberRows : ", numberRows);
-  console.log("screenHeight : ", screenHeight);
-  
+
   for (let i = 0; i < heightIntervals.length; ++i) {
     if (screenHeight < heightIntervals[i]) {
-      console.log("i : ", i);
-      console.log("screenHeight[i] : ", heightIntervals[i]);
-      console.log("numberRows : ", numberRows[i]);
       textarea.rows = numberRows[i];
       return;
     } 

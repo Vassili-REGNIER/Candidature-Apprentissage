@@ -1277,9 +1277,9 @@ body.dark .hobbies-list h3 i {
 
 /* Variables */
 :root {
-    --slider-width: 600px;
-    --slide-width: 600px;
-    --slide-height: 600px;
+    --slider-width: clamp(350px, 90vw, 600px);
+    --slide-width: clamp(350px, 90vw, 600px);
+    --slide-height: clamp(350px, 90vw, 600px);
     --gap: 20px;
 }
 
@@ -1353,7 +1353,7 @@ body.dark .projects-wrapper .links-wrapper a:hover i {
     color: var(--dark-theme-search-text); 
 }
 
-.links-wrapper .projects-wrapper .selected {
+.projects-wrapper .links-wrapper .selected {
     color: var(--light-theme-title); 
     border-right: 5px solid var(--light-theme-highlight) !important;
 }
@@ -1378,6 +1378,8 @@ body.dark .projects-wrapper .links-wrapper .selected i {
 .slider {
     width: var(--slider-width);
     text-align: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .slides {
@@ -1389,6 +1391,11 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     -webkit-overflow-scrolling: touch; 
     touch-action: pan-x; 
     scrollbar-width: none; 
+
+    pointer-events: none; /* Désactive l'interaction utilisateur */
+    overscroll-behavior: contain; /* Empêche les rebonds sur mobile */
+    scroll-behavior: auto; /* Désactive le smooth scrolling lors d’un scroll manuel */
+    -webkit-overflow-scrolling: auto; /* Désactive le scroll fluide sur iOS */
 }
 /* Masquer scrollbar sur Webkit (Chrome, Safari) */
 .slides::-webkit-scrollbar {
@@ -1416,38 +1423,27 @@ body.dark .slide {
 }
 
 
-@media (max-width: 768px) {
-    :root {
-        --slider-width: 80vw;
-        --slide-width: 80vw;
-        --slide-height: 80vw;
-        --gap: 20px;
-    }
+@media (max-width: 1050px) {
+
 
     .projects-wrapper {
         flex-direction: column;
     }
 
-    .links-wrapper {
-        width: 85vw;
+    .projects-wrapper .links-wrapper {
+        width: var(--slide-width);
     }
 
-    .links-wrapper a {
-        padding: 15px;
+    .projects-wrapper .links-wrapper a {
+        padding: 10px;
+    }
+
+    .projects-wrapper .links-wrapper a i {
+        width: 50px;
+        transform: translateX(-10px);
     }
 }
 
-@media (max-height: 700px) {
-    :root {
-        --slide-height: 60vh;
-    }
-}
-  
-.slider {
-    width: var(--slide-width);
-    overflow: hidden;
-    position: relative;
-}
 
 
 
