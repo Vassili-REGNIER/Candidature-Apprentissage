@@ -895,10 +895,23 @@ body.dark footer h2 i {
 .whoami-wrapper {
     display: flex;
     padding: 20px;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: calc(8vw + 10px);
+}
+
+@media (max-width: 930px) {
+    .whoami-wrapper {
+        flex-direction: column;
+    }
+
+    .whoami-wrapper img {
+        order: 0;
+    }
+
+    .whoami-wrapper .attribute-list {
+        order: 1;
+    }
 }
 
 .whoami img {
@@ -1380,6 +1393,7 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     text-align: center;
     overflow: hidden;
     position: relative;
+    border-radius: 5px;
 }
 
 .slides {
@@ -1415,7 +1429,7 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 body.dark .slide {
