@@ -1,0 +1,63 @@
+TokenP1 : 1
+TokenP2 : 3
+PosPlayer1 : 10, 0
+PosPlayer2 : 3, 10
+KMaxPartyNum : 50
+NbColumn : 11
+NbRow : 11
+defaultCell : g
+cell : p, 2, 0
+cell : p, 9, 9
+cell : b, 2, 8
+cell : b, 3, 0
+cell : r, 2, 10
+cell : r, 4, 5
+cell : l, 0, 0
+cell : l, 0, 1
+cell : w, 0, 1
+cell : w, 0, 3
+cell : t, 0, 6
+cell : l, 0, 9
+cell : j, 0, 10
+cell : t, 1, 0
+cell : j, 1, 3
+cell : l, 1, 7
+cell : w, 1, 7
+cell : l, 2, 5
+cell : j, 3, 2
+cell : l, 3, 3
+cell : t, 3, 4
+cell : j, 3, 5
+cell : w, 3, 8
+cell : j, 3, 8
+cell : l, 4, 0
+cell : t, 4, 3
+cell : t, 4, 4
+cell : t, 4, 6
+cell : j, 4, 8
+cell : l, 5, 1
+cell : l, 5, 5
+cell : w, 5, 10
+cell : w, 6, 4
+cell : l, 6, 7
+cell : t, 6, 7
+cell : j, 6, 7
+cell : w, 6, 9
+cell : w, 6, 10
+cell : t, 7, 0
+cell : j, 7, 1
+cell : w, 7, 1
+cell : j, 7, 4
+cell : t, 8, 0
+cell : t, 8, 1
+cell : j, 8, 4
+cell : w, 8, 4
+cell : t, 8, 6
+cell : t, 9, 0
+cell : j, 9, 2
+cell : w, 9, 3
+cell : t, 9, 7
+cell : j, 9, 7
+cell : l, 10, 1
+cell : w, 10, 4
+cell : w, 10, 9

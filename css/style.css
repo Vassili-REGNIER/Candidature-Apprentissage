@@ -1288,7 +1288,8 @@ body.dark .hobbies-list h3 i {
     opacity: 0;
 }
 
-/* Variables */
+
+/* Section projets */
 :root {
     --slider-width: clamp(350px, 90vw, 600px);
     --slide-width: clamp(350px, 90vw, 600px);
@@ -1316,7 +1317,7 @@ body.dark .hobbies-list h3 i {
 
 .projects-wrapper .links-wrapper a {
     display: inline-block;
-    padding: 25px 10px;
+    padding: 23px 10px;
     color: var(--light-theme-text-item);
     text-decoration: none;
     font-size: var(--small-font);
@@ -1329,8 +1330,8 @@ body.dark .hobbies-list h3 i {
 }
 
 body.dark .projects-wrapper .links-wrapper a {
-    color: var(--dark-theme-text-item);
-    border-right: 5px solid var(--dark-theme-text-item);
+    color: #BBBBBB;
+    border-right: 5px solid #BBBBBB;
 }
 
 .projects-wrapper .links-wrapper a:hover {
@@ -1339,8 +1340,8 @@ body.dark .projects-wrapper .links-wrapper a {
 }
 
 body.dark .projects-wrapper .links-wrapper a:hover {
-    color: var(--dark-theme-search-text);
-    border-right: 5px solid var(--dark-theme-search-text);
+    color: var(--dark-theme-text);
+    border-right: 5px solid var(--dark-theme-text);
 }
 
 .projects-wrapper .links-wrapper a i {
@@ -1351,7 +1352,7 @@ body.dark .projects-wrapper .links-wrapper a:hover {
 }
 
 body.dark .projects-wrapper .links-wrapper a i {
-    color: var(--dark-theme-text-item);
+    color: #BBBBBB;
 }
 
 .projects-wrapper .links-wrapper a span {
@@ -1363,7 +1364,7 @@ body.dark .projects-wrapper .links-wrapper a i {
 }
 
 body.dark .projects-wrapper .links-wrapper a:hover i {
-    color: var(--dark-theme-search-text); 
+    color: var(--dark-theme-text); 
 }
 
 .projects-wrapper .links-wrapper .selected {
@@ -1424,12 +1425,13 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     height: var(--slide-height);
     background: var(--light-theme-item);
     color: var(--highlight);
+    border-radius: 5px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
     font-weight: bold;
-    border-radius: 5px;
 }
 
 body.dark .slide {

@@ -1,0 +1,44 @@
+// Nombre de points maximum par candidats
+10
+// Nombre de candidats
+3
+// Nombre d'électeurs
+6
+// Noms et prénoms des candidats
+John
+Nohj
+Yves
+Saint-Lolo
+Kylian
+Benno
+// Noms, prénoms et votes des électeurs
+Thomas
+Lemoine
+1
+4
+5
+Isabelle
+Bernard
+10
+0
+0
+François
+Moreau
+9
+0
+1
+Julie
+Dufresne
+3
+7
+0
+Victor
+Robert
+0
+7
+3
+Emilie
+Charpentier
+0
+2
+8

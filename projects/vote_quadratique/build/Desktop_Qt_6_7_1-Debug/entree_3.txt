@@ -1,0 +1,53 @@
+// Nombre de points maximum par candidats
+50
+// Nombre de candidats
+5
+// Nombre d'électeurs
+5
+// Noms et prénoms des candidats
+Sophie
+Fantaisie 
+Maes
+Omerta
+Lou
+Louloutte
+Jean
+Luc
+Axel
+Otime
+// Noms, prénoms et votes des électeurs
+Alice
+Dupont
+10
+15
+5
+0
+20
+Pierre
+Lefevre
+5
+15
+10
+5
+15
+Claire
+Martin
+20
+5
+15
+1
+9
+Marc
+Lefevre
+3
+17
+10
+15
+5
+Sophie
+Rousseau
+10
+13
+7
+8
+12
