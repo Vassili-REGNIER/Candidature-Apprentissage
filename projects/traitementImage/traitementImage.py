@@ -1,4 +1,4 @@
-import PIL
+from PIL import Image, ImageEnhance, ImageFilter
 
 def color_filter(image):
     """
@@ -39,14 +39,14 @@ def color_filter(image):
     
 
     # Création d'une image vierge de la même taille que l'image d'origine
-    colored_image = PIL.Image.new('RGBA', image.size, color=(0, 0, 0, 0))
+    colored_image = Image.new('RGBA', image.size, color=(0, 0, 0, 0))
 
     # Remplissage de l'image vierge avec la couleur du filtre et l'opacité désirée
     colored_image.paste(color, (0, 0, image.size[0], image.size[1]))
-    colored_image = PIL.ImageEnhance.Brightness(colored_image).enhance(opacity)
+    colored_image = ImageEnhance.Brightness(colored_image).enhance(opacity)
 
     # Application du filtre de couleur à l'image originale
-    image = PIL.Image.alpha_composite(image, colored_image)
+    image = Image.alpha_composite(image, colored_image)
 
     # Retour de l'image modifiée
     return image
@@ -72,15 +72,15 @@ def transpose_filter(image):
             print("Tapez 1, 2 ou 3")
 
     # Création d'une nouvelle image vide de la même taille que l'image d'origine
-    flipped_image = PIL.Image.new('RGBA', image.size)
+    flipped_image = Image.new('RGBA', image.size)
 
     # Traitement de l'image en fonction du mode de renversement demandé
     if mode == 'horizontal':
-        flipped_image = image.transpose(method=PIL.Image.FLIP_LEFT_RIGHT)
+        flipped_image = image.transpose(method=Image.FLIP_LEFT_RIGHT)
     elif mode == 'vertical':
-        flipped_image = image.transpose(method=PIL.Image.FLIP_TOP_BOTTOM)
+        flipped_image = image.transpose(method=Image.FLIP_TOP_BOTTOM)
     elif mode == 'diagonal':
-        flipped_image = image.transpose(method=PIL.Image.TRANSPOSE)
+        flipped_image = image.transpose(method=Image.TRANSPOSE)
     
     # Retour de l'image renversée
     return flipped_image
@@ -106,7 +106,7 @@ def blur_filter(image):
             print("Vous devez entrer un entier.")
 
     # Application du filtre de flou à l'image
-    image_filtered = image.filter(PIL.ImageFilter.GaussianBlur(radius))
+    image_filtered = image.filter(ImageFilter.GaussianBlur(radius))
 
     # Retour de l'image modifiée
     return image_filtered
@@ -132,10 +132,10 @@ def sharpness_filter(image):
             print("Entrez un nombre flottant.")
 
     # Application du filtre de netteté à l'image
-    image_filtered = image.filter(PIL.ImageFilter.UnsharpMask(radius=2, percent=150, threshold=3))
+    image_filtered = image.filter(ImageFilter.UnsharpMask(radius=2, percent=150, threshold=3))
 
     # Ajustement du facteur de netteté
-    enhancer = PIL.ImageEnhance.Sharpness(image_filtered)
+    enhancer = ImageEnhance.Sharpness(image_filtered)
     image_filtered = enhancer.enhance(factor)
 
     # Retour de l'image modifiée
@@ -163,7 +163,7 @@ def saturation_filter(image, factor):
             print("Entrez un nombre flottant.")
 
     # Ajustement de la saturation de l'image
-    enhancer = PIL.ImageEnhance.Color(image)
+    enhancer = ImageEnhance.Color(image)
     image_filtered = enhancer.enhance(factor)
 
     # Retour de l'image modifiée
@@ -183,7 +183,7 @@ def contrast_filter(image):
         choice = input("Choissisez le facteur de contraste (floattant positif).\n   >>>")
         try:
             if float(choice) > 0:
-                factor = choice
+                factor = int(choice)
                 choice_is_correct = True
             else:
                 print("Le floattant doit être positif")
@@ -191,7 +191,7 @@ def contrast_filter(image):
             print("Vous devez entrer un floattant.")
 
     # Création d'un objet ImageEnhance pour modifier le contraste
-    contrast = PIL.ImageEnhance.Contrast(image)
+    contrast = ImageEnhance.Contrast(image)
     # Application de la modification de contraste en utilisant le facteur spécifié
     filtered_image = contrast.enhance(factor)
     return filtered_image
@@ -200,35 +200,30 @@ def apply_filter():
     print("Bienvenue dans l'éditeur d'images python.")
 
     while 1:
-
         # Choix de l'image
         print("Choisissez une image à modifier:\n",
               "   - 1: R2D2\n",
               "   - 2: Tigre\n",
               "   - 3: Paysage\n",
               "Pour quitter, tapez 'sortir'."
-            
               )
         
         choice_is_correct = False
         while not choice_is_correct:
-
             choice = input("   >>>")
-
             if choice == "1":
-                image = PIL.Image.open("documents/nsi/projetImage/R2D2_512.jpg")
+                image = Image.open("R2D2.jpg")
                 choice_is_correct = True
             elif choice == "2":
-                image = PIL.Image.open("documents/nsi/projetImage/tigre2.jpg")
+                image = Image.open("tigre2.jpg")
                 choice_is_correct = True
             elif choice == "3":
-                image = PIL.Image.open("patdocuments/nsi/projetImage/paysage.jpg")
+                image = Image.open("paysage.jpg")
                 choice_is_correct = True
             elif choice.lower() == "sortir":
                 return
             else:
                 print("Tapez 1, 2 ou 3.")
-
 
         # Choix du filtre
         print("Choisissez un filtre à appliquer:\n",
@@ -242,9 +237,7 @@ def apply_filter():
         
         choice_is_correct = False
         while not choice_is_correct:
-
             choice = input("   >>>")
-
             if choice == "1":
                 filtered_image = color_filter(image)
                 choice_is_correct = True
@@ -267,8 +260,7 @@ def apply_filter():
                 print("Tapez 1, 2, 3, 4, 5 ou 6.")
 
         image_name = input("Choissisez le nom de la nouvelle image.\n   >>>")
-        PIL.save_image(filtered_image, f"patdocuments/nsi/projetImage/{image_name}")
-        print("L'image filtrée à bien été enregistrer sous le nom de:", image_name)
+        filtered_image.save(f"{image_name}.jpg")
+        print("L'image filtrée a bien été enregistrée sous le nom de:", image_name)
 
 apply_filter()
-            

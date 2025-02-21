@@ -192,7 +192,7 @@ function scrollToWhoami() {
 window.addEventListener("scroll", function () {
   const cvButton = document.querySelector(".download-cv-button");
   let windowWidth = window.innerWidth;
-  if (windowWidth > 1000) return;
+  if (windowWidth > 1180) return;
   if (window.scrollY > 115 ) {
     cvButton.style.display = "flex"; // Affiche le bouton
   } else {
@@ -287,7 +287,7 @@ window.addEventListener('load', updateCurrentPage);
 
 
 /*****************************************/
-/* Scrolls animés                        */
+/* Scrolls du menu animés                */
 /*****************************************/
 // Sélectionner tous les liens du menu
 const menuLinks = document.querySelectorAll('.menu a');
@@ -309,6 +309,10 @@ menuLinks.forEach((link) => {
 });
 
 
+
+/*****************************************/
+/* Barre de progression                  */
+/*****************************************/
 window.onscroll = function() {
   updateProgressBar();
 };
@@ -329,42 +333,13 @@ function updateProgressBar() {
 
 
 
-
-document.querySelectorAll('.links-wrapper a').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      const slidesContainer = document.querySelector('.slides');
-      const slides = document.querySelectorAll('.slide');
-      const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slidesContainer).gap); 
-      
-      const index = Array.from(document.querySelectorAll('.links-wrapper a')).indexOf(this);
-      const scrollPosition = index * slideWidth;
-      
-      slidesContainer.scrollTo({
-          left: scrollPosition,
-          behavior: 'smooth'
-      });
-  });
-});
-
-/* Support Swipe (Mobile) */
-const slidesContainer = document.querySelector('.slides');
-let startX = 0;
-let scrollLeftStart = 0;
-
-slidesContainer.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].pageX;
-  scrollLeftStart = slidesContainer.scrollLeft;
-});
-
-slidesContainer.addEventListener('touchmove', (e) => {
-  const deltaX = e.touches[0].pageX - startX;
-  slidesContainer.scrollLeft = scrollLeftStart - deltaX;
-});
+/*****************************************/
+/* Caroussel de projets                  */
+/*****************************************/
 
 
 
+// Au chargement de la page, ajouter la classe 'selected' au premier lien
 document.addEventListener("DOMContentLoaded", function () {
   // Sélection de tous les liens dans .links-wrapper
   const links = document.querySelectorAll(".links-wrapper a");
@@ -381,4 +356,32 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+document.querySelectorAll('.links-wrapper a').forEach((link, index) => {
+  link.addEventListener('click', (e) => {
+      e.preventDefault(); // Empêche le comportement par défaut du lien
+
+      const slidesContainer = document.querySelector('.slides');
+      const slideWidth = slidesContainer.clientWidth;
+      const targetSlide = document.querySelector(`#slide-${index + 1}`);
+
+      // Défilement horizontal du carrousel
+      slidesContainer.scrollTo({
+          left: index * slideWidth,
+          behavior: 'smooth'
+      });
+
+      // Vérification si la slide est visible dans la fenêtre
+      const slideRect = targetSlide.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (slideRect.top < 0 || slideRect.bottom > windowHeight) {
+          // Scroll vertical pour aligner le bas du slide avec le bas de l'écran
+          window.scrollTo({
+              top: window.scrollY + slideRect.bottom - windowHeight + 100,
+              behavior: 'smooth'
+          });
+      }
+  });
+});
 

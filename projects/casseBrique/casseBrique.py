@@ -14,15 +14,15 @@ jeu_en_cours = False  # Gère la phase du jeu
 retire_vie = False  # Gère la suppression de vie
 
 # Création des fonds d'écrans
-background_start_menu = pygame.image.load('backgrounds/bg_start_menu.png')
+background_start_menu = pygame.image.load('bg_start_menu.png')
 background_start_menu = pygame.transform.scale(background_start_menu, (largeur, hauteur))
-background_game_over = pygame.image.load('backgrounds/bg_game_over.png')
+background_game_over = pygame.image.load('bg_game_over.png')
 background_game_over = pygame.transform.scale(background_game_over, (largeur, hauteur))
-bg_niveau_3vies = pygame.image.load('backgrounds/bg_niveau_3vies.png')
+bg_niveau_3vies = pygame.image.load('bg_niveau_3vies.png')
 bg_niveau_3vies = pygame.transform.scale(bg_niveau_3vies, (largeur, hauteur))
-bg_niveau_2vies = pygame.image.load('backgrounds/bg_niveau_2vies.png')
+bg_niveau_2vies = pygame.image.load('bg_niveau_2vies.png')
 bg_niveau_2vies = pygame.transform.scale(bg_niveau_2vies, (largeur, hauteur))
-bg_niveau_1vie = pygame.image.load('backgrounds/bg_niveau_1vie.png')
+bg_niveau_1vie = pygame.image.load('bg_niveau_1vie.png')
 bg_niveau_1vie = pygame.transform.scale(bg_niveau_1vie, (largeur, hauteur))
 
 background = background_start_menu  # Variable globale permettant de choisir le fond d'écran actuel
