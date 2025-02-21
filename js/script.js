@@ -364,6 +364,8 @@ document.querySelectorAll('.links-wrapper a').forEach((link, index) => {
       const slidesContainer = document.querySelector('.slides');
       const slideWidth = slidesContainer.clientWidth;
       const targetSlide = document.querySelector(`#slide-${index + 1}`);
+      const navbar = document.querySelector('.navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
 
       // Défilement horizontal du carrousel
       slidesContainer.scrollTo({
@@ -377,7 +379,7 @@ document.querySelectorAll('.links-wrapper a').forEach((link, index) => {
 
       if (slideRect.top < 0 || slideRect.bottom > windowHeight) {
         // Scroll vertical pour centrer la slide dans l'écran
-        const slideCenter = window.scrollY + slideRect.top - (windowHeight / 2) + (slideRect.height / 2);
+        const slideCenter = window.scrollY + slideRect.top - (windowHeight / 2) + (slideRect.height / 2) - (navbarHeight / 2);
 
         window.scrollTo({
             top: slideCenter,
