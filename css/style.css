@@ -529,7 +529,7 @@ body.dark .progress-indicator {
     .menu.show li {
         transform: translateX(0);
         opacity: 1;
-        border: none;
+        border: none !important;
     }
 
     .menu li a {
@@ -550,7 +550,6 @@ body.dark .progress-indicator {
     }
 
     .menu li a:hover {
-        border: 0;
         transform: translateX(20px);
     }
 
