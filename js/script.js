@@ -150,10 +150,10 @@ document.querySelectorAll('.menu a').forEach(link => {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1); // Récupère l'ID de la section
       const targetElement = document.getElementById(targetId);
-      const navbarHeight = document.querySelector('.navbar').offsetHeight; // Hauteur de la navbar
+
       if (targetElement) {
           window.scrollTo({
-              top:  targetElement.offsetTop + windowHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
+              top:  targetElement.offsetTop + window.innerHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
               behavior: 'smooth'
           });
       }
