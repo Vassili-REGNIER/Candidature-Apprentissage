@@ -142,26 +142,30 @@ document.addEventListener('click', (event) => {
 });
 
 
+// Fonction permettant de scroller jusqu'à un élément avec un décalage
+function scrollToElementWithOffset(element, offset = 200) {
+  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth"
+  });
+}
 
 
-
+// Écouter le clic sur les liens du menu, et scroller jusqu'à la section correspondante
 document.querySelectorAll('.menu a').forEach(link => {
   link.addEventListener('click', function (e) {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1); // Récupère l'ID de la section
       const targetElement = document.getElementById(targetId);
-      const carouselReception = document.querySelector('.carousel-container');
-      const carouselReceptionHeight = carouselReception ? carouselReception.offsetHeight : 0;
-      
+      const navbar = document.querySelector('.navbar');
+      const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
       if (targetElement) {
-          window.scrollTo({
-              top:  targetElement.offsetTop + carouselReceptionHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
-              behavior: 'smooth'
-          });
+        scrollToElementWithOffset(targetElement, navbarHeight);
       }
   });
 });
-
 
 
 
