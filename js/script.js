@@ -376,12 +376,14 @@ document.querySelectorAll('.links-wrapper a').forEach((link, index) => {
       const windowHeight = window.innerHeight;
 
       if (slideRect.top < 0 || slideRect.bottom > windowHeight) {
-          // Scroll vertical pour aligner le bas du slide avec le bas de l'écran
-          window.scrollTo({
-              top: window.scrollY + slideRect.bottom - windowHeight + 100,
-              behavior: 'smooth'
-          });
-      }
+        // Scroll vertical pour centrer la slide dans l'écran
+        const slideCenter = window.scrollY + slideRect.top - (windowHeight / 2) + (slideRect.height / 2);
+
+        window.scrollTo({
+            top: slideCenter,
+            behavior: 'smooth'
+        });
+    }
   });
 });
 

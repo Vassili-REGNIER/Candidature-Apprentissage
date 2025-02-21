@@ -1293,7 +1293,7 @@ body.dark .hobbies-list h3 i {
 :root {
     --slider-width: clamp(350px, 90vw, 600px);
     --slide-width: clamp(350px, 90vw, 600px);
-    --slide-height: clamp(350px, 90vw, 600px);
+    --slide-height: clamp(450px, 90vw, 600px);
     --gap: 20px;
 }
 
@@ -1405,14 +1405,15 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     -webkit-overflow-scrolling: touch; 
     touch-action: pan-x; 
     scrollbar-width: none;
-    overflow: hidden;
-    pointer-events: auto;
+    
+    overflow-x: hidden;
+    overflow-y: visible;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch; /* Améliore le scroll sur iOS */
 }
 
 
-.slides * {
-    pointer-events: auto;
-}
+
 
 .slides::-webkit-scrollbar {
     display: none;
@@ -1455,41 +1456,43 @@ body.dark .projects-wrapper .links-wrapper .selected i {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--slide-width);
-    height: var(--slide-height);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 5px;
     filter: brightness(20%);
     z-index: -1;
-    overflow: hidden;
 }
 
 #slide-1::before {
-    content: url('../media/project-1.png');
+    background-image: url('../media/project-1.png');
     filter: brightness(12%);
 }
 
 #slide-2::before {
-    content: url('../media/project-2.png');
+    background-image: url('../media/project-2.png');
 }
 
 #slide-3::before {
-    content: url('../media/project-3.png');
+    background-image: url('../media/project-3.png');
 }
 
 #slide-4::before {
-    content: url('../media/project-4.png');
+    background-image: url('../media/project-4.png');
 }
 
 #slide-5::before {
-    content: url('../media/project-5.png');
+    background-image: url('../media/project-5.png');
 }
 
 #slide-6::before {
-    content: url('../media/project-6.png');
+    background-image: url('../media/project-6.png');
 }
 
 #slide-7::before {
-    content: url('../media/project-7.png');
+    background-image: url('../media/project-7.png');
     filter: brightness(30%);
 }
 
