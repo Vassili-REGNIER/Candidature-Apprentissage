@@ -143,6 +143,99 @@ document.addEventListener('click', (event) => {
 
 
 
+
+
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1); // Récupère l'ID de la section
+      const targetElement = document.getElementById(targetId);
+      const navbarHeight = document.querySelector('.navbar').offsetHeight; // Hauteur de la navbar
+      if (targetElement) {
+          window.scrollTo({
+              top:  targetElement.offsetTop + windowHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
+              behavior: 'smooth'
+          });
+      }
+  });
+});
+
+
+
+
+
+
+
+/*****************************************/
+/* Barre nav dynamique                   */
+/*****************************************/
+
+// Sélectionner tous les liens de navigation
+const menuItems = document.querySelectorAll('.menu li a');
+const sections = document.querySelectorAll('section');
+const windowHeight = window.innerHeight;
+
+function updateCurrentPage() {
+    let currentSection = 'presentation-section'; // Par défaut, la première section
+
+    let currentViewPos = window.scrollY + (windowHeight / 2); // Position actuelle dans la vue
+
+    sections.forEach((section) => {
+        // On ajoute windowHeight à sectionTop car les sections commencent à partir de 100vh 
+        const sectionTop = section.offsetTop + windowHeight;
+        const sectionHeight = section.offsetHeight;
+
+        // Vérifier si currentViewPos est DANS la section
+        if (currentViewPos >= sectionTop && currentViewPos < sectionTop + sectionHeight) {
+          currentSection = section.id; // Mettre à jour la section active
+        }
+    });
+
+    // Mettre à jour la classe 'current-page' sur les liens du menu
+    
+    menuItems.forEach((item) => {
+        const parent = item.parentElement;
+        if (item.getAttribute('href') === `#${currentSection}`) {
+            parent.classList.add('current-page');
+        } else {
+            parent.classList.remove('current-page');
+        }
+    });
+}
+
+// Écouter l'événement scroll et appeler la fonction
+window.addEventListener('scroll', updateCurrentPage);
+
+// Mettre à jour au chargement initial
+window.addEventListener('load', updateCurrentPage);
+
+
+
+
+
+/*****************************************/
+/* Barre de progression                  */
+/*****************************************/
+window.onscroll = function() {
+  updateProgressBar();
+};
+
+function updateProgressBar() {
+  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  let progress = (scrollTop / scrollHeight) * 100;
+
+  document.querySelector(".progress-indicator").style.width = progress + "%";
+}
+
+
+
+
+
+
+
+
+
 /*****************************************/
 /* Bouton d'anchrage                     */
 /*****************************************/
@@ -165,21 +258,15 @@ function scrollToTop() {
 }
 
 // Fonction pour descendre jusqu'à whoami
-function scrollToWhoami2() {
+function scrollToWhoami() {
   const section = document.getElementById('presentation-section');
   if (section) {
-      const sectionTop = section.offsetTop + windowHeight; // Position de la section
+      const sectionTop = section.offsetTop + windowHeight;
       window.scrollTo({
-          top: sectionTop, // Décaler pour éviter que la navbar cache la section
-          behavior: 'smooth' // Défilement fluide
+          top: sectionTop,
+          behavior: 'smooth'
       });
   }
-}
-
-function scrollToWhoami() {
-  document.getElementById("link-to-whoami").addEventListener("click", function () {
-    document.getElementById("presentation-section").scrollIntoView({ behavior: "smooth" });
-  });
 }
 
 
@@ -237,93 +324,6 @@ toggleTheme.addEventListener('change', function() {
 
 
 
-
-/*****************************************/
-/* Barre nav dynamique                   */
-/*****************************************/
-
-// Sélectionner tous les liens de navigation
-const menuItems = document.querySelectorAll('.menu li a');
-const sections = document.querySelectorAll('section');
-const windowHeight = window.innerHeight;
-
-function updateCurrentPage() {
-    let currentSection = 'presentation-section'; // Par défaut, la première section
-
-    let currentViewPos = window.scrollY + (windowHeight / 2); // Position actuelle dans la vue
-
-    sections.forEach((section) => {
-        // On ajoute windowHeight à sectionTop car les sections commencent à partir de 100vh 
-        const sectionTop = section.offsetTop + windowHeight;
-        const sectionHeight = section.offsetHeight;
-
-        // Vérifier si currentViewPos est DANS la section
-        if (currentViewPos >= sectionTop && currentViewPos < sectionTop + sectionHeight) {
-          
-      
-          currentSection = section.id; // Mettre à jour la section active
-        }
-    });
-
-    // Mettre à jour la classe 'current-page' sur les liens du menu
-    
-    menuItems.forEach((item) => {
-        const parent = item.parentElement;
-        if (item.getAttribute('href') === `#${currentSection}`) {
-            parent.classList.add('current-page');
-        } else {
-            parent.classList.remove('current-page');
-        }
-    });
-}
-
-// Écouter l'événement scroll et appeler la fonction
-window.addEventListener('scroll', updateCurrentPage);
-
-// Mettre à jour au chargement initial
-window.addEventListener('load', updateCurrentPage);
-
-
-
-
-/*****************************************/
-/* Scrolls du menu animés                */
-/*****************************************/
-// Sélectionner tous les liens du menu
-const menuLinks = document.querySelectorAll('.menu a');
-
-menuLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Empêche le comportement par défaut du lien
-
-        // Récupérer l'ID de la section ciblée
-        const targetId = link.getAttribute('href').substring(1); // Enlève le '#' du href
-        const targetSection = document.getElementById(targetId);
-
-        // Effectuer un défilement animé vers la section
-        targetSection.scrollIntoView({
-            behavior: 'smooth', // Scroll fluide
-            block: 'start' // Aligner en haut de la page
-        });
-    });
-});
-
-
-
-/*****************************************/
-/* Barre de progression                  */
-/*****************************************/
-window.onscroll = function() {
-  updateProgressBar();
-};
-
-function updateProgressBar() {
-  let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  let progress = (scrollTop / scrollHeight) * 100;
-
-  document.querySelector(".progress-indicator").style.width = progress + "%";
-}
 
 
 
