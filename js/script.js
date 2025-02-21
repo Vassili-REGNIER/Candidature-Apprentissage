@@ -150,10 +150,12 @@ document.querySelectorAll('.menu a').forEach(link => {
       e.preventDefault();
       const targetId = this.getAttribute('href').substring(1); // Récupère l'ID de la section
       const targetElement = document.getElementById(targetId);
-
+      const carouselReception = document.querySelector('.carousel-container');
+      const carouselReceptionHeight = carouselReception ? carouselReception.offsetHeight : 0;
+      
       if (targetElement) {
           window.scrollTo({
-              top:  targetElement.offsetTop + window.innerHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
+              top:  targetElement.offsetTop + carouselReceptionHeight, // Ajuste le scroll en soustrayant la hauteur de la navbar
               behavior: 'smooth'
           });
       }
@@ -176,7 +178,7 @@ const sections = document.querySelectorAll('section');
 const windowHeight = window.innerHeight;
 
 function updateCurrentPage() {
-    let currentSection = 'presentation-section'; // Par défaut, la première section
+    let currentSection = ''; 
 
     let currentViewPos = window.scrollY + (windowHeight / 2); // Position actuelle dans la vue
 
@@ -228,6 +230,8 @@ function updateProgressBar() {
   document.querySelector(".progress-indicator").style.width = progress + "%";
 }
 
+// Met à jour la barre au chargement de la page
+window.addEventListener("DOMContentLoaded", updateProgressBar);
 
 
 
