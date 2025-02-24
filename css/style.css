@@ -164,7 +164,9 @@ body.dark .section-1{
     font-size: var(--extra-large-font);
     flex: none;
     text-align: center;
-    font-weight: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: clamp(60px, 5vw, 100px);
     white-space: nowrap;
     width: fit-content;
@@ -176,7 +178,6 @@ body.dark .section-1 h1 {
 }
 
 .carousel .section-1 h2 {
-    font-size: var(--large-font);
     color: var(--light-theme-highlight);
     text-align: center;
     font-size: clamp(28px, 2.5vw, 100px);
@@ -190,9 +191,10 @@ body.dark .carousel .section-1 h2 {
 
 .section-1 .smaller {
     font-size: clamp(20px, 1.78vw, 100px);
-    white-space: nowrap;
-    width: fit-content;
+    line-height: 2;
 }
+
+
 
 .section-1 .links-wrapper, 
 .section-2 .links-wrapper {
@@ -235,8 +237,6 @@ body.dark .carousel .section-1 h2 {
     background-color: var(--light-theme-title);
     color: var(--light-theme-item);
 }
-
-
 
 body.dark .link-to-whoami {
     color: var(--dark-theme-background-1);
@@ -638,13 +638,13 @@ body.dark .switch {
     align-items: center;
     justify-content: center;
     text-align: center;
+    font-size: 25px;
 }
 
 .sun {
     right: 15%;
     color: var(--light-theme-item);
     opacity: 1;
-    font-size: 25px;
 }
 
 .moon {
@@ -652,7 +652,6 @@ body.dark .switch {
     color: var(--dark-theme-background-1);
     opacity: 0;
     padding-top: 3px;
-    font-size: 30px;
 }
 
 .theme-indicatior {
@@ -926,6 +925,7 @@ body.dark .whoami img {
 }
 
 .attribute-list {
+    list-style-type: none;
     display: flex;
     flex-direction: column;
     align-items: left;
@@ -937,7 +937,7 @@ body.dark .whoami img {
     position: relative;
     width: fit-content;
     font-size: var(--medium-font);
-    font-weight: 700;
+    font-family: 'LeagueSpartan';
     padding: 5px;
 }
 
@@ -1059,10 +1059,8 @@ body.dark .route-list-item .mention{
 
 /* Ajuste le style de attribute-list qui à déja été utilisé */
 .experience .attribute-list {
-    margin: 10px;
-    list-style-type: none;
-    align-items: center;
-    margin: 25px 0;}
+    margin: 25px 0;
+}
 
 .experience .attribute-list li {
     padding: 5px;

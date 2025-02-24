@@ -110,7 +110,6 @@ function updateTextareaRows() {
       return;
     } 
   }
-
   textarea.rows = numberRows[numberRows.length - 1];
 }
 
